@@ -18,8 +18,6 @@ package com.somnus.cloud.common.util;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -28,6 +26,7 @@ import javax.crypto.spec.SecretKeySpec;
 import com.somnus.cloud.common.util.exception.HttpAesException;
 
 import java.security.MessageDigest;
+import java.util.Base64;
 
 /**
  * The class Http aes util.
@@ -67,7 +66,7 @@ public class HttpAesUtil {
 			IvParameterSpec ivps = new IvParameterSpec(iv);
 			cipher.init(Cipher.ENCRYPT_MODE, skeySpec, ivps);
 			byte[] bytes = cipher.doFinal(content);
-			return new BASE64Encoder().encode(bytes);
+			return Base64.getEncoder().encodeToString(bytes);
 		} catch (Exception ex) {
 			log.error("加密密码失败", ex);
 			throw new HttpAesException("加密失败");
@@ -89,7 +88,7 @@ public class HttpAesUtil {
 			if (PubUtils.isNull(contentParam, keyParam, md5Key, ivParam)) {
 				return "";
 			}
-			byte[] content = new BASE64Decoder().decodeBuffer(contentParam);
+			byte[] content = Base64.getDecoder().decode(contentParam);
 			byte[] key = keyParam.getBytes(CHAR_SET);
 			byte[] iv = ivParam.getBytes(CHAR_SET);
 
