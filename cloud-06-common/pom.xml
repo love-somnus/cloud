@@ -8,12 +8,15 @@
   </parent>
 
   <description>公共类</description>
+  <groupId>com.somnus.common</groupId>
   <artifactId>cloud-06-common</artifactId>
   <packaging>pom</packaging>
   
   <modules>
     <module>cloud-06-common-base</module>
     <module>cloud-06-common-config</module>
+    <module>cloud-06-common-core</module>
+    <module>cloud-06-common-util</module>
   </modules>
 
   <dependencies>
