@@ -1,19 +1,20 @@
 /*
- * Copyright (c) 2018. paascloud.net All Rights Reserved.
- * 项目名称：paascloud快速搭建企业级分布式微服务平台
- * 类名称：AsyncTaskExecutorConfiguration.java
- * 创建人：刘兆明
- * 联系方式：paascloud.net@gmail.com
- * 开源地址: https://github.com/paascloud
- * 博客地址: http://blog.paascloud.net
- * 项目官网: http://paascloud.net
+ * Copyright 2002-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+package com.somnus.cloud.comon.core.config;
 
-package com.paascloud.core.config;
-
-import com.paascloud.config.properties.PaascloudProperties;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler;
 import org.springframework.context.annotation.Bean;
@@ -23,19 +24,24 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import com.somnus.cloud.common.config.properties.PaascloudProperties;
+
+import lombok.extern.slf4j.Slf4j;
+
 import javax.annotation.Resource;
 import java.util.concurrent.Executor;
 
 /**
- * The class Async config.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: AsyncTaskExecutorConfiguration
+ * @Description: The class Async config
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Configuration
 @EnableAsync
 @EnableScheduling
+@Slf4j
 public class AsyncTaskExecutorConfiguration implements AsyncConfigurer {
-	private final Logger log = LoggerFactory.getLogger(getClass());
 	@Resource
 	private PaascloudProperties paascloudProperties;
 

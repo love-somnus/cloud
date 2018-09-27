@@ -1,18 +1,20 @@
 /*
- * Copyright (c) 2018. paascloud.net All Rights Reserved.
- * 项目名称：paascloud快速搭建企业级分布式微服务平台
- * 类名称：CoreConfiguration.java
- * 创建人：刘兆明
- * 联系方式：paascloud.net@gmail.com
- * 开源地址: https://github.com/paascloud
- * 博客地址: http://blog.paascloud.net
- * 项目官网: http://paascloud.net
+ * Copyright 2002-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+package com.somnus.cloud.comon.core.config;
 
-package com.paascloud.core.config;
-
-import com.paascloud.core.interceptor.SqlLogInterceptor;
-import com.paascloud.core.interceptor.TokenInterceptor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -21,10 +23,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import com.somnus.cloud.comon.core.interceptor.SqlLogInterceptor;
+import com.somnus.cloud.comon.core.interceptor.TokenInterceptor;
+
 /**
- * 加载LWR规则.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: CoreConfiguration
+ * @Description: 加载LWR规则
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Configuration
 public class CoreConfiguration {

@@ -1,18 +1,20 @@
 /*
- * Copyright (c) 2018. paascloud.net All Rights Reserved.
- * 项目名称：paascloud快速搭建企业级分布式微服务平台
- * 类名称：BindingResultAop.java
- * 创建人：刘兆明
- * 联系方式：paascloud.net@gmail.com
- * 开源地址: https://github.com/paascloud
- * 博客地址: http://blog.paascloud.net
- * 项目官网: http://paascloud.net
+ * Copyright 2002-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+package com.somnus.cloud.comon.core.aspect;
 
-package com.paascloud.core.aspect;
-
-import com.paascloud.core.annotation.ValidateAnnotation;
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -21,17 +23,19 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 
+import com.somnus.cloud.comon.core.annotation.ValidateAnnotation;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 /**
- * The class Binding result aop.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: BindingResultAop
+ * @Description: The class Binding result aop.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Component
 @Aspect
-@Slf4j
 public class BindingResultAop {
 	/**
 	 * Validate annotation.
@@ -79,7 +83,7 @@ public class BindingResultAop {
 	/**
 	 * 根据目标方法和注解类型  得到该目标方法的指定注解
 	 */
-	private Annotation getAnnotationByMethod(Method method, Class annoClass) {
+	private Annotation getAnnotationByMethod(Method method, Class<?> annoClass) {
 		Annotation[] all = method.getAnnotations();
 		for (Annotation annotation : all) {
 			if (annotation.annotationType() == annoClass) {
@@ -92,7 +96,7 @@ public class BindingResultAop {
 	/**
 	 * 根据类和方法名得到方法
 	 */
-	private Method getMethodByClassAndName(Class c, String methodName) {
+	private Method getMethodByClassAndName(Class<?> c, String methodName) {
 		Method[] methods = c.getDeclaredMethods();
 		for (Method method : methods) {
 			if (method.getName().equals(methodName)) {

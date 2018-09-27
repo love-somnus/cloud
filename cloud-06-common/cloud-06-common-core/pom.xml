@@ -11,13 +11,67 @@
   <dependencies>
     <dependency>
       <groupId>com.somnus.common</groupId>
-      <artifactId>cloud-06-common-base</artifactId>
+      <artifactId>cloud-06-common-util</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>com.somnus.common</groupId>
-      <artifactId>cloud-06-common-util</artifactId>
+      <artifactId>cloud-06-common-config</artifactId>
       <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.somnus.common</groupId>
+      <artifactId>cloud-06-common-zk</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    
+    <!-- mybatis -->
+    <dependency>
+      <groupId>tk.mybatis</groupId>
+      <artifactId>mapper-spring-boot-starter</artifactId>
+      <version>2.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper-spring-boot-starter</artifactId>
+      <version>1.2.5</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>eu.bitwalker</groupId>
+      <artifactId>UserAgentUtils</artifactId>
+      <version>1.20</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.rocketmq.spring.boot</groupId>
+      <artifactId>rocketmq-spring-boot-starter</artifactId>
+      <version>1.0.0.RELEASE</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-oauth2</artifactId>
     </dependency>
   </dependencies>
 </project>

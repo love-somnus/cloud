@@ -9,12 +9,14 @@
  * 项目官网: http://paascloud.net
  */
 
-package com.paascloud.core.config;
+package com.somnus.cloud.comon.core.config;
 
-import com.paascloud.config.properties.PaascloudProperties;
-import com.paascloud.config.properties.SwaggerProperties;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
+
+import com.somnus.cloud.common.config.properties.PaascloudProperties;
+import com.somnus.cloud.common.config.properties.SwaggerProperties;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;

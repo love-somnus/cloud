@@ -1,24 +1,20 @@
 /*
- * Copyright (c) 2018. paascloud.net All Rights Reserved.
- * 项目名称：paascloud快速搭建企业级分布式微服务平台
- * 类名称：LogAspect.java
- * 创建人：刘兆明
- * 联系方式：paascloud.net@gmail.com
- * 开源地址: https://github.com/paascloud
- * 博客地址: http://blog.paascloud.net
- * 项目官网: http://paascloud.net
+ * Copyright 2002-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+package com.somnus.cloud.comon.core.aspect;
 
-package com.paascloud.core.aspect;
-
-
-import com.paascloud.JacksonUtil;
-import com.paascloud.PubUtils;
-import com.paascloud.base.dto.LoginAuthDto;
-import com.paascloud.core.annotation.LogAnnotation;
-import com.paascloud.core.annotation.OperationLogDto;
-import com.paascloud.core.utils.RequestUtil;
-import com.paascloud.wrapper.Wrapper;
 import eu.bitwalker.useragentutils.UserAgent;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -30,15 +26,23 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.somnus.cloud.common.base.dto.LoginAuthDto;
+import com.somnus.cloud.common.util.JacksonUtil;
+import com.somnus.cloud.common.util.wrapper.Wrapper;
+import com.somnus.cloud.comon.core.annotation.LogAnnotation;
+import com.somnus.cloud.comon.core.annotation.OperationLogDto;
+import com.somnus.cloud.comon.core.utils.RequestUtil;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.Date;
 
 /**
- * The class Log aspect.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: LogAspect
+ * @Description: The class Log aspect.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Slf4j
 @Aspect
@@ -84,9 +88,7 @@ public class LogAspect {
 			if (!PubUtils.isNull(result) && result.getCode() == Wrapper.SUCCESS_CODE) {
 				this.handleLog(joinPoint, result);
 			}
-
 		}
-
 	}
 
 	private void handleLog(final JoinPoint joinPoint, final Object result) {
@@ -140,8 +142,6 @@ public class LogAspect {
 
 
 	private void getControllerMethodDescription(LogAnnotation relog, OperationLogDto operationLog, Object result, JoinPoint joinPoint) {
-
-
 		if (relog.isSaveRequestData()) {
 			setRequestData(operationLog, joinPoint);
 		}
@@ -159,7 +159,6 @@ public class LogAspect {
 	}
 
 	private void setRequestData(OperationLogDto uacLog, JoinPoint joinPoint) {
-
 		try {
 			Object[] args = joinPoint.getArgs();
 			if (args.length == 0) {
@@ -201,7 +200,6 @@ public class LogAspect {
 				}
 			}
 		}
-
 		return null;
 	}
 

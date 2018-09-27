@@ -1,36 +1,40 @@
 /*
- * Copyright (c) 2018. paascloud.net All Rights Reserved.
- * 项目名称：paascloud快速搭建企业级分布式微服务平台
- * 类名称：RequestUtil.java
- * 创建人：刘兆明
- * 联系方式：paascloud.net@gmail.com
- * 开源地址: https://github.com/paascloud
- * 博客地址: http://blog.paascloud.net
- * 项目官网: http://paascloud.net
+ * Copyright 2002-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+package com.somnus.cloud.comon.core.utils;
 
-package com.paascloud.core.utils;
-
-import com.paascloud.PublicUtil;
-import com.paascloud.ThreadLocalMap;
-import com.paascloud.base.constant.GlobalConstant;
-import com.paascloud.base.dto.LoginAuthDto;
-import com.paascloud.base.enums.ErrorCodeEnum;
-import com.paascloud.base.exception.BusinessException;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.crypto.codec.Base64;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import com.somnus.cloud.common.base.constant.GlobalConstant;
+import com.somnus.cloud.common.base.dto.LoginAuthDto;
+import com.somnus.cloud.common.base.enums.ErrorCodeEnum;
+import com.somnus.cloud.common.base.exception.BusinessException;
+import com.somnus.cloud.common.util.ThreadLocalMap;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Base64;
 
 /**
  * The class Request util.
@@ -125,7 +129,7 @@ public class RequestUtil {
 	public static String getAuthHeader(HttpServletRequest request) {
 
 		String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-		if (org.apache.commons.lang.StringUtils.isEmpty(authHeader)) {
+		if (StringUtils.isEmpty(authHeader)) {
 			throw new BusinessException(ErrorCodeEnum.UAC10011040);
 		}
 		return authHeader;
@@ -136,7 +140,7 @@ public class RequestUtil {
 		byte[] base64Token = header.substring(6).getBytes("UTF-8");
 		byte[] decoded;
 		try {
-			decoded = Base64.decode(base64Token);
+			decoded = Base64.getDecoder().decode(base64Token);
 		} catch (IllegalArgumentException e) {
 			throw new BadCredentialsException("Failed to decode basic authentication token");
 		}

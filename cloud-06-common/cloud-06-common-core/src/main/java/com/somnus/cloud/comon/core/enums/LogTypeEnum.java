@@ -9,7 +9,7 @@
  * 项目官网: http://paascloud.net
  */
 
-package com.paascloud.core.enums;
+package com.somnus.cloud.comon.core.enums;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
