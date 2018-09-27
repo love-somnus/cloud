@@ -15,37 +15,26 @@
  */
 package com.somnus.cloud.common.base.dto;
 
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 /**
- * The class Kv dto.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: KvDto
+ * @Description: The class Kv dto.
+ * @author Somnus
+ * @date 2018年9月27日
+ * @param <K>
+ * @param <V>
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class KvDto<K, V> implements Serializable {
 
 	private static final long serialVersionUID = -7712636075929650779L;
-
-	/**
-	 * Instantiates a new Kv dto.
-	 */
-	public KvDto() {
-	}
-
-	/**
-	 * Instantiates a new Kv dto.
-	 *
-	 * @param key   the key
-	 * @param value the value
-	 */
-	public KvDto(K key, V value) {
-		this.key = key;
-		this.value = value;
-	}
 
 	/**
 	 * key

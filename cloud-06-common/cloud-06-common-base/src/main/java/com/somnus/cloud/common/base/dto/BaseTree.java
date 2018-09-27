@@ -21,15 +21,19 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * The class Base tree.
- *
  * @param <E>  the type parameter
  * @param <ID> the type parameter
  *
- * @author paascloud.net @gmail.com
+ * @ClassName: BaseTree
+ * @Description: The class Base tree.
+ * @author Somnus
+ * @date 2018年9月27日
+ * @param <E>
+ * @param <ID>
  */
 @Data
 public class BaseTree<E, ID> implements Serializable {
+	
 	private static final long serialVersionUID = -5703964834600572016L;
 
 	/**

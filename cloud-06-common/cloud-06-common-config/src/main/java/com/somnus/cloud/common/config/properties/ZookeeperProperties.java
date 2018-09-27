@@ -15,7 +15,6 @@
  */
 package com.somnus.cloud.common.config.properties;
 
-
 import lombok.Data;
 
 /**

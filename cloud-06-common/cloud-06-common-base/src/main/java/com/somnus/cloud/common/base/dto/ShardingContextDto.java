@@ -15,28 +15,28 @@
  */
 package com.somnus.cloud.common.base.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * The class Sharding context dto.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: ShardingContextDto
+ * @Description: The class Sharding context dto.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class ShardingContextDto {
 	/**
 	 * The Sharding total count.
 	 */
 	int shardingTotalCount;
+	
 	/**
 	 * The Sharding item.
 	 */
 	int shardingItem;
 
-	public ShardingContextDto(final int shardingTotalCount, final int shardingItem) {
-		this.shardingTotalCount = shardingTotalCount;
-		this.shardingItem = shardingItem;
-	}
 }

@@ -17,6 +17,8 @@ package com.somnus.cloud.common.base.dto;
 
 import com.google.common.base.Preconditions;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 
@@ -25,7 +27,9 @@ import java.io.Serializable;
  *
  * @author paascloud.net @gmail.com
  */
+@Data
 public class JobParameter implements Serializable {
+	
 	private static final long serialVersionUID = -610797345091216847L;
 
 	/**
@@ -44,26 +48,6 @@ public class JobParameter implements Serializable {
 	public int getFetchNum() {
 		Preconditions.checkArgument(fetchNum != 0);
 		return fetchNum;
-	}
-
-	public void setFetchNum(int fetchNum) {
-		this.fetchNum = fetchNum;
-	}
-
-	public String getCondition() {
-		return condition;
-	}
-
-	public void setCondition(String condition) {
-		this.condition = condition;
-	}
-
-	public String getTaskType() {
-		return taskType;
-	}
-
-	public void setTaskType(String taskType) {
-		this.taskType = taskType;
 	}
 
 	@Override

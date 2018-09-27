@@ -22,14 +22,14 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * The class Modify status dto.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: UpdateStatusDto
+ * @Description: The class Modify status dto.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Data
 @ApiModel(value = "更改状态")
 public class UpdateStatusDto implements Serializable {
-
 	private static final long serialVersionUID = 1494899235149813850L;
 	/**
 	 * 角色ID

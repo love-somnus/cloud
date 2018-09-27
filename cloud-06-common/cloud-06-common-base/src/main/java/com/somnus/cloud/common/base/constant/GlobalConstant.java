@@ -15,10 +15,16 @@
  */
 package com.somnus.cloud.common.base.constant;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 /**
- * The class Global constant.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: GlobalConstant
+ * @Description: The class Global constant.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 public class GlobalConstant {
 
@@ -76,16 +82,12 @@ public class GlobalConstant {
 	/**
 	 * 系统常量
 	 */
+	@NoArgsConstructor(access = AccessLevel.PRIVATE)
 	public static final class Sys {
-
-		private Sys() {
-		}
-
 		/**
 		 * 全局用户名
 		 */
 		public static final String TOKEN_AUTH_DTO = "CURRENT_USER_DTO";
-
 		/**
 		 * 超级管理员的用户ID
 		 */
@@ -106,17 +108,14 @@ public class GlobalConstant {
 		 * 运营工作台ID
 		 */
 		public static final Long OPER_APPLICATION_ID = 1L;
-
 		/**
 		 * The constant MENU_ROOT.
 		 */
 		public static final String MENU_ROOT = "root";
-
 		/**
 		 * The constant DEFAULT_FILE_PATH.
 		 */
 		public static final String DEFAULT_FILE_PATH = "paascloud/file/";
-
 		/**
 		 * redis key default expire = 1MINUTES
 		 */
@@ -128,14 +127,15 @@ public class GlobalConstant {
 	 *
 	 * @author paascloud.net@gmail.com
 	 */
+	@NoArgsConstructor(access = AccessLevel.PRIVATE)
 	public static final class Symbol {
-		private Symbol() {
-		}
-
 		/**
 		 * The constant COMMA.
 		 */
 		public static final String COMMA = ",";
+		/**
+		 * The constant FULL_POINT
+		 */
 		public static final String SPOT = ".";
 		/**
 		 * The constant UNDER_LINE.
@@ -157,7 +157,6 @@ public class GlobalConstant {
 		public final static String SPACE = " ";
 		public static final String SLASH = "/";
 		public static final String MH = ":";
-
 	}
 
 	/**
@@ -165,16 +164,13 @@ public class GlobalConstant {
 	 *
 	 * @author paascloud.net@gmail.com
 	 */
+	@NoArgsConstructor(access = AccessLevel.PRIVATE)
 	public static final class Oss {
-		private Oss() {
-		}
-
 		/**
 		 * The constant DEFAULT_FILE_PATH.
 		 */
 		public static final String DEFAULT_FILE_PATH = "/default/";
 	}
-
 
 	/**
 	 * 图片压缩高度和宽度
@@ -199,38 +195,19 @@ public class GlobalConstant {
 	 *
 	 * @author paascloud.net@gmail.com
 	 */
+	@AllArgsConstructor
 	public enum PaymentTypeEnum {
 		/**
 		 * Online pay payment type enum.
 		 */
 		ONLINE_PAY(1, "在线支付");
 
-		PaymentTypeEnum(int code, String value) {
-			this.code = code;
-			this.value = value;
-		}
-
-		private String value;
+		@Getter
 		private int code;
-
-		/**
-		 * Gets value.
-		 *
-		 * @return the value
-		 */
-		public String getValue() {
-			return value;
-		}
-
-		/**
-		 * Gets code.
-		 *
-		 * @return the code
-		 */
-		public int getCode() {
-			return code;
-		}
-
+		
+		@Getter
+		private String value;
+		
 		/**
 		 * Code of payment type enum.
 		 *

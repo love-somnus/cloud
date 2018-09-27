@@ -19,21 +19,26 @@ import com.google.common.collect.Lists;
 import com.somnus.cloud.common.base.enums.ErrorCodeEnum;
 import com.somnus.cloud.common.base.exception.BusinessException;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * The class Aliyun sms constants.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: AliyunSmsConstants
+ * @Description: The class Aliyun sms constants.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 public class AliyunSmsConstants {
 
 	/**
 	 * 短信模板枚举
 	 */
+	@AllArgsConstructor
 	public enum SmsTempletEnum {
 
 		/**
@@ -41,21 +46,22 @@ public class AliyunSmsConstants {
 		 */
 		UAC_PC_GLOBAL_TEMPLATE("UAC_PC_GLOBAL_TEMPLATE", "SMS_105115057", "code"),;
 
+		@Getter
 		private String busType;
 
+		@Getter
 		private String templetCode;
 
+		@Getter
 		private String smsParamName;
 
 		public static SmsTempletEnum getEnum(String templateCode) {
-			SmsTempletEnum smsTempletEnum = null;
 			for (SmsTempletEnum ele : SmsTempletEnum.values()) {
 				if (templateCode.equals(ele.getTempletCode())) {
-					smsTempletEnum = ele;
-					break;
+					return ele;
 				}
 			}
-			return smsTempletEnum;
+			return null;
 		}
 
 		public static boolean isSmsTemplate(String smsTemplateCode) {
@@ -83,40 +89,6 @@ public class AliyunSmsConstants {
 			}
 			return templetCodeList;
 		}
-
-		SmsTempletEnum(String busType, String templetCode, String smsParamName) {
-			this.busType = busType;
-			this.templetCode = templetCode;
-			this.smsParamName = smsParamName;
-		}
-
-		/**
-		 * Gets bus type.
-		 *
-		 * @return the bus type
-		 */
-		public String getBusType() {
-			return busType;
-		}
-
-		/**
-		 * Gets templet code.
-		 *
-		 * @return the templet code
-		 */
-		public String getTempletCode() {
-			return templetCode;
-		}
-
-		/**
-		 * Gets sms param name.
-		 *
-		 * @return the sms param name
-		 */
-		public String getSmsParamName() {
-			return smsParamName;
-		}
 	}
-
 
 }

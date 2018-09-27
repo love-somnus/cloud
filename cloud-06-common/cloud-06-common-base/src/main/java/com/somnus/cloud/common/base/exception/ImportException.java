@@ -15,11 +15,11 @@
  */
 package com.somnus.cloud.common.base.exception;
 
-
 /**
- * The class Import exception.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: ImportException
+ * @Description: The class Import exception.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 public class ImportException extends RuntimeException {
 

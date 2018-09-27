@@ -16,8 +16,8 @@
 package com.somnus.cloud.common.config.properties;
 
 /**
- * @ClassName: The class Reliable message properties.
- * @Description: TODO(这里用一句话描述这个类的作用)
+ * @ClassName: ReliableMessageProperties
+ * @Description: The class Reliable message properties.
  * @author Somnus
  * @date 2018年9月26日
  */

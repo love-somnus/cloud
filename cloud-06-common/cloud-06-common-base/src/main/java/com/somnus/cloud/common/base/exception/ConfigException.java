@@ -16,9 +16,10 @@
 package com.somnus.cloud.common.base.exception;
 
 /**
- * The class Config exception.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: ConfigException
+ * @Description: The class Config exception.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 public class ConfigException extends RuntimeException {
 

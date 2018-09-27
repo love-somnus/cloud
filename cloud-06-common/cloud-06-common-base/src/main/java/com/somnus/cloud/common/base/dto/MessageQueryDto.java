@@ -15,15 +15,15 @@
  */
 package com.somnus.cloud.common.base.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import com.alibaba.fastjson.annotation.JSONField;
 
+import java.util.Date;
 
 /**
  * The class Tpc message query dto.
@@ -36,6 +36,7 @@ import java.util.Date;
 public class MessageQueryDto extends BaseQuery {
 
 	private static final long serialVersionUID = 3967075132487249652L;
+	
 	/**
 	 * messageKey
 	 */
@@ -70,13 +71,12 @@ public class MessageQueryDto extends BaseQuery {
 	@ApiModelProperty(value = "消息类型")
 	private String messageType;
 
-
 	/**
 	 * 开始时间
 	 */
 	@ApiModelProperty(value = "开始时间")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	private Date startQueryTime;
 
 	/**
@@ -84,6 +84,6 @@ public class MessageQueryDto extends BaseQuery {
 	 */
 	@ApiModelProperty(value = "结束时间")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	private Date endQueryTime;
 }

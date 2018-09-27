@@ -18,9 +18,10 @@ package com.somnus.cloud.common.base.exception;
 import com.somnus.cloud.common.base.enums.ErrorCodeEnum;
 
 /**
- * 业务异常.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: BusinessException
+ * @Description: 业务异常.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 public class BusinessException extends RuntimeException {
 
@@ -57,8 +58,8 @@ public class BusinessException extends RuntimeException {
 	}
 
 	public BusinessException(ErrorCodeEnum codeEnum, Object... args) {
-		super(String.format(codeEnum.msg(), args));
-		this.code = codeEnum.code();
+		super(String.format(codeEnum.getMsg(), args));
+		this.code = codeEnum.getCode();
 	}
 
 	public int getCode() {

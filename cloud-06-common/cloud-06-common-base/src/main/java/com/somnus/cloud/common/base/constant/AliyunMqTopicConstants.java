@@ -17,6 +17,8 @@ package com.somnus.cloud.common.base.constant;
 
 import com.google.common.collect.Lists;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -39,6 +41,7 @@ public class AliyunMqTopicConstants {
 	 *
 	 * @author paascloud.net @gmail.com
 	 */
+	@AllArgsConstructor
 	public enum MqTopicEnum {
 		/**
 		 * 发送短信.
@@ -62,28 +65,16 @@ public class AliyunMqTopicConstants {
 		 */
 		MDC_TOPIC("MDC_TOPIC", "MDC_TOPIC"),;
 
-		MqTopicEnum(String topic, String topicName) {
-			this.topic = topic;
-			this.topicName = topicName;
-		}
-
 		/**
 		 * The Topic.
 		 */
+		@Getter
 		String topic;
 		/**
 		 * The Topic name.
 		 */
+		@Getter
 		String topicName;
-
-		/**
-		 * Gets topic.
-		 *
-		 * @return the topic
-		 */
-		public String getTopic() {
-			return topic;
-		}
 
 	}
 
@@ -93,8 +84,8 @@ public class AliyunMqTopicConstants {
 	 *
 	 * @author paascloud.net @gmail.com
 	 */
+	@AllArgsConstructor
 	public enum MqTagEnum {
-
 		/**
 		 * 注册获取验证码.
 		 */
@@ -107,7 +98,6 @@ public class AliyunMqTopicConstants {
 		 * 忘记密码获取验证码.
 		 */
 		FORGOT_PASSWORD_AUTH_CODE("FORGOT_PASSWORD_AUTH_CODE", MqTopicEnum.SEND_EMAIL_TOPIC.getTopic(), "忘记密码获取验证码"),
-
 		/**
 		 * 激活用户.
 		 */
@@ -120,7 +110,6 @@ public class AliyunMqTopicConstants {
 		 * 重置密码
 		 */
 		RESET_LOGIN_PWD("RESET_LOGIN_PWD", MqTopicEnum.SEND_EMAIL_TOPIC.getTopic(), "重置密码"),
-
 		/**
 		 * 重置密码
 		 */
@@ -130,7 +119,6 @@ public class AliyunMqTopicConstants {
 		 * 删除生产者历史消息
 		 */
 		DELETE_PRODUCER_MESSAGE("DELETE_PRODUCER_MESSAGE", MqTopicEnum.TPC_TOPIC.getTopic(), "删除生产者历史消息"),
-
 		/**
 		 * 删除消费者历史消息
 		 */
@@ -140,7 +128,6 @@ public class AliyunMqTopicConstants {
 		 * 发送异常日志.
 		 */
 		SEND_DINGTALK_MESSAGE("SEND_EXCEPTION_LOG", MqTopicEnum.OPC_TOPIC.getTopic(), "发送异常日志"),
-
 		/**
 		 * 更新附件信息.
 		 */
@@ -152,39 +139,18 @@ public class AliyunMqTopicConstants {
 		/**
 		 * The Tag.
 		 */
+		@Getter
 		String tag;
 		/**
 		 * The Topic.
 		 */
+		@Getter
 		String topic;
 		/**
 		 * The Tag name.
 		 */
+		@Getter
 		String tagName;
-
-		MqTagEnum(String tag, String topic, String tagName) {
-			this.tag = tag;
-			this.topic = topic;
-			this.tagName = tagName;
-		}
-
-		/**
-		 * Gets tag.
-		 *
-		 * @return the tag
-		 */
-		public String getTag() {
-			return tag;
-		}
-
-		/**
-		 * Gets topic.
-		 *
-		 * @return the topic
-		 */
-		public String getTopic() {
-			return topic;
-		}
 	}
 
 	/**
@@ -194,7 +160,6 @@ public class AliyunMqTopicConstants {
 	 */
 	@NoArgsConstructor(access = AccessLevel.PRIVATE)
 	public static final class ConsumerTopics {
-
 		/**
 		 * The constant OPT.
 		 */
@@ -281,39 +246,13 @@ public class AliyunMqTopicConstants {
 	 *
 	 * @author paascloud.net @gmail.com
 	 */
+	@AllArgsConstructor
 	static class TopicObj {
-
+		@Getter
 		private String topic;
+		
+		@Getter
 		private Set<String> tagList;
-
-		/**
-		 * Instantiates a new Topic obj.
-		 *
-		 * @param topic   the topic
-		 * @param tagList the tag list
-		 */
-		TopicObj(String topic, Set<String> tagList) {
-			this.topic = topic;
-			this.tagList = tagList;
-		}
-
-		/**
-		 * Gets topic.
-		 *
-		 * @return the topic
-		 */
-		String getTopic() {
-			return topic;
-		}
-
-		/**
-		 * Gets tag list.
-		 *
-		 * @return the tag list
-		 */
-		Set<String> getTagList() {
-			return tagList;
-		}
 	}
 
 	private static void trimEnd(StringBuilder stringBuilder, String suffix) {

@@ -15,10 +15,11 @@
  */
 package com.somnus.cloud.common.base.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.alibaba.fastjson.annotation.JSONField;
 
 import java.util.Date;
 
@@ -30,7 +31,9 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class UserTokenDto extends LoginAuthDto {
+	
 	private static final long serialVersionUID = 3136723742371575367L;
+	
 	private Long id;
 
 	/**
@@ -51,7 +54,7 @@ public class UserTokenDto extends LoginAuthDto {
 	 * 创建时间
 	 */
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	private Date createdTime;
 
 	/**
@@ -68,8 +71,9 @@ public class UserTokenDto extends LoginAuthDto {
 	 * 更新时间
 	 */
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	private Date updateTime;
+	
 	/**
 	 * 父ID
 	 */

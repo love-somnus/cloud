@@ -22,15 +22,17 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * The class Gaode base dto.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: GaodeBaseDto
+ * @Description: The class Gaode base dto.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Data
 @ApiModel
 public class GaodeBaseDto implements Serializable{
 
 	private static final long serialVersionUID = 5894304327211503218L;
+	
 	/**
 	 * 状态
 	 */

@@ -22,14 +22,17 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * The class Check valid dto.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: CheckValidDto
+ * @Description: The class Check valid dto.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Data
 @ApiModel
 public class CheckValidDto implements Serializable {
+	
 	private static final long serialVersionUID = 5178470476151416779L;
+	
 	/**
 	 * 校验的参数值
 	 */

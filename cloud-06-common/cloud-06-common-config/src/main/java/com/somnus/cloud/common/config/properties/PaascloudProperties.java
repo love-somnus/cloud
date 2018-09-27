@@ -15,7 +15,6 @@
  */
 package com.somnus.cloud.common.config.properties;
 
-
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import com.somnus.cloud.common.base.constant.GlobalConstant;

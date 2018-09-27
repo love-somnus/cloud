@@ -15,12 +15,16 @@
  */
 package com.somnus.cloud.common.base.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
- * The class Error code enum.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: ErrorCodeEnum
+ * @Description: The class Error code enum.
+ * @author Somnus
+ * @date 2018年9月27日
  */
+@AllArgsConstructor
 public enum ErrorCodeEnum {
 	/**
 	 * Gl 99990100 error code enum.
@@ -53,7 +57,6 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10010001 error code enum.
 	 */
-//	 1001 用户中心
 	UAC10010001(10010001, "会话超时,请刷新页面重试"),
 	/**
 	 * Uac 10010002 error code enum.
@@ -347,7 +350,6 @@ public enum ErrorCodeEnum {
 	/**
 	 * Mdc 10021001 error code enum.
 	 */
-// 1002 数据中心
 	MDC10021001(10021001, "获取地址信息失败"),
 	/**
 	 * Mdc 10021002 error code enum.
@@ -398,12 +400,10 @@ public enum ErrorCodeEnum {
 	 * Mdc 10023001 error code enum.
 	 */
 	MDC10023001(10023001, "找不到商品分类信息, categoryId=%s"),
-
 	/**
 	 * Mdc 10023002 error code enum.
 	 */
 	MDC10023002(10023002, "上级商品分类不存在, categoryId=%s"),
-
 	/**
 	 * Mdc 10023003 error code enum.
 	 */
@@ -480,7 +480,6 @@ public enum ErrorCodeEnum {
 	/**
 	 * Opc 10040001 error code enum.
 	 */
-// 1004 对接中心
 	OPC10040001(10040001, "根据IP定位失败"),
 	/**
 	 * Opc 10040002 error code enum.
@@ -525,7 +524,6 @@ public enum ErrorCodeEnum {
 	/**
 	 * Tpc 10050001 error code enum.
 	 */
-// 1005 任务中心
 	TPC10050001(10050001, "消息的消费Topic不能为空"),
 	/**
 	 * Tpc 10050002 error code enum.
@@ -584,31 +582,12 @@ public enum ErrorCodeEnum {
 	 * Tpc 100500015 error code enum.
 	 */
 	TPC100500015(10050015, "消息PID不能为空, messageKey=%s"),;
+	
+	@Getter
 	private int code;
+	
+	@Getter
 	private String msg;
-
-	/**
-	 * Msg string.
-	 *
-	 * @return the string
-	 */
-	public String msg() {
-		return msg;
-	}
-
-	/**
-	 * Code int.
-	 *
-	 * @return the int
-	 */
-	public int code() {
-		return code;
-	}
-
-	ErrorCodeEnum(int code, String msg) {
-		this.code = code;
-		this.msg = msg;
-	}
 
 	/**
 	 * Gets enum.
@@ -619,7 +598,7 @@ public enum ErrorCodeEnum {
 	 */
 	public static ErrorCodeEnum getEnum(int code) {
 		for (ErrorCodeEnum ele : ErrorCodeEnum.values()) {
-			if (ele.code() == code) {
+			if (ele.getCode() == code) {
 				return ele;
 			}
 		}

@@ -16,11 +16,13 @@
 package com.somnus.cloud.common.base.exception;
 
 /**
- * The class Reference model null exception.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: ReferenceModelNullException
+ * @Description: The class Reference model null exception.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 public class ReferenceModelNullException extends RuntimeException {
+	
 	private static final long serialVersionUID = -318154770875589045L;
 
 	/**

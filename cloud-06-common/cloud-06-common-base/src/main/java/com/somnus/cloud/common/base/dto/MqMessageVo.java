@@ -27,8 +27,9 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class MqMessageVo extends BaseVo {
-
+	
 	private static final long serialVersionUID = 5440371083922622116L;
+	
 	/**
 	 * 消息key
 	 */
