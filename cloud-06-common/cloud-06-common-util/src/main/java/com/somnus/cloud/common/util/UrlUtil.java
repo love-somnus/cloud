@@ -15,16 +15,19 @@
  */
 package com.somnus.cloud.common.util;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.UnsupportedEncodingException;
 
 /**
- * url转码、解码
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: UrlUtil
+ * @Description: url转码、解码
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @Slf4j
+@Data
 public class UrlUtil {
 	private final static String ENCODE = "GBK";
 

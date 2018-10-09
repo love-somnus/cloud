@@ -18,11 +18,11 @@ package com.somnus.cloud.common.base.dto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-
 /**
- * The class Mq message vo.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: MqMessageVo
+ * @Description: The class Mq message vo.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

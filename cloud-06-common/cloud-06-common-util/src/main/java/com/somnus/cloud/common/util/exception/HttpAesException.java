@@ -15,11 +15,11 @@
  */
 package com.somnus.cloud.common.util.exception;
 
-
 /**
- * The class Http aes exception.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: HttpAesException
+ * @Description: The class Http aes exception.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 public class HttpAesException extends IllegalArgumentException {
 	private static final long serialVersionUID = -2489600753056921095L;

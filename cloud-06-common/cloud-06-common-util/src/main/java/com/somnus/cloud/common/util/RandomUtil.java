@@ -21,9 +21,10 @@ import lombok.NoArgsConstructor;
 import java.util.Random;
 
 /**
- * The class Random util.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: RandomUtil
+ * @Description: The class Random util.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RandomUtil {

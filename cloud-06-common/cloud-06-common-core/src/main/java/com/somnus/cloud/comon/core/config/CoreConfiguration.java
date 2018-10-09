@@ -45,7 +45,6 @@ public class CoreConfiguration {
 		return new SqlLogInterceptor();
 	}
 
-
 	@Bean
 	@ConditionalOnMissingBean(HandlerInterceptor.class)
 	@ConditionalOnProperty(prefix = "paascloud.token.interceptor", name = "enable", havingValue = "true")

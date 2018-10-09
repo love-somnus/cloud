@@ -22,6 +22,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import com.somnus.cloud.common.config.properties.PaascloudProperties;
+import com.somnus.cloud.common.zk.registry.RegistryCenterFactory;
 
 import javax.annotation.Resource;
 import java.net.InetAddress;

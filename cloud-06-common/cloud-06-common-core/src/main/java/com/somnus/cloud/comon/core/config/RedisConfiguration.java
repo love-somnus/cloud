@@ -18,6 +18,7 @@ package com.somnus.cloud.comon.core.config;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
@@ -64,9 +65,11 @@ public class RedisConfiguration {
 	 *
 	 * @return the cache manager
 	 */
+	
 	@Bean
-	public CacheManager cacheManager(RedisTemplate redisTemplate) {
-		return new RedisCacheManager(redisTemplate);
+	public CacheManager cacheManager(RedisConnectionFactory factory) {
+		RedisCacheManager rcm = RedisCacheManager.create(factory);
+		return rcm;
 	}
 
 	@Bean

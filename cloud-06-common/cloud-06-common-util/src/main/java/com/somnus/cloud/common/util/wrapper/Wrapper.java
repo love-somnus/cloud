@@ -15,20 +15,16 @@
  */
 package com.somnus.cloud.common.util.wrapper;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-/**
- * The class Wrapper.
- *
- * @param <T> the type parameter @author paascloud.net@gmail.com
- */
+import lombok.Data;
+
 @Data
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
+@JsonInclude(value=Include.NON_NULL)
 public class Wrapper<T> implements Serializable {
 
 	/**

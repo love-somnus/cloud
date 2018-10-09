@@ -1,23 +1,40 @@
+/*
+ * Copyright 2002-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.somnus.cloud.disvovery.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import com.paascloud.PublicUtil;
-import com.paascloud.base.enums.ErrorCodeEnum;
-import com.paascloud.base.exception.BusinessException;
-import com.paascloud.core.interceptor.CoreHeaderInterceptor;
-import com.paascloud.core.utils.RequestUtil;
+import com.somnus.cloud.common.base.enums.ErrorCodeEnum;
+import com.somnus.cloud.common.base.exception.BusinessException;
+import com.somnus.cloud.comon.core.interceptor.CoreHeaderInterceptor;
+import com.somnus.cloud.comon.core.utils.RequestUtil;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * The class Auth header filter.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: AuthHeaderFilter
+ * @Description: The class Auth header filter.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @Slf4j
 @Component
@@ -87,7 +104,7 @@ public class AuthHeaderFilter extends ZuulFilter {
 		}
 		String authHeader = RequestUtil.getAuthHeader(request);
 
-		if (PublicUtil.isEmpty(authHeader)) {
+		if (ObjectUtils.isEmpty(authHeader)) {
 			throw new ZuulException("刷新页面重试", 403, "check token fail");
 		}
 

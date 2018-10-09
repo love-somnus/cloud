@@ -86,11 +86,11 @@ public class SwaggerConfiguration {
 	}
 
 	private List<ApiKey> securitySchemes() {
-		return new ArrayList(Collections.singleton(new ApiKey("Authorization", "Authorization", "header")));
+		return new ArrayList<ApiKey>(Collections.singleton(new ApiKey("Authorization", "Authorization", "header")));
 	}
 
 	private List<SecurityContext> securityContexts() {
-		return new ArrayList(
+		return new ArrayList<SecurityContext>(
 				Collections.singleton(SecurityContext.builder()
 						.securityReferences(defaultAuth())
 						.forPaths(PathSelectors.regex("^(?!auth).*$"))
@@ -102,7 +102,7 @@ public class SwaggerConfiguration {
 		AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
 		AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
 		authorizationScopes[0] = authorizationScope;
-		return new ArrayList(Collections.singleton(new SecurityReference("Authorization", authorizationScopes)));
+		return new ArrayList<SecurityReference>(Collections.singleton(new SecurityReference("Authorization", authorizationScopes)));
 	}
 
 }

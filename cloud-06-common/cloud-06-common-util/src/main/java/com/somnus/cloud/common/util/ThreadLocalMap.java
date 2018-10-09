@@ -21,11 +21,11 @@ import lombok.NoArgsConstructor;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
- * The class Thread local map.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: ThreadLocalMap
+ * @Description: The class Thread local map.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ThreadLocalMap {

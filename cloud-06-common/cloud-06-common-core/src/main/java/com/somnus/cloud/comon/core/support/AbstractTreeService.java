@@ -23,14 +23,15 @@ import java.util.List;
 import java.util.Objects;
 
 import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.util.ObjectUtils;
 
 /**
- * The class Tree service.
- *
+ * @ClassName: AbstractTreeService
+ * @Description: The class Tree service.
+ * @author Somnus
+ * @date 2018年9月27日
  * @param <T>  the type parameter
  * @param <ID> the type parameter
- *
- * @author paascloud.net @gmail.com
  */
 public abstract class AbstractTreeService<T extends BaseTree<T, ID>, ID extends Serializable> implements ITree<T, ID> {
 
@@ -95,7 +96,7 @@ public abstract class AbstractTreeService<T extends BaseTree<T, ID>, ID extends 
 	public List<T> getChildList(List<T> list, T t) {
 		List<T> childList = Lists.newArrayList();
 		for (T child : list) {
-			if (PublicUtil.isEmpty(child.getPid())) {
+			if (ObjectUtils.isEmpty(child.getPid())) {
 				continue;
 			}
 			// 判断集合的父ID是否等于上一级的id

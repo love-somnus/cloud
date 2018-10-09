@@ -18,14 +18,16 @@ package com.somnus.cloud.common.util.helper;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
+
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 
 /**
- * 将字符串转为Long
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: LongJsonDeserializer
+ * @Description: 将字符串转为Long
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @Slf4j
 public class LongJsonDeserializer extends JsonDeserializer<Long> {

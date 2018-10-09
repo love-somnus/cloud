@@ -21,15 +21,12 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @param <E>  the type parameter
- * @param <ID> the type parameter
- *
  * @ClassName: BaseTree
  * @Description: The class Base tree.
  * @author Somnus
  * @date 2018年9月27日
- * @param <E>
- * @param <ID>
+ * @param <E>  the type parameter
+ * @param <ID> the type parameter
  */
 @Data
 public class BaseTree<E, ID> implements Serializable {

@@ -15,7 +15,6 @@
  */
 package com.somnus.cloud.common.util;
 
-
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -26,9 +25,10 @@ import java.util.Objects;
 import org.apache.commons.collections4.CollectionUtils;
 
 /**
- * The class Recursion tree util.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: RecursionTreeUtil
+ * @Description: The class Recursion tree util.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RecursionTreeUtil {
@@ -77,7 +77,7 @@ public class RecursionTreeUtil {
 		List<TreeNode> tList = new ArrayList<>();
 
 		for (TreeNode treeNode : list) {
-			if (CollectionUtils.isEmpty(treeNode.getPid())) {
+			if (Objects.isNull(treeNode.getPid())) {
 				continue;
 			}
 			if (Objects.equals(treeNode.getPid(), t.getId())) {

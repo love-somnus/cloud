@@ -18,9 +18,10 @@ package com.somnus.cloud.common.util.wrapper;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * The class Wrap mapper.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: WrapMapper
+ * @Description: The class Wrap mapper.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 public class WrapMapper {
 

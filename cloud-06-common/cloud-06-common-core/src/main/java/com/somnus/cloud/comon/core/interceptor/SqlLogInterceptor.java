@@ -84,7 +84,7 @@ public class SqlLogInterceptor implements Interceptor {
 		Object proceed = invocation.proceed();
 		int result = 0;
 		if (proceed instanceof ArrayList) {
-			ArrayList resultList = (ArrayList) proceed;
+			ArrayList<?> resultList = (ArrayList<?>) proceed;
 			result = resultList.size();
 		}
 		if (proceed instanceof Integer) {

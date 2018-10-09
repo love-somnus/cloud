@@ -18,9 +18,10 @@ package com.somnus.cloud.common.util.wrapper;
 import com.somnus.cloud.common.util.page.PageUtil;
 
 /**
- * The class Page wrap mapper.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: PageWrapMapper
+ * @Description: The class Page wrap mapper.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 public class PageWrapMapper {
 

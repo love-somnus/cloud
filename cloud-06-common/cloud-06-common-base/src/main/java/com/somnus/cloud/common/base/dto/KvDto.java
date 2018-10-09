@@ -26,8 +26,8 @@ import java.io.Serializable;
  * @Description: The class Kv dto.
  * @author Somnus
  * @date 2018年9月27日
- * @param <K>
- * @param <V>
+ * @param <K>  the type parameter
+ * @param <V>  the type parameter
  */
 @Data
 @NoArgsConstructor

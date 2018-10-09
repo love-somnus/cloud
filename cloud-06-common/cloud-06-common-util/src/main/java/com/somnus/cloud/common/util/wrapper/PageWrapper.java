@@ -21,9 +21,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * The class Page wrapper.
- *
- * @param <T> the type parameter @author paascloud.net@gmail.com
+ * @ClassName: PageWrapper
+ * @Description: The class Page wrapper.
+ * @author Somnus
+ * @date 2018年10月9日
+ * @param <T> the type parameter
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

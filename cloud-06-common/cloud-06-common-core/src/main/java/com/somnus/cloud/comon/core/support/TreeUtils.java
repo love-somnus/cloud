@@ -15,16 +15,17 @@
  */
 package com.somnus.cloud.comon.core.support;
 
-
-
 import java.io.Serializable;
 
 import com.somnus.cloud.common.base.dto.BaseTree;
 
 /**
- * The class Tree utils.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: TreeUtils
+ * @Description: The class Tree utils.
+ * @author Somnus
+ * @date 2018年9月27日
+ * @param <T>
+ * @param <ID>
  */
 public class TreeUtils<T extends BaseTree<T, ID>, ID extends Serializable> extends AbstractTreeService<T, ID> {
 

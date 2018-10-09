@@ -15,19 +15,18 @@
  */
 package com.somnus.cloud.comon.core.support;
 
-
 import java.io.Serializable;
 import java.util.List;
 
 import com.somnus.cloud.common.base.dto.BaseTree;
 
 /**
- * The interface Tree interface.
- *
+ * @ClassName: ITree
+ * @Description: The interface Tree interface.
+ * @author Somnus
+ * @date 2018年9月27日
  * @param <T>  the type parameter
  * @param <ID> the type parameter
- *
- * @author paascloud.net @gmail.com
  */
 public interface ITree<T extends BaseTree<T, ID>, ID extends Serializable> {
 	/**

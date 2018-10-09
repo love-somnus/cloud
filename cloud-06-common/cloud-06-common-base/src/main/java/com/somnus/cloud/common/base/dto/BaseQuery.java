@@ -20,9 +20,10 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * The class Base query.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: BaseQuery
+ * @Description: The class Base query.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Data
 public class BaseQuery implements Serializable {

@@ -17,6 +17,7 @@ package com.somnus.cloud.common.util;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
 import lombok.AccessLevel;
@@ -27,9 +28,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 /**
- * Jackson Json 工具类
- *
- * @author ligang @gmail.com
+ * @ClassName: JacksonUtil
+ * @Description: Jackson Json 工具类
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class JacksonUtil {
@@ -41,14 +43,13 @@ public class JacksonUtil {
 		// 默认的ObjectMapper
 		defaultMapper = new ObjectMapper();
 		// 设置输入时忽略在JSON字符串中存在但Java对象实际没有的属性
-		defaultMapper.configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		defaultMapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, false);
 
 		formatedMapper = new ObjectMapper();
 		// 设置输入时忽略在JSON字符串中存在但Java对象实际没有的属性
-		formatedMapper.configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		formatedMapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, false);
 		// 所有日期格式都统一为固定格式
 		formatedMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
-		formatedMapper.configure(SerializationConfig.Feature.WRITE_DATES_AS_TIMESTAMPS, false);
 	}
 
 	/**
@@ -111,6 +112,7 @@ public class JacksonUtil {
 	 *
 	 * @throws IOException the io exception
 	 */
+	@SuppressWarnings("unchecked")
 	public static <T> T parseJson(String jsonValue, TypeReference<T> valueTypeRef) throws IOException {
 		Preconditions.checkArgument(StringUtils.isNotEmpty(jsonValue), "this argument is required; it must not be null");
 		return (T) defaultMapper.readValue(jsonValue, valueTypeRef);
@@ -159,6 +161,7 @@ public class JacksonUtil {
 	 *
 	 * @throws IOException the io exception
 	 */
+	@SuppressWarnings("unchecked")
 	public static <T> T parseJsonWithFormat(String jsonValue, JavaType valueType) throws IOException {
 		Preconditions.checkArgument(StringUtils.isNotEmpty(jsonValue), "this argument is required; it must not be null");
 		return (T) formatedMapper.readValue(jsonValue, valueType);
@@ -175,6 +178,7 @@ public class JacksonUtil {
 	 *
 	 * @throws IOException the io exception
 	 */
+	@SuppressWarnings("unchecked")
 	public static <T> T parseJsonWithFormat(String jsonValue, TypeReference<T> valueTypeRef) throws IOException {
 		Preconditions.checkArgument(StringUtils.isNotEmpty(jsonValue), "jsonValue is not null");
 		return (T) formatedMapper.readValue(jsonValue, valueTypeRef);

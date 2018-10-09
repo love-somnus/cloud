@@ -40,9 +40,11 @@ public class SpringContextHolder implements ApplicationContextAware {
 	 * @throws BeansException the beans exception
 	 */
 	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) {
-		SpringContextHolder.applicationContext = applicationContext;
-	}
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        if(SpringContextHolder.applicationContext == null) {
+        	SpringContextHolder.applicationContext = applicationContext;
+        }
+    }
 
 	/**
 	 * Gets application context.
@@ -62,9 +64,9 @@ public class SpringContextHolder implements ApplicationContextAware {
 	 *
 	 * @return the bean
 	 */
-	public static <T> T getBean(String beanName) {
+	public static Object getBean(String beanName) {
 		assertApplicationContext();
-		return (T) applicationContext.getBean(beanName);
+		return applicationContext.getBean(beanName);
 	}
 
 	/**
@@ -75,10 +77,23 @@ public class SpringContextHolder implements ApplicationContextAware {
 	 *
 	 * @return the bean
 	 */
-	public static <T> T getBean(Class<T> requiredType) {
+	public static <T> T getBean(Class<T> clazz) {
 		assertApplicationContext();
-		return applicationContext.getBean(requiredType);
+		return applicationContext.getBean(clazz);
 	}
+	
+	/**
+	 * Gets bean.
+	 *
+	 * @param <T>          the type parameter
+	 * @param requiredType the required type
+	 *
+	 * @return the bean
+	 */
+	public static <T> T getBean(String name,Class<T> clazz){
+		assertApplicationContext();
+		return applicationContext.getBean(name, clazz);
+    }
 
 	public static DefaultListableBeanFactory getDefaultListableBeanFactory() {
 		assertApplicationContext();

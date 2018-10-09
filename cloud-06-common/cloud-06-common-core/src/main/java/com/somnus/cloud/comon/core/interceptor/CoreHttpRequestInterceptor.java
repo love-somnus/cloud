@@ -26,9 +26,10 @@ import org.springframework.util.StringUtils;
 import java.io.IOException;
 
 /**
- * The class Core http request interceptor.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: CoreHttpRequestInterceptor
+ * @Description: The class Core http request interceptor.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Slf4j
 public class CoreHttpRequestInterceptor implements ClientHttpRequestInterceptor {

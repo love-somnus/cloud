@@ -39,8 +39,9 @@
     </dependency>
     
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
+      <groupId>com.somnus.common</groupId>
+      <artifactId>cloud-06-common-core</artifactId>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
   

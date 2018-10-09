@@ -21,9 +21,10 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 /**
- * The class Big decimal util.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: BigDecimalUtil
+ * @Description: The class Big decimal util.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BigDecimalUtil {

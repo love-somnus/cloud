@@ -21,9 +21,10 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * The class Tpc message dto.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: MqMessageDto
+ * @Description: The class Tpc message dto.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Data
 @AllArgsConstructor

@@ -24,6 +24,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.client.RestTemplate;
 
 import com.somnus.cloud.common.base.dto.LoginAuthDto;
@@ -62,7 +63,7 @@ public class LogAspect {
 	/**
 	 * Log annotation.
 	 */
-	@Pointcut("@annotation(com.paascloud.core.annotation.LogAnnotation)")
+	@Pointcut("@annotation(com.somnus.cloud.comon.core.annotation.LogAnnotation)")
 	public void logAnnotation() {
 	}
 
@@ -83,9 +84,9 @@ public class LogAspect {
 	@AfterReturning(pointcut = "logAnnotation()", returning = "returnValue")
 	public void doAfter(final JoinPoint joinPoint, final Object returnValue) {
 		if (returnValue instanceof Wrapper) {
-			Wrapper result = (Wrapper) returnValue;
+			Wrapper<?> result = (Wrapper<?>) returnValue;
 
-			if (!PubUtils.isNull(result) && result.getCode() == Wrapper.SUCCESS_CODE) {
+			if (!ObjectUtils.isEmpty(result) && result.getCode() == Wrapper.SUCCESS_CODE) {
 				this.handleLog(joinPoint, result);
 			}
 		}

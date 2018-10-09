@@ -33,21 +33,26 @@ import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 
 /**
- * The class Mq message.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: MqMessage
+ * @Description: The class Mq message.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Slf4j
 @Data
 @ApiModel("消息队列")
 public class MqMessage implements Serializable {
 	private static final long serialVersionUID = 9215900048842983997L;
+	
 	@ApiModelProperty("主题")
 	private String topic;
+	
 	@ApiModelProperty("标签")
 	private String tag;
+	
 	@ApiModelProperty("唯一键")
 	private String key;
+	
 	@ApiModelProperty("消息体")
 	private String body;
 
@@ -59,7 +64,6 @@ public class MqMessage implements Serializable {
 	 * @return the message
 	 */
 	public static Message checkMessage(MqMessage mqMessage) {
-
 		String topic = mqMessage.getTopic();
 		String key = mqMessage.getKey();
 		String body = mqMessage.getBody();
@@ -67,7 +71,6 @@ public class MqMessage implements Serializable {
 		printCheckMessageLog(topic, key, body, tag);
 		checkMessage(topic, key, body);
 		return buildMessage(body, topic, tag, key);
-
 	}
 
 	private static void printCheckMessageLog(final String topic, final String key, final String body, final String tag) {

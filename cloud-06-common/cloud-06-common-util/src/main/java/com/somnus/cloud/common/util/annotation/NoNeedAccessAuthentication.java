@@ -20,11 +20,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-
 /**
- * The interface No need access authentication.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: NoNeedAccessAuthentication
+ * @Description: The interface No need access authentication.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

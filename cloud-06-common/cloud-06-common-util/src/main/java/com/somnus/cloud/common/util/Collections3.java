@@ -23,9 +23,10 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * The class Collections 3.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: Collections3
+ * @Description: The class Collections 3.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Collections3 {

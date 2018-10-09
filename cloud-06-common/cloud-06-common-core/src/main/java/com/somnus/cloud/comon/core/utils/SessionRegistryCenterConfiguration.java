@@ -20,9 +20,10 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 /**
- * 注册中心配置的会话声明周期.
- *
- * @author zhangliang
+ * @ClassName: SessionRegistryCenterConfiguration
+ * @Description: 注册中心配置的会话声明周期.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class SessionRegistryCenterConfiguration {

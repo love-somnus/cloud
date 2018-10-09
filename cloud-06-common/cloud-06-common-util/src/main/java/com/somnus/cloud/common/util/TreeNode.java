@@ -20,9 +20,10 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * The class Tree node.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: TreeNode
+ * @Description: The class Tree node.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @Data
 public class TreeNode {

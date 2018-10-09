@@ -17,11 +17,11 @@ package com.somnus.cloud.common.util.page;
 
 import lombok.Data;
 
-
 /**
- * The class Page util.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: PageUtil
+ * @Description: The class Page util.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @Data
 public class PageUtil {

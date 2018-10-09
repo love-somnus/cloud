@@ -29,9 +29,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * The class Core header interceptor.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: CoreHeaderInterceptor
+ * @Description: The class Core header interceptor.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Slf4j
 public class CoreHeaderInterceptor extends HandlerInterceptorAdapter {

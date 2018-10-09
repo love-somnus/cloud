@@ -39,9 +39,10 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 
 /**
- * The class Token interceptor.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: TokenInterceptor
+ * @Description: The class Token interceptor.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Slf4j
 public class TokenInterceptor implements HandlerInterceptor {

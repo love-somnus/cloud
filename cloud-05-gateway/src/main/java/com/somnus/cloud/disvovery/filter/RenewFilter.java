@@ -1,20 +1,25 @@
 /*
- * Copyright (c) 2018. paascloud.net All Rights Reserved.
- * 项目名称：paascloud快速搭建企业级分布式微服务平台
- * 类名称：RenewFilter.java
- * 创建人：刘兆明
- * 联系方式：paascloud.net@gmail.com
- * 开源地址: https://github.com/paascloud
- * 博客地址: http://blog.paascloud.net
- * 项目官网: http://paascloud.net
+ * Copyright 2002-2018 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
-
 package com.somnus.cloud.disvovery.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import com.paascloud.base.enums.ErrorCodeEnum;
-import com.paascloud.base.exception.BusinessException;
+import com.somnus.cloud.common.base.enums.ErrorCodeEnum;
+import com.somnus.cloud.common.base.exception.BusinessException;
+
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.http.HttpHeaders;
@@ -27,9 +32,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * The class Renew filter.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: RenewFilter
+ * @Description: The class Renew filter.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @Component
 @Slf4j
@@ -37,6 +43,7 @@ public class RenewFilter extends ZuulFilter {
 
 	@Resource
 	private JwtTokenStore jwtTokenStore;
+	
 	private static final int EXPIRES_IN = 60 * 20;
 
 	/**

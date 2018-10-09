@@ -17,6 +17,7 @@ package com.somnus.cloud.comon.core.support;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.ObjectUtils;
 
 import com.somnus.cloud.common.base.constant.GlobalConstant;
 import com.somnus.cloud.common.base.dto.LoginAuthDto;
@@ -29,9 +30,10 @@ import com.somnus.cloud.common.zk.generator.IncrementIdGenerator;
 import com.somnus.cloud.common.zk.generator.UniqueIdGenerator;
 
 /**
- * The class Base controller.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: BaseController
+ * @Description: The class Base controller.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 public class BaseController {
 
@@ -44,7 +46,7 @@ public class BaseController {
 	 */
 	protected LoginAuthDto getLoginAuthDto() {
 		LoginAuthDto loginAuthDto = (LoginAuthDto) ThreadLocalMap.get(GlobalConstant.Sys.TOKEN_AUTH_DTO);
-		if (PublicUtil.isEmpty(loginAuthDto)) {
+		if (ObjectUtils.isEmpty(loginAuthDto)) {
 			throw new BusinessException(ErrorCodeEnum.UAC10011041);
 		}
 		return loginAuthDto;
@@ -94,7 +96,7 @@ public class BaseController {
 		} else if (result instanceof Boolean) {
 			flag = (Boolean) result;
 		} else {
-			flag = PublicUtil.isNotEmpty(result);
+			flag = !ObjectUtils.isEmpty(result);
 		}
 		return flag;
 	}

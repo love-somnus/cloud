@@ -29,9 +29,10 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * The class Aliyun mq topic constants.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: AliyunMqTopicConstants
+ * @Description: The class Aliyun mq topic constants.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class AliyunMqTopicConstants {

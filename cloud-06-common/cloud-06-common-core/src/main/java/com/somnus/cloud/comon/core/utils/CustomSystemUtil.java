@@ -24,21 +24,22 @@ import java.net.NetworkInterface;
 import java.util.Enumeration;
 
 /**
- * 系统工具类，用于获取系统相关信息
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: CustomSystemUtil
+ * @Description: 系统工具类，用于获取系统相关信息
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CustomSystemUtil {
 	/**
 	 * 内网IP
 	 */
-	private static String INTRANET_IP = getIntranetIp();
+	public static String INTRANET_IP = getIntranetIp();
 
 	/**
 	 * 外网IP
 	 */
-	private static String INTERNET_IP = getInternetIp();
+	public static String INTERNET_IP = getInternetIp();
 
 	/**
 	 * 获得内网IP

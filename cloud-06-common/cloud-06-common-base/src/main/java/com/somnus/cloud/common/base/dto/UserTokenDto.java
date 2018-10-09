@@ -19,14 +19,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
 /**
- * The class Uac user token dto.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: UserTokenDto
+ * @Description: The class Uac user token dto.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -54,7 +55,7 @@ public class UserTokenDto extends LoginAuthDto {
 	 * 创建时间
 	 */
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date createdTime;
 
 	/**
@@ -71,7 +72,7 @@ public class UserTokenDto extends LoginAuthDto {
 	 * 更新时间
 	 */
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date updateTime;
 	
 	/**

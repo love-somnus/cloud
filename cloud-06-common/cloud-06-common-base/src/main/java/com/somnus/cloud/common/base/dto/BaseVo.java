@@ -15,14 +15,15 @@
  */
 package com.somnus.cloud.common.base.dto;
 
-import io.swagger.annotations.ApiModel;
-import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.alibaba.fastjson.annotation.JSONField;
-
 import java.io.Serializable;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
 
 /**
  * @ClassName: BaseVo
@@ -52,7 +53,7 @@ public class BaseVo implements Serializable {
 	 * 创建时间
 	 */
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date createdTime;
 
 	/**
@@ -69,6 +70,6 @@ public class BaseVo implements Serializable {
 	 * 更新时间
 	 */
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date updateTime;
 }

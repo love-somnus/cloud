@@ -22,9 +22,10 @@ import java.util.Collection;
 import java.util.UUID;
 
 /**
- * The class Pub utils.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: PubUtils
+ * @Description: The class Pub utils.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PubUtils {

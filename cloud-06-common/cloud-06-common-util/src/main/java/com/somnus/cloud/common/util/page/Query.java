@@ -20,9 +20,10 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * The class Query.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: Query
+ * @Description: The class Query.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @Data
 public class Query implements Serializable {

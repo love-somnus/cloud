@@ -14,15 +14,19 @@ package com.somnus.cloud.comon.core.enums;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.List;
 import java.util.Map;
 
-
 /**
- * The enum Log type enum.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: LogTypeEnum
+ * @Description: The enum Log type enum.
+ * @author Somnus
+ * @date 2018年9月27日
  */
+@AllArgsConstructor
 public enum LogTypeEnum {
 	/**
 	 * 操作日志
@@ -40,34 +44,13 @@ public enum LogTypeEnum {
 	/**
 	 * The Type.
 	 */
+	@Getter
 	String type;
 	/**
 	 * The Name.
 	 */
+	@Getter
 	String name;
-
-	LogTypeEnum(String type, String name) {
-		this.type = type;
-		this.name = name;
-	}
-
-	/**
-	 * Gets type.
-	 *
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
-
-	/**
-	 * Gets name.
-	 *
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
 
 	/**
 	 * Gets name.

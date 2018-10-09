@@ -29,9 +29,10 @@ import java.security.MessageDigest;
 import java.util.Base64;
 
 /**
- * The class Http aes util.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: HttpAesUtil
+ * @Description: The class Http aes util.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

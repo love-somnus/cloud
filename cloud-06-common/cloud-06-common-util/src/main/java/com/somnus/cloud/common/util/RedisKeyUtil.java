@@ -21,9 +21,10 @@ import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * The class Redis key util.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: RedisKeyUtil
+ * @Description: The class Redis key util.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RedisKeyUtil {

@@ -15,7 +15,6 @@
  */
 package com.somnus.cloud.common.util;
 
-
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -24,9 +23,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * The class Validate util.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: ValidateUtil
+ * @Description: The class Validate util.
+ * @author Somnus
+ * @date 2018年10月9日
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ValidateUtil {

@@ -21,11 +21,11 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-
 /**
- * The class Job task model.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: JobParameter
+ * @Description: The class Job task model.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Data
 public class JobParameter implements Serializable {

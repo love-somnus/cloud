@@ -22,11 +22,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * 通用接口
- *
- * @param <T> the type parameter @author paascloud.net@gmail.com
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: IService
+ * @Description: 通用接口
+ * @author Somnus
+ * @date 2018年9月27日
+ * @param <T> the type parameter 
  */
 public interface IService<T> {
 	/**

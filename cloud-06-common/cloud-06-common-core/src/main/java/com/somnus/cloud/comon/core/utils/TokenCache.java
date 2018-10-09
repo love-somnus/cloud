@@ -25,9 +25,10 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.TimeUnit;
 
 /**
- * The class Token cache.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: TokenCache
+ * @Description: The class Token cache.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

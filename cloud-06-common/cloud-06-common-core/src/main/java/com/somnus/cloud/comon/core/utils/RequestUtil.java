@@ -21,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -37,9 +38,10 @@ import java.net.UnknownHostException;
 import java.util.Base64;
 
 /**
- * The class Request util.
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: RequestUtil
+ * @Description: The class Request util.
+ * @author Somnus
+ * @date 2018年9月27日
  */
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -112,7 +114,7 @@ public class RequestUtil {
 	 */
 	public static LoginAuthDto getLoginUser() {
 		LoginAuthDto loginAuthDto = (LoginAuthDto) ThreadLocalMap.get(GlobalConstant.Sys.TOKEN_AUTH_DTO);
-		if (PublicUtil.isEmpty(loginAuthDto)) {
+		if (ObjectUtils.isEmpty(loginAuthDto)) {
 			throw new BusinessException(ErrorCodeEnum.UAC10011039);
 		}
 		return loginAuthDto;

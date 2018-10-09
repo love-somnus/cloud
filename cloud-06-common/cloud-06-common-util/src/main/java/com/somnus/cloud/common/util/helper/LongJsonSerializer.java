@@ -15,7 +15,6 @@
  */
 package com.somnus.cloud.common.util.helper;
 
-
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -23,9 +22,10 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 
 /**
- * Long 类型字段序列化时转为字符串，避免js丢失精度
- *
- * @author paascloud.net@gmail.com
+ * @ClassName: LongJsonSerializer
+ * @Description: Long 类型字段序列化时转为字符串，避免js丢失精度
+ * @author Somnus
+ * @date 2018年10月9日
  */
 public class LongJsonSerializer extends JsonSerializer<Long> {
 	/**

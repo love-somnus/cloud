@@ -28,11 +28,11 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 
 /**
- * The class Base service.
- *
+ * @ClassName: BaseService
+ * @Description: The class Base service.
+ * @author Somnus
+ * @date 2018年9月27日
  * @param <T> the type parameter
- *
- * @author paascloud.net@gmail.com
  */
 public abstract class BaseService<T> implements IService<T> {
 
