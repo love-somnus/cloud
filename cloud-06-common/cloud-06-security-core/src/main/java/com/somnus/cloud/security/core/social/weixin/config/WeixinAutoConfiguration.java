@@ -18,7 +18,6 @@ package com.somnus.cloud.security.core.social.weixin.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.autoconfigure.social.SocialAutoConfigurerAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.social.connect.ConnectionFactory;
@@ -26,6 +25,7 @@ import org.springframework.web.servlet.View;
 
 import com.somnus.cloud.security.core.properties.SecurityProperties;
 import com.somnus.cloud.security.core.properties.WeixinProperties;
+import com.somnus.cloud.security.core.social.SocialAutoConfigurerAdapter;
 import com.somnus.cloud.security.core.social.view.PcConnectView;
 import com.somnus.cloud.security.core.social.weixin.connect.WeixinConnectionFactory;
 
