@@ -13,23 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.cloud.eureka;
+package com.somnus.cloud.security.core.properties;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import lombok.Data;
 
 /**
- * @ClassName: EurekaApplication
- * @Description: 微服务注册中心
+ * @ClassName: SessionProperties
+ * @Description: session管理相关配置项
  * @author Somnus
- * @date 2018年9月25日
+ * @date 2018年10月12日
  */
-@EnableEurekaServer
-@SpringBootApplication
-public class EurekaApplication {
+@Data
+public class SessionProperties {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EurekaApplication.class, args);
-	}
+	/**
+	 * 同一个用户在系统中的最大session数，默认1
+	 */
+	private int maximumSessions = 1;
+	/**
+	 * 达到最大session时是否阻止新的登录请求，默认为false，不阻止，新的登录会将老的登录失效掉
+	 */
+	private boolean maxSessionsPreventsLogin;
 }

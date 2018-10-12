@@ -13,23 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.cloud.eureka;
+package com.somnus.cloud.security.core.properties;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import lombok.Data;
 
 /**
- * @ClassName: EurekaApplication
- * @Description: 微服务注册中心
+ * @ClassName: OAuth2Properties
+ * @Description: The class O auth 2 properties.
  * @author Somnus
- * @date 2018年9月25日
+ * @date 2018年10月12日
  */
-@EnableEurekaServer
-@SpringBootApplication
-public class EurekaApplication {
+@Data
+public class OAuth2Properties {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EurekaApplication.class, args);
-	}
+	/**
+	 * 使用jwt时为token签名的秘钥
+	 */
+	private String jwtSigningKey = "paascloud";
+	/**
+	 * 客户端配置
+	 */
+	private OAuth2ClientProperties[] clients = {};
+
 }

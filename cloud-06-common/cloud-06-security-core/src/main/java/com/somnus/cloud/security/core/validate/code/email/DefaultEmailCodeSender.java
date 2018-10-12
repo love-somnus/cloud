@@ -13,23 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.cloud.eureka;
+package com.somnus.cloud.security.core.validate.code.email;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import lombok.extern.slf4j.Slf4j;
 
 /**
- * @ClassName: EurekaApplication
- * @Description: 微服务注册中心
+ * @ClassName: DefaultEmailCodeSender
+ * @Description: 默认的短信验证码发送器
  * @author Somnus
- * @date 2018年9月25日
+ * @date 2018年10月12日
  */
-@EnableEurekaServer
-@SpringBootApplication
-public class EurekaApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(EurekaApplication.class, args);
+@Slf4j
+public class DefaultEmailCodeSender implements EmailCodeSender {
+	/**
+	 * Send.
+	 *
+	 * @param email the mobile
+	 * @param code  the code
+	 */
+	@Override
+	public void send(String email, String code) {
+		log.warn("请配置真实的邮件验证码发送器(SmsCodeSender)");
+		log.info("向邮件" + email + "发送短信验证码" + code);
 	}
+
 }

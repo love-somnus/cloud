@@ -13,23 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.cloud.eureka;
+package com.somnus.cloud.security.core.authorize;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 
 /**
- * @ClassName: EurekaApplication
- * @Description: 微服务注册中心
+ * @ClassName: AuthorizeConfigManager
+ * @Description: 授权信息管理器 用于收集系统中所有 AuthorizeConfigProvider 并加载其配置
  * @author Somnus
- * @date 2018年9月25日
+ * @date 2018年10月12日
  */
-@EnableEurekaServer
-@SpringBootApplication
-public class EurekaApplication {
+public interface AuthorizeConfigManager {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EurekaApplication.class, args);
-	}
+	/**
+	 * Config.
+	 *
+	 * @param config the config
+	 */
+	void config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config);
+
 }

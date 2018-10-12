@@ -13,23 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.cloud.eureka;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+package com.somnus.cloud.security.core.validate.code.email;
 
 /**
- * @ClassName: EurekaApplication
- * @Description: 微服务注册中心
+ * @ClassName: EmailCodeSender
+ * @Description: The interface Sms code sender.
  * @author Somnus
- * @date 2018年9月25日
+ * @date 2018年10月12日
  */
-@EnableEurekaServer
-@SpringBootApplication
-public class EurekaApplication {
+public interface EmailCodeSender {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EurekaApplication.class, args);
-	}
+	/**
+	 * Send.
+	 *
+	 * @param email the email
+	 * @param code  the code
+	 */
+	void send(String email, String code);
+
 }

@@ -13,23 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.cloud.eureka;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+package com.somnus.cloud.security.core.properties;
 
 /**
- * @ClassName: EurekaApplication
- * @Description: 微服务注册中心
+ * @ClassName: LoginResponseType
+ * @Description: 认证成功后的响应方式
  * @author Somnus
- * @date 2018年9月25日
+ * @date 2018年10月12日
  */
-@EnableEurekaServer
-@SpringBootApplication
-public class EurekaApplication {
+public enum LoginResponseType {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EurekaApplication.class, args);
-	}
+	/**
+	 * 跳转
+	 */
+	REDIRECT,
+	/**
+	 * 返回json
+	 */
+	JSON
+
 }

@@ -13,23 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.cloud.eureka;
+package com.somnus.cloud.security.core.properties;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import lombok.Data;
 
 /**
- * @ClassName: EurekaApplication
- * @Description: 微服务注册中心
+ * @ClassName: ValidateCodeProperties
+ * @Description: 验证码配置
  * @author Somnus
- * @date 2018年9月25日
+ * @date 2018年10月12日
  */
-@EnableEurekaServer
-@SpringBootApplication
-public class EurekaApplication {
+@Data
+public class ValidateCodeProperties {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EurekaApplication.class, args);
-	}
+	/**
+	 * 图片验证码配置
+	 */
+	private ImageCodeProperties image = new ImageCodeProperties();
+	/**
+	 * 短信验证码配置
+	 */
+	private SmsCodeProperties sms = new SmsCodeProperties();
+	/**
+	 * 邮箱验证码配置
+	 */
+	private EmailCodeProperties email = new EmailCodeProperties();
+
 }

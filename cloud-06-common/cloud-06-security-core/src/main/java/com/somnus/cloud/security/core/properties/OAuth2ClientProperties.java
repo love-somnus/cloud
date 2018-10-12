@@ -13,23 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.cloud.eureka;
+package com.somnus.cloud.security.core.properties;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import lombok.Data;
 
 /**
- * @ClassName: EurekaApplication
- * @Description: 微服务注册中心
+ * @ClassName: OAuth2ClientProperties
+ * @Description: 认证服务器注册的第三方应用配置项
  * @author Somnus
- * @date 2018年9月25日
+ * @date 2018年10月12日
  */
-@EnableEurekaServer
-@SpringBootApplication
-public class EurekaApplication {
+@Data
+public class OAuth2ClientProperties {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EurekaApplication.class, args);
-	}
+	/**
+	 * 第三方应用appId
+	 */
+	private String clientId;
+	/**
+	 * 第三方应用appSecret
+	 */
+	private String clientSecret;
+	/**
+	 * 针对此应用发出的token的有效时间
+	 */
+	private int accessTokenValidateSeconds = 7200;
+
+	private int refreshTokenValiditySeconds = 2592000;
+
+	private String scope;
+
 }

@@ -13,23 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.cloud.eureka;
+package com.somnus.cloud.security.core.validate.code;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.security.core.AuthenticationException;
 
 /**
- * @ClassName: EurekaApplication
- * @Description: 微服务注册中心
+ * @ClassName: ValidateCodeException
+ * @Description: The class Validate code exception.
  * @author Somnus
- * @date 2018年9月25日
+ * @date 2018年10月12日
  */
-@EnableEurekaServer
-@SpringBootApplication
-public class EurekaApplication {
+public class ValidateCodeException extends AuthenticationException {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EurekaApplication.class, args);
+
+	private static final long serialVersionUID = -7285211528095468156L;
+
+	/**
+	 * Instantiates a new Validate code exception.
+	 *
+	 * @param msg the msg
+	 */
+	public ValidateCodeException(String msg) {
+		super(msg);
 	}
+
 }
