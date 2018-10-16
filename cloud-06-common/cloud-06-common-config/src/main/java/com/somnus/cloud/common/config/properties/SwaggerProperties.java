@@ -38,7 +38,7 @@ public class SwaggerProperties {
 
 	private String contactName = "无痕";
 
-	private String contactUrl = "http://paascloud.net";
+	private String contactUrl = "http://cloud.net";
 
-	private String contactEmail = "paascloud.net@gmail.com";
+	private String contactEmail = "cloud.net@gmail.com";
 }

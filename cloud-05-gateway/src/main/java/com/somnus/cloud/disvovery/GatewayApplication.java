@@ -28,7 +28,7 @@ import org.springframework.web.filter.CorsFilter;
 
 /**
  * @ClassName: GatewayApplication
- * @Description: The class Paas cloud gateway application.
+ * @Description: The class cloud gateway application.
  * @author pc
  * @date 2018年9月26日
  */

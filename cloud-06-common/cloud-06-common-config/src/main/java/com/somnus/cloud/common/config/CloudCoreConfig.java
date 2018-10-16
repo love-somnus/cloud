@@ -18,15 +18,15 @@ package com.somnus.cloud.common.config;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-import com.somnus.cloud.common.config.properties.PaascloudProperties;
+import com.somnus.cloud.common.config.properties.CloudProperties;
 
 /**
- * @ClassName: PaascloudCoreConfig
+ * @ClassName: CloudCoreConfig
  * @Description: The class Aliyun core config.
  * @author Somnus
  * @date 2018年9月26日
  */
 @Configuration
-@EnableConfigurationProperties(PaascloudProperties.class)
-public class PaascloudCoreConfig {
+@EnableConfigurationProperties(CloudProperties.class)
+public class CloudCoreConfig {
 }

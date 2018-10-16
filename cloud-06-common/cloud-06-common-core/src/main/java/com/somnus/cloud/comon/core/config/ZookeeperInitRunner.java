@@ -21,7 +21,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import com.somnus.cloud.common.config.properties.PaascloudProperties;
+import com.somnus.cloud.common.config.properties.CloudProperties;
 import com.somnus.cloud.common.zk.registry.RegistryCenterFactory;
 
 import javax.annotation.Resource;
@@ -38,7 +38,8 @@ import java.net.InetAddress;
 @Slf4j
 public class ZookeeperInitRunner implements CommandLineRunner {
 	@Resource
-	private PaascloudProperties paascloudProperties;
+	private CloudProperties cloudProperties;
+	
 	@Value("${spring.application.name}")
 	private String applicationName;
 
@@ -53,7 +54,7 @@ public class ZookeeperInitRunner implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		String hostAddress = InetAddress.getLocalHost().getHostAddress();
 		log.info("###ZookeeperInitRunner，init. HostAddress={}, applicationName={}", hostAddress, applicationName);
-		RegistryCenterFactory.startup(paascloudProperties, hostAddress, applicationName);
+		RegistryCenterFactory.startup(cloudProperties, hostAddress, applicationName);
 		log.info("###ZookeeperInitRunner，finish<<<<<<<<<<<<<");
 	}
 

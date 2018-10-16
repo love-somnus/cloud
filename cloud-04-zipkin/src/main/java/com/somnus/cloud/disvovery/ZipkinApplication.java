@@ -8,7 +8,7 @@ import zipkin.server.internal.EnableZipkinServer;
 
 /**
  * @ClassName: ZipkinApplication
- * @Description: The class Paas cloud zipkin application.
+ * @Description: The class cloud zipkin application.
  * @author pc
  * @date 2018年9月26日
  */

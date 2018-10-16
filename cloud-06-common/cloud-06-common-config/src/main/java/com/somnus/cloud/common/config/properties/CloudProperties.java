@@ -20,14 +20,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import com.somnus.cloud.common.base.constant.GlobalConstant;
 
 /**
- * @ClassName: PaascloudProperties
- * @Description: The class Paascloud properties.
+ * @ClassName: CloudProperties
+ * @Description: The class Cloud properties.
  * @author Somnus
  * @date 2018年9月26日
  */
 @Data
 @ConfigurationProperties(prefix = GlobalConstant.ROOT_PREFIX)
-public class PaascloudProperties {
+public class CloudProperties {
 	private ReliableMessageProperties message = new ReliableMessageProperties();
 	private AliyunProperties aliyun = new AliyunProperties();
 	private AsyncTaskProperties task = new AsyncTaskProperties();

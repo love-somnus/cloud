@@ -41,8 +41,6 @@ import java.util.*;
  * 1.配合注解NotDisplaySql ，可以禁止指定的方法的SQL 不打印控制台。
  * 2.SQL 执行时间超过 关注时间 noticeTime ,以error级别打印到控制台
  * 使用时需要把mybatis logger级别设置为 INFO级别
- *
- * @author paascloud.net @gmail.com
  */
 @Intercepts({
 		@Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}),
@@ -50,7 +48,7 @@ import java.util.*;
 @Slf4j
 @Order(1)
 public class SqlLogInterceptor implements Interceptor {
-	@Value("${paascloud.enableSqlLogInterceptor}")
+	@Value("${cloud.enableSqlLogInterceptor}")
 	private boolean enableSqlLogInterceptor;
 
 	/**

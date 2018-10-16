@@ -18,7 +18,9 @@
     <module>cloud-06-common-core</module>
     <module>cloud-06-common-util</module>
     <module>cloud-06-common-zk</module>
+    <module>cloud-06-security-app</module>
     <module>cloud-06-security-core</module>
+    <module>cloud-06-security-feign</module>
   </modules>
 
   <dependencies>

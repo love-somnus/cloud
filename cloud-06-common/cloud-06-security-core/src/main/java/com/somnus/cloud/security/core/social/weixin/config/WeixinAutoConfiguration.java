@@ -36,7 +36,7 @@ import com.somnus.cloud.security.core.social.weixin.connect.WeixinConnectionFact
  * @date 2018年10月12日
  */
 @Configuration
-@ConditionalOnProperty(prefix = "paascloud.security.social.weixin", name = "app-id")
+@ConditionalOnProperty(prefix = "cloud.security.social.weixin", name = "app-id")
 public class WeixinAutoConfiguration extends SocialAutoConfigurerAdapter {
 
 	@Autowired

@@ -7,7 +7,7 @@ spring:
   application:
     name: spring-cloud-discovery
   rabbitmq:
-    host: paascloud-mq-rabbit
+    host: cloud-mq-rabbit
     port: 5672
     username: guest
     password: guest

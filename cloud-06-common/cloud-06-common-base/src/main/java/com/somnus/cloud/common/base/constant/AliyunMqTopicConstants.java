@@ -39,8 +39,6 @@ public class AliyunMqTopicConstants {
 
 	/**
 	 * The enum Uac mq topic enum.
-	 *
-	 * @author paascloud.net @gmail.com
 	 */
 	@AllArgsConstructor
 	public enum MqTopicEnum {
@@ -82,8 +80,6 @@ public class AliyunMqTopicConstants {
 
 	/**
 	 * The enum Uac mq tag enum.
-	 *
-	 * @author paascloud.net @gmail.com
 	 */
 	@AllArgsConstructor
 	public enum MqTagEnum {
@@ -156,8 +152,6 @@ public class AliyunMqTopicConstants {
 
 	/**
 	 * The class Consumer topics.
-	 *
-	 * @author paascloud.net @gmail.com
 	 */
 	@NoArgsConstructor(access = AccessLevel.PRIVATE)
 	public static final class ConsumerTopics {
@@ -244,8 +238,6 @@ public class AliyunMqTopicConstants {
 
 	/**
 	 * The class Topic obj.
-	 *
-	 * @author paascloud.net @gmail.com
 	 */
 	@AllArgsConstructor
 	static class TopicObj {

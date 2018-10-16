@@ -34,5 +34,5 @@ public class AsyncTaskProperties {
 
 	private int keepAliveSeconds = 3000;
 
-	private String threadNamePrefix = "paascloud-task-executor-";
+	private String threadNamePrefix = "cloud-task-executor-";
 }

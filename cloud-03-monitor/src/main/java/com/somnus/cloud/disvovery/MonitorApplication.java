@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 
 /**
  * @ClassName: MonitorApplication
- * @Description: The class Paas cloud monitor application.
+ * @Description: The class cloud monitor application.
  * @author Somnus
  * @date 2018年9月26日
  */

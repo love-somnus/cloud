@@ -26,9 +26,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 /**
- * The class Tpc message query dto.
- *
- * @author paascloud.net @gmail.com
+ * @ClassName: MessageQueryDto
+ * @Description: The class Tpc message query dto.
+ * @author Somnus
+ * @date 2018年10月16日
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

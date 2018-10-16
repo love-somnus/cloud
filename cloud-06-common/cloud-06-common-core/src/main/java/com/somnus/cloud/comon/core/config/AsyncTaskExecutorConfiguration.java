@@ -24,7 +24,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import com.somnus.cloud.common.config.properties.PaascloudProperties;
+import com.somnus.cloud.common.config.properties.CloudProperties;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -43,18 +43,18 @@ import java.util.concurrent.Executor;
 @Slf4j
 public class AsyncTaskExecutorConfiguration implements AsyncConfigurer {
 	@Resource
-	private PaascloudProperties paascloudProperties;
+	private CloudProperties cloudProperties;
 
 	@Override
 	@Bean(name = "taskExecutor")
 	public Executor getAsyncExecutor() {
 		log.debug("Creating Async Task Executor");
 		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-		executor.setCorePoolSize(paascloudProperties.getTask().getCorePoolSize());
-		executor.setMaxPoolSize(paascloudProperties.getTask().getMaxPoolSize());
-		executor.setQueueCapacity(paascloudProperties.getTask().getQueueCapacity());
-		executor.setKeepAliveSeconds(paascloudProperties.getTask().getKeepAliveSeconds());
-		executor.setThreadNamePrefix(paascloudProperties.getTask().getThreadNamePrefix());
+		executor.setCorePoolSize(cloudProperties.getTask().getCorePoolSize());
+		executor.setMaxPoolSize(cloudProperties.getTask().getMaxPoolSize());
+		executor.setQueueCapacity(cloudProperties.getTask().getQueueCapacity());
+		executor.setKeepAliveSeconds(cloudProperties.getTask().getKeepAliveSeconds());
+		executor.setThreadNamePrefix(cloudProperties.getTask().getThreadNamePrefix());
 		return new ExceptionHandlingAsyncTaskExecutor(executor);
 	}
 
