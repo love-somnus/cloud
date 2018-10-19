@@ -16,8 +16,8 @@
 package com.somnus.cloud.security.core.social.view;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.somnus.cloud.common.util.PublicUtil;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.Connection;
 import org.springframework.stereotype.Component;
@@ -59,7 +59,7 @@ public class PcConnectionStatusView extends AbstractView {
 
 		Map<String, Boolean> result = new HashMap<>(8);
 		for (String key : connections.keySet()) {
-			result.put(key, CollectionUtils.isNotEmpty(connections.get(key)));
+			result.put(key, PublicUtil.isNotEmpty(connections.get(key)));
 		}
 
 		response.setContentType("application/json;charset=UTF-8");

@@ -17,12 +17,12 @@ package com.somnus.cloud.comon.core.support;
 
 import com.google.common.collect.Lists;
 import com.somnus.cloud.common.base.dto.BaseTree;
+import com.somnus.cloud.common.util.PublicUtil;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
 /**
@@ -67,7 +67,7 @@ public abstract class AbstractTreeService<T extends BaseTree<T, ID>, ID extends 
 	@Override
 	public void recursionFn(List<T> list, T t) {
 		List<T> children = getChildList(list, t);
-		if (CollectionUtils.isNotEmpty(children)) {
+		if (PublicUtil.isEmpty(children)) {
 			t.setChildren(children);
 			t.setHasChild(true);
 		}

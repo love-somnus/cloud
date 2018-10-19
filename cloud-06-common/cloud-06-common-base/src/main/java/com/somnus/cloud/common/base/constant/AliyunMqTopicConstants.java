@@ -16,12 +16,12 @@
 package com.somnus.cloud.common.base.constant;
 
 import com.google.common.collect.Lists;
+import com.somnus.cloud.common.util.PublicUtil;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -214,12 +214,12 @@ public class AliyunMqTopicConstants {
 
 		StringBuilder result = new StringBuilder();
 
-		if (!CollectionUtils.isEmpty(topicList)) {
+		if (PublicUtil.isNotEmpty(topicList)) {
 			for (TopicObj topicObj : topicList) {
 				String topic = topicObj.getTopic();
 				Set<String> tagList = topicObj.getTagList();
 
-				if (StringUtils.isEmpty(topic) || CollectionUtils.isEmpty(topicList)) {
+				if (PublicUtil.isEmpty(topic) || PublicUtil.isEmpty(topicList)) {
 					continue;
 				}
 
@@ -253,7 +253,7 @@ public class AliyunMqTopicConstants {
 			return;
 		}
 		String str = stringBuilder.toString();
-		if (!StringUtils.isEmpty(suffix) && !str.endsWith(suffix)) {
+		if (PublicUtil.isNotEmpty(suffix) && !str.endsWith(suffix)) {
 			return;
 		}
 		stringBuilder.delete(str.length() - suffix.length(), str.length());

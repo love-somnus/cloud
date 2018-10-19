@@ -18,11 +18,10 @@ package com.somnus.cloud.common.base.constant;
 import com.google.common.collect.Lists;
 import com.somnus.cloud.common.base.enums.ErrorCodeEnum;
 import com.somnus.cloud.common.base.exception.BusinessException;
+import com.somnus.cloud.common.util.PublicUtil;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
-import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -66,7 +65,7 @@ public class AliyunSmsConstants {
 
 		public static boolean isSmsTemplate(String smsTemplateCode) {
 
-			if (StringUtils.isEmpty(smsTemplateCode)) {
+			if (PublicUtil.isEmpty(smsTemplateCode)) {
 				throw new BusinessException(ErrorCodeEnum.UAC10011020);
 			}
 			List<String> templetCodeList = getTemplateCodeList();
@@ -82,7 +81,7 @@ public class AliyunSmsConstants {
 			List<String> templetCodeList = Lists.newArrayList();
 			List<SmsTempletEnum> list = getList();
 			for (SmsTempletEnum templetEnum : list) {
-				if (StringUtils.isEmpty(templetEnum.getTempletCode())) {
+				if (PublicUtil.isEmpty(templetEnum.getTempletCode())) {
 					continue;
 				}
 				templetCodeList.add(templetEnum.getTempletCode());

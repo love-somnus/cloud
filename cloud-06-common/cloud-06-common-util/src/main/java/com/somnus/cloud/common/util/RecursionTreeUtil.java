@@ -22,8 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import org.apache.commons.collections4.CollectionUtils;
-
 /**
  * @ClassName: RecursionTreeUtil
  * @Description: The class Recursion tree util.
@@ -61,7 +59,7 @@ public class RecursionTreeUtil {
 	 */
 	private static void recursionFn(List<TreeNode> list, TreeNode node) {
 		List<TreeNode> childList = getChildList(list, node);
-		if (CollectionUtils.isEmpty(childList)) {
+		if (PublicUtil.isEmpty(childList)) {
 			return;
 		}
 		node.setChildren(childList);
@@ -77,7 +75,7 @@ public class RecursionTreeUtil {
 		List<TreeNode> tList = new ArrayList<>();
 
 		for (TreeNode treeNode : list) {
-			if (Objects.isNull(treeNode.getPid())) {
+			if (PublicUtil.isEmpty(treeNode.getPid())) {
 				continue;
 			}
 			if (Objects.equals(treeNode.getPid(), t.getId())) {

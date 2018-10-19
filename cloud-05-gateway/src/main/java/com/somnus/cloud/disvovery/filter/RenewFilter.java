@@ -21,7 +21,8 @@ import com.somnus.cloud.common.base.enums.ErrorCodeEnum;
 import com.somnus.cloud.common.base.exception.BusinessException;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;

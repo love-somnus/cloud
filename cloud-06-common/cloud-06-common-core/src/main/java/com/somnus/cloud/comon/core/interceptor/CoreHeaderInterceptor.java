@@ -17,8 +17,9 @@ package com.somnus.cloud.comon.core.interceptor;
 
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestVariableDefault;
+import com.somnus.cloud.common.util.PublicUtil;
+
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -56,7 +57,7 @@ public class CoreHeaderInterceptor extends HandlerInterceptorAdapter {
 			HystrixRequestContext.initializeContext();
 		}
 
-		if (!StringUtils.isEmpty(labels)) {
+		if (PublicUtil.isNotEmpty(labels)) {
 			CoreHeaderInterceptor.LABEL.set(Arrays.asList(labels.split(CoreHeaderInterceptor.HEADER_LABEL_SPLIT)));
 		} else {
 			CoreHeaderInterceptor.LABEL.set(Collections.emptyList());

@@ -18,6 +18,7 @@ package com.somnus.cloud.comon.core.mq;
 import com.google.common.base.Preconditions;
 import com.somnus.cloud.common.base.enums.ErrorCodeEnum;
 import com.somnus.cloud.common.base.exception.BusinessException;
+import com.somnus.cloud.common.util.PublicUtil;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,7 +28,6 @@ import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 import org.slf4j.Logger;
-import org.springframework.util.StringUtils;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
@@ -164,9 +164,9 @@ public class MqMessage implements Serializable {
 	 */
 	public static void checkMessage(String topic, String key, String body) {
 
-		Preconditions.checkArgument(!StringUtils.isEmpty(topic), "发送消息失败, 消息主题不能为空");
-		Preconditions.checkArgument(!StringUtils.isEmpty(key), "发送消息失败, 消息关键字不能为空");
-		Preconditions.checkArgument(!StringUtils.isEmpty(body), "发送消息失败, 消息体不能为空");
+		Preconditions.checkArgument(PublicUtil.isNotEmpty(topic), "发送消息失败, 消息主题不能为空");
+		Preconditions.checkArgument(PublicUtil.isNotEmpty(key), "发送消息失败, 消息关键字不能为空");
+		Preconditions.checkArgument(PublicUtil.isNotEmpty(body), "发送消息失败, 消息体不能为空");
 	}
 
 	/**
