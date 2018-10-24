@@ -1,8 +1,16 @@
 spring:
   cloud:
     config:
+      name: spring-cloud-monitor
       discovery:
         service-id: spring-cloud-discovery
         enabled: true
       label: ${spring.profiles.active}
       profile: ${spring.profiles.active}
+
+    inetutils:
+      ignoredInterfaces:
+        - docker0
+        - veth.*
+      preferredNetworks:
+        - 192.168
