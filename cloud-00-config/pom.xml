@@ -9,11 +9,16 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <description>微服务注册中心</description>
-  <artifactId>cloud-01-eureka</artifactId>
+  <description>分布式配置中心</description>
+  <artifactId>cloud-00-config</artifactId>
   <packaging>jar</packaging>
 
   <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    
     <!-- 服务注册与发现begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -21,25 +26,13 @@
     </dependency>
     <!-- 服务注册与发现end -->
     
-    <!-- 服务链路追踪begin -->
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-zipkin</artifactId>
-    </dependency>
-    <!-- 服务链路追踪end -->
-    
     <!-- 分布式配置客户端begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-config</artifactId>
-    </dependency>
-    <!-- 分布式配置客户端end -->
-    
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
+      <artifactId>spring-cloud-config-server</artifactId>
     </dependency>
   </dependencies>
+  <!-- 分布式配置服务端end -->
   
   <build>
     <finalName>${artifactId}</finalName>
