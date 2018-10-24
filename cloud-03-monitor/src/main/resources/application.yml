@@ -6,3 +6,11 @@ spring:
     active: dev
   application:
     name: spring-cloud-monitor
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.cloud.client.ip-address}:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}

@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @ClassName: DiscoveryApplication
@@ -11,9 +12,10 @@ import org.springframework.cloud.config.server.EnableConfigServer;
  * @author Somnus
  * @date 2018年9月25日
  */
-@SpringBootApplication
 @EnableConfigServer
 @EnableDiscoveryClient
+@EnableEurekaClient
+@SpringBootApplication
 public class DiscoveryApplication {
 
 	/**

@@ -23,13 +23,20 @@
     <!-- 熔断器监控begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+      <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-netflix-turbine</artifactId>
     </dependency>
     <!-- 熔断器监控end -->
+    
+    <!-- 熔断器仪表盘begin -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+    </dependency>
+    <!-- 熔断器仪表盘end -->
     
     <!-- Spring Boot Admin begin -->
     <dependency>
@@ -45,6 +52,7 @@
       <artifactId>spring-boot-admin-starter-client</artifactId>
     </dependency>
     <!-- Spring Boot Admin end -->
+    
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>

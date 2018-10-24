@@ -1,8 +1,17 @@
 spring:
+  profiles:
+    active: dev
   application:
     name: spring-cloud-config
-
+  
   cloud:
+    inetutils:
+      ignoredInterfaces:
+        - docker0
+        - veth.*
+        - VM.*
+      preferredNetworks:
+        - 192.168
     config:
       enabled: true
       label: master
@@ -12,7 +21,12 @@ spring:
           search-paths: config-repository
           username: love-somnus
           password: miss332512
-          
+
+  security:
+    user:
+      name: root
+      password: passw0rd     
+
 server:
   port: 8888
 

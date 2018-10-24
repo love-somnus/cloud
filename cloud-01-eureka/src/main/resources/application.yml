@@ -14,11 +14,6 @@ spring:
         - VM.*
       preferredNetworks:
         - 192.168
-  security:
-    user:
-      name: root
-      password: passw0rd
-  
 
 eureka:
   server:

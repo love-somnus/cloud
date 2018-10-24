@@ -16,7 +16,6 @@
   </parent>
 
   <modules>
-    <module>cloud-00-config</module>
     <module>cloud-01-eureka</module>
     <module>cloud-02-discovery</module>
     <module>cloud-03-monitor</module>

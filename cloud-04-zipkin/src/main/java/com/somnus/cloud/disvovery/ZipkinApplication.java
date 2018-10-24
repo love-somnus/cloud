@@ -2,7 +2,7 @@ package com.somnus.cloud.disvovery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 import zipkin.server.internal.EnableZipkinServer;
 
@@ -12,9 +12,9 @@ import zipkin.server.internal.EnableZipkinServer;
  * @author pc
  * @date 2018年9月26日
  */
-@EnableDiscoveryClient
-@SpringBootApplication
+@EnableEurekaClient
 @EnableZipkinServer
+@SpringBootApplication
 public class ZipkinApplication {
 
 	/**

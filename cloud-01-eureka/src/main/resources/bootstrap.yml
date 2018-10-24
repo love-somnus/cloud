@@ -1,9 +1,0 @@
-spring:
-  cloud: 
-    config:
-      name: spring-cloud-client
-      label: master
-      profile: dev
-      discovery: #面向服务，允许被发现
-        enabled: true
-        serviceId: spring-cloud-config #这个名字是Config Server端的服务名字，不能瞎写

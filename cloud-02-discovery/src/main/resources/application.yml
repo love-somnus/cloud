@@ -1,18 +1,35 @@
 server:
-  port: 8080
+  port: 8888
 
 spring:
   profiles:
     active: dev
   application:
     name: spring-cloud-discovery
-  rabbitmq:
-    host: cloud-mq-rabbit
-    port: 5672
-    username: guest
-    password: guest
-
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/love-somnus/cloud
+          username: love-somnus
+          password: miss332512
+          search-paths: config-repository
+          default-label: ${spring.profiles.active}
+    inetutils:
+      ignoredInterfaces:
+        - docker0
+        - veth.*
+      preferredNetworks:
+        - 192.168
   security:
     user:
       name: root
-      password: root
+      password: passw0rd
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.cloud.client.ip-address}:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}

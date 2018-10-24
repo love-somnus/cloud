@@ -31,8 +31,14 @@
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-config-server</artifactId>
     </dependency>
+    <!-- 分布式配置服务端end -->
+    
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
   </dependencies>
-  <!-- 分布式配置服务端end -->
+  
   
   <build>
     <finalName>${artifactId}</finalName>
