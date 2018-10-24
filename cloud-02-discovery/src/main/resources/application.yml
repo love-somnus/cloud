@@ -21,6 +21,13 @@ spring:
         - veth.*
       preferredNetworks:
         - 192.168
+
+  rabbitmq:
+    host: 121.43.162.28
+    port: 5672
+    username: guest
+    password: guest
+
   security:
     user:
       name: root

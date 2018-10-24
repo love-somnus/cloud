@@ -27,6 +27,13 @@
     </dependency>
     <!-- 分布式配置服务端end -->
     
+    <!-- 消息总线begin -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+    </dependency>
+    <!-- 消息总线end -->
+    
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-security</artifactId>
