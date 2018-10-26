@@ -2,10 +2,11 @@ server:
   port: 8761
 
 spring:
-  profiles:
-    active: dev
   application:
     name: spring-cloud-eureka
+  profiles:
+    active: dev 
+
   cloud:
     inetutils:
       ignoredInterfaces:
@@ -15,13 +16,7 @@ spring:
       preferredNetworks:
         - 192.168
 
-eureka:
-  server:
-    enable-self-preservation: false #表示是否开启自我保护模式,默认为true
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false #表示是否将自己注册到Eureka Server，默认为true
-    fetchRegistry: false #表示是否从Eureka Server获取注册信息，默认为true
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+  security:
+    user:
+      name: root
+      password: passw0rd
