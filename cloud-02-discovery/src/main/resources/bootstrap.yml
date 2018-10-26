@@ -10,6 +10,16 @@ spring:
     bus:
       refresh:
         enabled: true
+  rabbitmq:
+    host: 121.43.162.28
+    port: 5672
+    username: guest
+    password: guest
+  
+  security:
+    user:
+      name: root
+      password: passw0rd
 
 #加入注册中心，实现高可用
 eureka:

@@ -2,10 +2,10 @@ server:
   port: 8888
 
 spring:
+  profiles:
+    active: dev 
   application:
     name: spring-cloud-discovery
-  profiles:
-    active: dev   
 
   cloud:
     inetutils:
@@ -14,17 +14,6 @@ spring:
         - veth.*
       preferredNetworks:
         - 192.168
-  
-  rabbitmq:
-    host: 121.43.162.28
-    port: 5672
-    username: guest
-    password: guest
-  
-  security:
-    user:
-      name: root
-      password: passw0rd
 
 management:
   endpoints:

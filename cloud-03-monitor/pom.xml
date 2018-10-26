@@ -67,10 +67,12 @@
     </dependency>
     <!-- 分布式配置客户端end -->
     
+    <!-- Security安全认证begin -->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-security</artifactId>
     </dependency>
+    <!-- Security安全认证end -->
     
     <dependency>
       <groupId>com.hazelcast</groupId>
