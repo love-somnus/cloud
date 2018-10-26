@@ -5,7 +5,7 @@ spring:
       label: master
       server:
         git:
-          uri: https://github.com/love-somnus/SpringCloud
+          uri: https://github.com/love-somnus/cloud
           search-paths: config-repository
     bus:
       refresh:
@@ -15,8 +15,8 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://root:passw0rd@localhost:8761/eureka/
   instance:
-    ip-address: 127.0.0.1 # 指定此实例的ip
+    ip-address: localhost # 指定此实例的ip
     prefer-ip-address: true #注册时使用ip而不是主机名
     instance-id: ${spring.application.name}:${eureka.instance.ip-address}:${server.port}
