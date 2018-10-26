@@ -74,6 +74,13 @@
     </dependency>
     <!-- Security安全认证end -->
     
+    <!-- 消息总线begin -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+    </dependency>
+    <!-- 消息总线end -->
+    
     <dependency>
       <groupId>com.hazelcast</groupId>
       <artifactId>hazelcast</artifactId>

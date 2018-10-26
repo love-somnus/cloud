@@ -8,6 +8,12 @@ spring:
         enabled: true
         service-id: spring-cloud-discovery #这个名字是Config Server端的服务名字，不能瞎写
 
+  rabbitmq:
+    host: 121.43.162.28
+    port: 5672
+    username: guest
+    password: guest
+
 #加入注册中心，实现高可用
 eureka:
   client:

@@ -1,18 +1,24 @@
 spring:
-  cloud:
+  cloud: 
     config:
-      fail-fast: true
-      discovery:
-        service-id: spring-cloud-discovery
+      name: spring-cloud-gateway
+      label: master
+      profile: dev
+      discovery: #面向服务，允许被发现
         enabled: true
-      label: ${spring.profiles.active}
-      profile: ${spring.profiles.active}
-      username: admin
-      password: admin
+        service-id: spring-cloud-discovery #这个名字是Config Server端的服务名字，不能瞎写
 
+  rabbitmq:
+    host: 121.43.162.28
+    port: 5672
+    username: guest
+    password: guest
+
+#加入注册中心，实现高可用
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://root:root@cloud-eureka:8761/eureka/
+      defaultZone: http://root:passw0rd@localhost:8761/eureka/
   instance:
-    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}

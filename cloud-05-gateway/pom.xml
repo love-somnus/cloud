@@ -12,6 +12,12 @@
   <artifactId>cloud-05-gateway</artifactId>
 
   <dependencies>
+    <dependency>
+      <groupId>com.somnus.common</groupId>
+      <artifactId>cloud-06-common-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    
     <!-- 服务注册与发现begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -33,16 +39,19 @@
     </dependency>
     <!-- 路由网关end -->
     
+    <!-- 消息总线begin -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+    </dependency>
+    <!-- 消息总线end -->
+    
+    <!-- oauth2认证授权begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-oauth2</artifactId>
     </dependency>
-    
-    <dependency>
-      <groupId>com.somnus.common</groupId>
-      <artifactId>cloud-06-common-core</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!-- oauth2认证授权end -->
   </dependencies>
   
   <build>
