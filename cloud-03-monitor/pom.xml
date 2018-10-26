@@ -53,10 +53,12 @@
     </dependency>
     <!-- Spring Boot Admin end -->
     
+    <!-- 配置中心监控 -->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-config-monitor</artifactId>
     </dependency>
+    <!-- 配置中心监控 -->
     
     <!-- 分布式配置客户端begin -->
     <dependency>

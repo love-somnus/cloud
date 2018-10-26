@@ -34,10 +34,12 @@
     </dependency>
     <!-- 消息总线end -->
     
+    <!-- 用户认证begin -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
+    <!-- 用户认证end -->
   </dependencies>
   
   <build>
