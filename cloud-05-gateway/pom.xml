@@ -17,35 +17,42 @@
       <artifactId>cloud-06-common-core</artifactId>
       <version>${project.version}</version>
     </dependency>
-    
+
     <!-- 服务注册与发现begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
     </dependency>
     <!-- 服务注册与发现end -->
-    
+
     <!-- 分布式配置客户端begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-config</artifactId>
     </dependency>
     <!-- 分布式配置客户端end -->
-    
+
     <!-- 路由网关begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
     </dependency>
     <!-- 路由网关end -->
-    
+
     <!-- 消息总线begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-bus-amqp</artifactId>
     </dependency>
     <!-- 消息总线end -->
-    
+
+    <!-- Security安全认证begin -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-security</artifactId>
+    </dependency>
+    <!-- Security安全认证end -->
+
     <!-- oauth2认证授权begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -53,7 +60,7 @@
     </dependency>
     <!-- oauth2认证授权end -->
   </dependencies>
-  
+
   <build>
     <finalName>${artifactId}</finalName>
     <plugins>
