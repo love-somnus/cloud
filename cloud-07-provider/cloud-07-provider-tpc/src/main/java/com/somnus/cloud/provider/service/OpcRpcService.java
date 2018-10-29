@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.service;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.github.pagehelper.PageInfo;
@@ -42,11 +41,11 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class OpcRpcService {
 
-	@Resource
+	@Autowired
 	private DingtalkFeignApi dingtalkFeignApi;
-	@Resource
+	@Autowired
 	private OpcOssFeignApi opcOssFeignApi;
-	@Resource
+	@Autowired
 	private OpcMqMessageFeignApi opcMqMessageFeignApi;
 
 	/**

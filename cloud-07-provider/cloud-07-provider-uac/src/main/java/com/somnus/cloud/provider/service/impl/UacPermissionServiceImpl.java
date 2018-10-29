@@ -17,10 +17,10 @@ package com.somnus.cloud.provider.service.impl;
 
 import java.util.Set;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
@@ -46,7 +46,7 @@ public class UacPermissionServiceImpl implements UacPermissionService {
 	private AntPathMatcher antPathMatcher = new AntPathMatcher();
 	private static final String OAUTH2_CLIENT_PREFIX = "cloud-client-";
 
-	@Resource
+	@Autowired
 	private ClientDetailsService clientDetailsService;
 
 	@Override

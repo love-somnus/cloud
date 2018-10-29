@@ -23,12 +23,12 @@ import com.somnus.cloud.common.base.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -42,7 +42,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class RenewFilter extends ZuulFilter {
 
-	@Resource
+	@Autowired
 	private JwtTokenStore jwtTokenStore;
 	
 	private static final int EXPIRES_IN = 60 * 20;

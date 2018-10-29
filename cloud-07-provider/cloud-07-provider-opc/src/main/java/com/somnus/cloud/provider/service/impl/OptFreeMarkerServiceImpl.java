@@ -22,10 +22,11 @@ import com.somnus.cloud.provider.service.OptFreeMarkerService;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
-import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.Map;
 
@@ -38,7 +39,7 @@ import java.util.Map;
 @Service
 public class OptFreeMarkerServiceImpl implements OptFreeMarkerService {
 
-	@Resource
+	@Autowired
 	private Configuration configuration;
 
 	@Override

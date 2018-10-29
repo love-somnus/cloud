@@ -18,8 +18,7 @@ package com.somnus.cloud.provider.web.admin;
 import java.util.List;
 import java.util.Objects;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -62,7 +61,8 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Api(value = "Web - UacUserMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacUserMainController extends BaseController {
-	@Resource
+	
+	@Autowired
 	private UacUserService uacUserService;
 
 	/**
@@ -78,7 +78,7 @@ public class UacUserMainController extends BaseController {
 
 		logger.info("查询用户列表uacUser={}", uacUser);
 		PageInfo<UacUser> pageInfo = uacUserService.queryUserListWithPage(uacUser);
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class UacUserMainController extends BaseController {
 		PageHelper.startPage(log.getPageNum(), log.getPageSize());
 		List<UacLog> list = uacUserService.queryUserLogListWithUserId(getLoginAuthDto().getUserId());
 		PageInfo<UacLog> pageInfo = new PageInfo<>(list);
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 
 	/**
@@ -171,7 +171,7 @@ public class UacUserMainController extends BaseController {
 		}
 
 		UserBindRoleVo bindUserDto = uacUserService.getUserBindRoleDto(userId);
-		return WrapMapper.ok(bindUserDto);
+		return WrapMapper.success(bindUserDto);
 	}
 
 	/**
@@ -203,7 +203,7 @@ public class UacUserMainController extends BaseController {
 
 		LoginAuthDto loginAuthDto = getLoginAuthDto();
 		List<UserMenuDto> userMenuDtoList = uacUserService.queryUserMenuDtoData(loginAuthDto);
-		return WrapMapper.ok(userMenuDtoList);
+		return WrapMapper.success(userMenuDtoList);
 	}
 
 	/**
@@ -240,7 +240,7 @@ public class UacUserMainController extends BaseController {
 		logger.info("getUacUserById - 根据用户Id查询用户信息. userId={}", userId);
 		UacUser uacUser = uacUserService.queryByUserId(userId);
 		logger.info("getUacUserById - 根据用户Id查询用户信息. [OK] uacUser={}", uacUser);
-		return WrapMapper.ok(uacUser);
+		return WrapMapper.success(uacUser);
 	}
 
 	/**

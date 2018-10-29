@@ -18,9 +18,8 @@ package com.somnus.cloud.provider.service.impl;
 import java.math.BigDecimal;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.common.base.Preconditions;
@@ -57,11 +56,13 @@ import com.somnus.cloud.provider.service.OpcOssService;
  */
 @Service
 public class OmcCartServiceImpl extends BaseService<OmcCart> implements OmcCartService {
-	@Resource
+	@Autowired
 	private OmcCartMapper omcCartMapper;
-	@Resource
+	
+	@Autowired
 	private MdcProductService mdcProductService;
-	@Resource
+	
+	@Autowired
 	private OpcOssService opcOssService;
 
 	@Override

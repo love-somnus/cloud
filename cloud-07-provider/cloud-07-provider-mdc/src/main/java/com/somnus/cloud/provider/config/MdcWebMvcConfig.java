@@ -15,6 +15,7 @@
  */
 package com.somnus.cloud.provider.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -27,7 +28,6 @@ import com.somnus.cloud.comon.core.config.PcObjectMapper;
 import com.somnus.cloud.comon.core.config.SwaggerConfiguration;
 import com.somnus.cloud.comon.core.interceptor.TokenInterceptor;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -41,7 +41,7 @@ import java.util.List;
 @Import(SwaggerConfiguration.class)
 public class MdcWebMvcConfig extends WebMvcConfigurationSupport {
 
-	@Resource
+	@Autowired
 	private TokenInterceptor vueViewInterceptor;
 
 	@Override

@@ -17,10 +17,10 @@ package com.somnus.cloud.provider.service.impl;
 
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -49,13 +49,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class SmsServiceImpl implements SmsService {
-	@Resource
+	@Autowired
 	private SmsProducer smsProducer;
-	@Resource
+	
+	@Autowired
 	private UacUserService uacUserService;
-	@Resource
+	
+	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
-	@Resource
+	
+	@Autowired
 	private UserManager userManager;
 
 	@Override

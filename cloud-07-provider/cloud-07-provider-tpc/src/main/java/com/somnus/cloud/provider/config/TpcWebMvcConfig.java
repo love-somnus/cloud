@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.config;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -42,7 +41,7 @@ import com.somnus.cloud.comon.core.interceptor.TokenInterceptor;
 @Import(SwaggerConfiguration.class)
 public class TpcWebMvcConfig extends WebMvcConfigurationSupport {
 
-	@Resource
+	@Autowired
 	private TokenInterceptor vueViewInterceptor;
 
 	@Override

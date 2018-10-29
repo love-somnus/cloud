@@ -15,10 +15,9 @@
  */
 package com.somnus.cloud.provider.web.mall;
 
-import javax.annotation.Resource;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,7 +45,8 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Api(value = "WEB - MallUserController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MallUserController extends BaseController {
-	@Resource
+	
+	@Autowired
 	private UacUserService uacUserService;
 
 	/**
@@ -83,6 +83,6 @@ public class MallUserController extends BaseController {
 		UserInfoDto userInfoDto = new UserInfoDto();
 		BeanUtils.copyProperties(uacUser, userInfoDto);
 
-		return WrapMapper.ok(userInfoDto);
+		return WrapMapper.success(userInfoDto);
 	}
 }

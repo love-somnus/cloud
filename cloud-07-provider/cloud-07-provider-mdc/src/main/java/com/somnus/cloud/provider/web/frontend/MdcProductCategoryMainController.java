@@ -17,9 +17,8 @@ package com.somnus.cloud.provider.web.frontend;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,7 +52,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "WEB - MdcProductCategoryMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MdcProductCategoryMainController extends BaseController {
 
-	@Resource
+	@Autowired
 	private MdcProductCategoryService mdcProductCategoryService;
 
 	/**
@@ -65,7 +64,7 @@ public class MdcProductCategoryMainController extends BaseController {
 	@ApiOperation(httpMethod = "POST", value = "获取商品分类树")
 	public Wrapper<List<MdcCategoryVo>> queryCategoryTreeList() {
 		List<MdcCategoryVo> categoryVoList = mdcProductCategoryService.getCategoryTreeList();
-		return WrapMapper.ok(categoryVoList);
+		return WrapMapper.success(categoryVoList);
 	}
 
 	/**
@@ -80,7 +79,7 @@ public class MdcProductCategoryMainController extends BaseController {
 	public Wrapper<MdcCategoryVo> queryCategoryVoById(@ApiParam(name = "id", value = "商品分类id") @PathVariable Long id) {
 		logger.info("根据Id查询商品分类信息, categoryId={}", id);
 		MdcCategoryVo mdcCategoryVo = mdcProductCategoryService.getMdcCategoryVoById(id);
-		return WrapMapper.ok(mdcCategoryVo);
+		return WrapMapper.success(mdcCategoryVo);
 	}
 
 

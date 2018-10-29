@@ -15,7 +15,7 @@
  */
 package com.somnus.cloud.provider.job.simple;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSON;
 import com.dangdang.ddframe.job.api.ShardingContext;
@@ -36,9 +36,10 @@ import com.somnus.cloud.provider.service.TpcMqMessageService;
 @ElasticSimpleJob(cron = "0 0 1 1/1 * ?")
 public class DeleteRpcProducerMessageJob implements SimpleJob {
 
-	@Resource
+	@Autowired
 	private CloudProperties cloudProperties;
-	@Resource
+	
+	@Autowired
 	private TpcMqMessageService tpcMqMessageService;
 
 	/**

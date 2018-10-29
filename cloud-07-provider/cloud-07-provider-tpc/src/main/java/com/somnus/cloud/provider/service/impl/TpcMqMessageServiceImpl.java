@@ -18,10 +18,9 @@ package com.somnus.cloud.provider.service.impl;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -65,17 +64,21 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Transactional(rollbackFor = Throwable.class)
 public class TpcMqMessageServiceImpl extends BaseService<TpcMqMessage> implements TpcMqMessageService {
-	@Resource
+	@Autowired
 	private TpcMqMessageMapper tpcMqMessageMapper;
-	@Resource
+	
+	@Autowired
 	private TpcMqConfirmMapper tpcMqConfirmMapper;
-	@Resource
+	
+	@Autowired
 	private TpcMqConsumerService tpcMqConsumerService;
-	@Resource
+	@Autowired
 	private UacRpcService uacRpcService;
-	@Resource
+	
+	@Autowired
 	private MdcRpcService mdcRpcService;
-	@Resource
+	
+	@Autowired
 	private OpcRpcService opcRpcService;
 
 	@Override
@@ -263,7 +266,7 @@ public class TpcMqMessageServiceImpl extends BaseService<TpcMqMessage> implement
 				List<MqMessageVo> list = opcWrapper.getResult().getList();
 				result.addAll(list);
 			}
-			return WrapMapper.ok(new PageInfo<>(result));
+			return WrapMapper.success(new PageInfo<>(result));
 		}
 		if (StringUtils.equals(PIDEnum.PID_UAC.name(), producerGroup)) {
 			return uacRpcService.queryMessageListWithPage(messageQueryDto);

@@ -15,11 +15,10 @@
  */
 package com.somnus.cloud.provider.config;
 
-import javax.annotation.Resource;
-
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
@@ -41,13 +40,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Configuration
 public class AliyunMqConfiguration {
-	@Resource
+	@Autowired
 	private UacPushMessageListener uacPushMessageListener;
 
-	@Resource
+	@Autowired
 	private CloudProperties cloudProperties;
 
-	@Resource
+	@Autowired
 	private TaskExecutor taskExecutor;
 
 	/**

@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.rpc;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,7 +41,8 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @Api(value = "API - OmcOrderQueryFeignClient", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class OmcOrderQueryFeignClient extends BaseController implements OmcOrderQueryFeignApi {
-	@Resource
+	
+	@Autowired
 	private OmcOrderService omcOrderService;
 
 	@Override
@@ -50,7 +50,7 @@ public class OmcOrderQueryFeignClient extends BaseController implements OmcOrder
 	public Wrapper<OrderDto> queryByOrderNo(@PathVariable("orderNo") String orderNo) {
 		logger.info("selectByOrderNo - 根据订单号查询订单信息. orderNo={}", orderNo);
 		OrderDto orderDto = omcOrderService.queryOrderDtoByOrderNo(orderNo);
-		return WrapMapper.ok(orderDto);
+		return WrapMapper.success(orderDto);
 	}
 
 	@Override
@@ -58,6 +58,6 @@ public class OmcOrderQueryFeignClient extends BaseController implements OmcOrder
 	public Wrapper<OrderDto> queryByUserIdAndOrderNo(@PathVariable("userId") Long userId, @PathVariable("orderNo") String orderNo) {
 		logger.info("selectByUserIdAndOrderNo - 根据订单号查询用户订单信息. userId={}, orderNo={}", userId, orderNo);
 		OrderDto orderDto = omcOrderService.queryOrderDtoByUserIdAndOrderNo(userId, orderNo);
-		return WrapMapper.ok(orderDto);
+		return WrapMapper.success(orderDto);
 	}
 }

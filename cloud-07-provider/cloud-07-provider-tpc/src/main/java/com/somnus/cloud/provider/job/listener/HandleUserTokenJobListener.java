@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.job.listener;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.dangdang.ddframe.job.executor.ShardingContexts;
@@ -38,7 +37,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class HandleUserTokenJobListener implements ElasticJobListener {
 
-	@Resource
+	@Autowired
 	private OpcRpcService opcRpcService;
 
 	private AtomicLong startTime = new AtomicLong();

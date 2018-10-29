@@ -55,7 +55,7 @@ public class PcLogoutSuccessHandler implements LogoutSuccessHandler {
 			throws IOException {
 		log.info("退出成功");
 		response.setContentType("application/json;charset=UTF-8");
-		response.getWriter().write(objectMapper.writeValueAsString(WrapMapper.ok("退出成功")));
+		response.getWriter().write(objectMapper.writeValueAsString(WrapMapper.success("退出成功")));
 	}
 
 }

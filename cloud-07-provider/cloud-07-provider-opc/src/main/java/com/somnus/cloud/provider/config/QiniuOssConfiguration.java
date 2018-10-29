@@ -22,10 +22,10 @@ import com.qiniu.util.Auth;
 import com.somnus.cloud.common.config.properties.CloudProperties;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.annotation.Resource;
 
 /**
  * @ClassName: QiniuOssConfiguration
@@ -37,7 +37,7 @@ import javax.annotation.Resource;
 @Configuration
 public class QiniuOssConfiguration {
 
-	@Resource
+	@Autowired
 	private CloudProperties cloudProperties;
 
 	/**

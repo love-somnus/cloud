@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,7 +38,7 @@ import com.somnus.cloud.provider.service.TpcMqProducerService;
 @Transactional(rollbackFor = Exception.class)
 public class TpcMqProducerServiceImpl extends BaseService<TpcMqProducer> implements TpcMqProducerService {
 
-	@Resource
+	@Autowired
 	private TpcMqProducerMapper mdcMqProducerMapper;
 
 	@Override

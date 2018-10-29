@@ -17,9 +17,8 @@ package com.somnus.cloud.provider.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,7 +44,7 @@ import com.somnus.cloud.provider.service.OmcShippingService;
 @Service
 public class OmcShippingServiceImpl extends BaseService<OmcShipping> implements OmcShippingService {
 
-	@Resource
+	@Autowired
 	private OmcShippingMapper omcShippingMapper;
 
 	@Override

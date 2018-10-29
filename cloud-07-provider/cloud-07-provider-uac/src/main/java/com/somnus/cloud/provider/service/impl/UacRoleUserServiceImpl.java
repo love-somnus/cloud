@@ -18,8 +18,7 @@ package com.somnus.cloud.provider.service.impl;
 import java.util.List;
 import java.util.Objects;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,7 +42,8 @@ import com.somnus.cloud.provider.service.UacRoleUserService;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UacRoleUserServiceImpl extends BaseService<UacRoleUser> implements UacRoleUserService {
-	@Resource
+	
+	@Autowired
 	private UacRoleUserMapper uacRoleUserMapper;
 
 	@Override

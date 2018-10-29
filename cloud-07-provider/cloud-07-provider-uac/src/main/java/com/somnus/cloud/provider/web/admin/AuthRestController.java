@@ -15,10 +15,10 @@
  */
 package com.somnus.cloud.provider.web.admin;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -58,13 +58,16 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(value = "/auth")
 @Api(value = "Web-AuthRestController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class AuthRestController extends BaseController {
-	@Resource
+	@Autowired
 	private UacUserService uacUserService;
-	@Resource
+	
+	@Autowired
 	private SmsService smsService;
-	@Resource
+	
+	@Autowired
 	private EmailService emailService;
-	@Resource
+	
+	@Autowired
 	private UacLogService uacLogService;
 
 	/**
@@ -81,7 +84,7 @@ public class AuthRestController extends BaseController {
 		uacUser.setStatus(UacUserStatusEnum.ENABLE.getKey());
 		uacUser.setMobileNo(mobileNo);
 		int count = uacUserService.selectCount(uacUser);
-		return WrapMapper.ok(count > 0);
+		return WrapMapper.success(count > 0);
 	}
 
 	/**
@@ -98,7 +101,7 @@ public class AuthRestController extends BaseController {
 		uacUser.setStatus(UacUserStatusEnum.ENABLE.getKey());
 		uacUser.setEmail(email);
 		int count = uacUserService.selectCount(uacUser);
-		return WrapMapper.ok(count > 0);
+		return WrapMapper.success(count > 0);
 	}
 
 	/**
@@ -170,8 +173,8 @@ public class AuthRestController extends BaseController {
 	@ApiOperation(httpMethod = "POST", value = "重置密码-手机-提交")
 	public Wrapper<String> submitResetPwdPhone(@RequestParam("mobile") String mobile, HttpServletResponse response) {
 		logger.info("重置密码-手机-提交, mobile={}", mobile);
-		String token = smsService.submitResetPwdPhone(mobile, response);
-		return WrapMapper.ok(token);
+		String tsuccessen = smsService.submitResetPwdPhone(mobile, response);
+		return WrapMapper.success(tsuccessen);
 	}
 
 	/**
@@ -205,15 +208,15 @@ public class AuthRestController extends BaseController {
 	/**
 	 * 激活用户.
 	 *
-	 * @param activeUserToken the active user token
+	 * @param activeUserTsuccessen the active user successen
 	 *
 	 * @return the wrapper
 	 */
-	@GetMapping(value = "/activeUser/{activeUserToken}")
+	@GetMapping(value = "/activeUser/{activeUserTsuccessen}")
 	@ApiOperation(httpMethod = "POST", value = "激活用户")
-	public Wrapper<?> activeUser(@PathVariable String activeUserToken) {
-		uacUserService.activeUser(activeUserToken);
-		return WrapMapper.ok("激活成功");
+	public Wrapper<?> activeUser(@PathVariable String activeUserTsuccessen) {
+		uacUserService.activeUser(activeUserTsuccessen);
+		return WrapMapper.success("激活成功");
 	}
 
 	/**

@@ -16,6 +16,8 @@
 package com.somnus.cloud.provider.consumer;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.somnus.cloud.common.util.JacksonUtil;
@@ -23,7 +25,6 @@ import com.somnus.cloud.comon.core.mq.MqMessage;
 import com.somnus.cloud.provider.api.model.dto.PcSendEmailRequest;
 import com.somnus.cloud.provider.service.OptSendMailService;
 
-import javax.annotation.Resource;
 import java.util.Set;
 
 /**
@@ -36,7 +37,7 @@ import java.util.Set;
 @Service
 public class OptSendEmailTopicConsumer {
 
-	@Resource
+	@Autowired
 	private OptSendMailService optSendMailService;
 
 	/**

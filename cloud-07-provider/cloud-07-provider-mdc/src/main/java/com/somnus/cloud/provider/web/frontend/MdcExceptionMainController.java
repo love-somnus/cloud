@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.frontend;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,7 +44,8 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping(value = "/exception", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Api(value = "Web - MdcExceptionMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MdcExceptionMainController extends BaseController {
-	@Resource
+	
+	@Autowired
 	private MdcExceptionLogService mdcExceptionLogService;
 
 	/**
@@ -60,6 +60,6 @@ public class MdcExceptionMainController extends BaseController {
 	public Wrapper<?> queryLogListWithPage(@ApiParam(name = "mdcExceptionQueryDto", value = "异常查询条件") @RequestBody MdcExceptionQueryDto mdcExceptionQueryDto) {
 		logger.info("查询日志处理列表 mdcExceptionQueryDto={}", mdcExceptionQueryDto);
 		PageInfo<MdcExceptionLog> pageInfo = mdcExceptionLogService.queryExceptionListWithPage(mdcExceptionQueryDto);
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 }

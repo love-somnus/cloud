@@ -67,12 +67,14 @@ public class Wrapper<T> implements Serializable {
 	/**
 	 * 编号.
 	 */
-	private int code;
+	@Builder.Default
+	private int code = Wrapper.SUCCESS_CODE;
 
 	/**
 	 * 信息.
 	 */
-	private String message;
+	@Builder.Default
+	private String message = Wrapper.SUCCESS_MESSAGE;
 
 	/**
 	 * 结果数据
@@ -116,7 +118,7 @@ public class Wrapper<T> implements Serializable {
 	 * @return the wrapper
 	 */
 	private Wrapper<T> code(int code) {
-		this.setCode(code);
+		this.code = code;
 		return this;
 	}
 
@@ -128,7 +130,7 @@ public class Wrapper<T> implements Serializable {
 	 * @return the wrapper
 	 */
 	private Wrapper<T> message(String message) {
-		this.setMessage(message);
+		this.message = message;
 		return this;
 	}
 
@@ -140,7 +142,7 @@ public class Wrapper<T> implements Serializable {
 	 * @return the wrapper
 	 */
 	public Wrapper<T> result(T result) {
-		this.setResult(result);
+		this.result = result;
 		return this;
 	}
 

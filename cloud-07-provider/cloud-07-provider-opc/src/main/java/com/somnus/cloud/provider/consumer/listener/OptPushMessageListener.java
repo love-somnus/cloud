@@ -22,6 +22,7 @@ import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.common.message.MessageExt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
@@ -34,7 +35,6 @@ import com.somnus.cloud.provider.consumer.MdcTopicConsumer;
 import com.somnus.cloud.provider.consumer.OptSendEmailTopicConsumer;
 import com.somnus.cloud.provider.consumer.OptSendSmsTopicConsumer;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -48,16 +48,19 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class OptPushMessageListener implements MessageListenerConcurrently {
 
-	@Resource
+	@Autowired
 	private OptSendSmsTopicConsumer optSendSmsTopicService;
-	@Resource
+	
+	@Autowired
 	private OptSendEmailTopicConsumer optSendEmailTopicService;
-	@Resource
+	
+	@Autowired
 	private MdcTopicConsumer mdcTopicConsumer;
 
-	@Resource
+	@Autowired
 	private MqMessageService mqMessageService;
-	@Resource
+	
+	@Autowired
 	private StringRedisTemplate srt;
 
 	/**

@@ -19,8 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,16 +47,19 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @ElasticSimpleJob(cron = "0/30 * * * * ?", jobParameter = "fetchNum=200")
 public class HandleSendingMessageJob extends AbstractBaseDataflowJob<TpcMqMessage> {
-	@Resource
+	@Autowired
 	private TpcMqMessageService tpcMqMessageService;
+	
 	@Value("${cloud.message.handleTimeout}")
 	private int timeOutMinute;
+	
 	@Value("${cloud.message.maxSendTimes}")
 	private int messageMaxSendTimes;
 
 	@Value("${cloud.message.resendMultiplier}")
 	private int messageResendMultiplier;
-	@Resource
+	
+	@Autowired
 	private TpcMqConfirmMapper tpcMqConfirmMapper;
 
 	/**

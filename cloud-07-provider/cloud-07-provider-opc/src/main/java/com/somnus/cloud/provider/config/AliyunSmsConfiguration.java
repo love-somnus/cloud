@@ -23,10 +23,10 @@ import com.aliyuncs.profile.IClientProfile;
 import com.somnus.cloud.common.config.properties.CloudProperties;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.annotation.Resource;
 
 /**
  * @ClassName: AliyunSmsConfiguration
@@ -38,7 +38,7 @@ import javax.annotation.Resource;
 @Configuration
 public class AliyunSmsConfiguration {
 
-	@Resource
+	@Autowired
 	private CloudProperties cloudProperties;
 
 	/**

@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.rpc;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,7 +45,8 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @Api(value = "API - UacUserQueryFeignClient", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MdcProductFeignClient extends BaseController implements MdcProductFeignApi {
-	@Resource
+	
+	@Autowired
 	private MdcProductService mdcProductService;
 
 	@Override
@@ -55,12 +55,12 @@ public class MdcProductFeignClient extends BaseController implements MdcProductF
 		logger.info("更新商品库存. productDto={}", productDto);
 		Preconditions.checkArgument(!PubUtils.isNull(productDto, productDto.getId()), ErrorCodeEnum.MDC10021021.getMsg());
 		int result = mdcProductService.updateProductStockById(productDto);
-		return WrapMapper.ok(result);
+		return WrapMapper.success(result);
 	}
 
 	@Override
 	public Wrapper<String> getMainImage(@RequestParam("productId") Long productId) {
 		String mainImage = mdcProductService.getMainImage(productId);
-		return WrapMapper.ok(mainImage);
+		return WrapMapper.success(mainImage);
 	}
 }

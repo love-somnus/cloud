@@ -20,9 +20,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -73,21 +72,29 @@ import com.somnus.cloud.provider.utils.TreeUtil;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UacRoleServiceImpl extends BaseService<UacRole> implements UacRoleService {
-	@Resource
+	
+	@Autowired
 	private UacRoleMapper uacRoleMapper;
-	@Resource
+	
+	@Autowired
 	private UacRoleUserService uacRoleUserService;
-	@Resource
+	
+	@Autowired
 	private UacRoleMenuMapper uacRoleMenuMapper;
-	@Resource
+	
+	@Autowired
 	private UacUserService uacUserService;
-	@Resource
+	
+	@Autowired
 	private UacRoleMenuService uacRoleMenuService;
-	@Resource
+	
+	@Autowired
 	private UacMenuService uacMenuService;
-	@Resource
+	
+	@Autowired
 	private UacActionService uacActionService;
-	@Resource
+	
+	@Autowired
 	private UacRoleActionService uacRoleActionService;
 
 	@Override

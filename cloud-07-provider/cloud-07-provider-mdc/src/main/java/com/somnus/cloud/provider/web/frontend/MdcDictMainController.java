@@ -17,9 +17,8 @@ package com.somnus.cloud.provider.web.frontend;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,7 +51,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "WEB - MdcDictMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MdcDictMainController extends BaseController {
 
-	@Resource
+	@Autowired
 	private MdcDictService mdcDictService;
 
 	/**
@@ -64,7 +63,7 @@ public class MdcDictMainController extends BaseController {
 	@ApiOperation(httpMethod = "POST", value = "获取字典树")
 	public Wrapper<List<MdcDictVo>> queryDictTreeList() {
 		List<MdcDictVo> dictVoList = mdcDictService.getDictTreeList();
-		return WrapMapper.ok(dictVoList);
+		return WrapMapper.success(dictVoList);
 	}
 
 	/**
@@ -79,7 +78,7 @@ public class MdcDictMainController extends BaseController {
 	public Wrapper<MdcDictVo> queryDictVoById(@ApiParam(name = "id", value = "字典id") @PathVariable Long id) {
 		logger.info("根据Id查询字典信息, dictId={}", id);
 		MdcDictVo mdcDictVo = mdcDictService.getMdcDictVoById(id);
-		return WrapMapper.ok(mdcDictVo);
+		return WrapMapper.success(mdcDictVo);
 	}
 
 
@@ -123,7 +122,6 @@ public class MdcDictMainController extends BaseController {
 		if (hasChild) {
 			return WrapMapper.wrap(Wrapper.ERROR_CODE, "此字典含有子字典, 请先删除子字典");
 		}
-
 		int result = mdcDictService.deleteByKey(id);
 		return super.handleResult(result);
 	}

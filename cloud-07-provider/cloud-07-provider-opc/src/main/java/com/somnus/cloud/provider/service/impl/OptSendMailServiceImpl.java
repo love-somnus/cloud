@@ -19,10 +19,10 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.mail.SimpleMailMessage;
@@ -52,12 +52,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class OptSendMailServiceImpl implements OptSendMailService {
-	@Resource
+	@Autowired
 	private TaskExecutor taskExecutor;
-	@Resource
+	
+	@Autowired
 	private OptFreeMarkerService optVelocityService;
 
-	@Resource
+	@Autowired
 	private JavaMailSender mailSender;
 
 	@Value("${spring.mail.username}")

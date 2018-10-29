@@ -23,11 +23,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -63,11 +62,13 @@ import com.somnus.cloud.provider.utils.TreeUtil;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UacMenuServiceImpl extends BaseService<UacMenu> implements UacMenuService {
-	@Resource
+	@Autowired
 	private UacMenuMapper uacMenuMapper;
-	@Resource
+	
+	@Autowired
 	private UacRoleMenuService uacRoleMenuService;
-	@Resource
+	
+	@Autowired
 	private UacActionService uacActionService;
 
 	@Override

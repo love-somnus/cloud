@@ -18,12 +18,13 @@ package com.somnus.cloud.security.server;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -39,7 +40,7 @@ import java.util.Map;
 @Slf4j
 @Configuration
 public class PcAccessDeniedHandler implements AccessDeniedHandler {
-	@Resource
+	@Autowired
 	private ObjectMapper objectMapper;
 
 	/**

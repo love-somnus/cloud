@@ -17,9 +17,8 @@ package com.somnus.cloud.provider.web.admin;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,7 +54,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "Web - UacMenuMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacMenuMainController extends BaseController {
 
-	@Resource
+	@Autowired
 	private UacMenuService uacMenuService;
 
 	/**
@@ -67,7 +66,7 @@ public class UacMenuMainController extends BaseController {
 	@ApiOperation(httpMethod = "POST", value = "获取菜单树")
 	public Wrapper<List<MenuVo>> queryMenuTreeList() {
 		List<MenuVo> menuVoList = uacMenuService.getMenuVoList(getLoginAuthDto().getUserId(), null);
-		return WrapMapper.ok(menuVoList);
+		return WrapMapper.success(menuVoList);
 	}
 
 	/**
@@ -81,7 +80,7 @@ public class UacMenuMainController extends BaseController {
 	@ApiOperation(httpMethod = "POST", value = "编辑菜单")
 	public Wrapper<ViewMenuVo> queryMenuVoById(@ApiParam(name = "id", value = "菜单id") @PathVariable Long id) {
 		ViewMenuVo menuVo = uacMenuService.getViewVoById(id);
-		return WrapMapper.ok(menuVo);
+		return WrapMapper.success(menuVo);
 	}
 
 

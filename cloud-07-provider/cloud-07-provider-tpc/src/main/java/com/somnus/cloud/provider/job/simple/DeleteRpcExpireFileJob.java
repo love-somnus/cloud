@@ -15,7 +15,7 @@
  */
 package com.somnus.cloud.provider.job.simple;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.dangdang.ddframe.job.api.ShardingContext;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
@@ -31,7 +31,7 @@ import com.somnus.cloud.provider.service.OpcRpcService;
 @ElasticSimpleJob(cron = "0 0 0 1/1 * ?")
 public class DeleteRpcExpireFileJob implements SimpleJob {
 
-	@Resource
+	@Autowired
 	private OpcRpcService opcRpcService;
 
 	/**

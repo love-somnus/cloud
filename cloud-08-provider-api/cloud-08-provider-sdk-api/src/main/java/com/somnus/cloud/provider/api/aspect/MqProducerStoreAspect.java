@@ -22,6 +22,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskExecutor;
 
@@ -33,7 +34,6 @@ import com.somnus.cloud.provider.api.model.enums.DelayLevelEnum;
 import com.somnus.cloud.provider.api.model.enums.MqSendTypeEnum;
 import com.somnus.cloud.provider.api.service.MqMessageService;
 
-import javax.annotation.Resource;
 import java.lang.reflect.Method;
 
 /**
@@ -45,13 +45,13 @@ import java.lang.reflect.Method;
 @Slf4j
 @Aspect
 public class MqProducerStoreAspect {
-	@Resource
+	@Autowired
 	private MqMessageService mqMessageService;
 
 	@Value("${cloud.aliyun.rocketMq.producerGroup}")
 	private String producerGroup;
 
-	@Resource
+	@Autowired
 	private TaskExecutor taskExecutor;
 
 	/**

@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.http.HttpStatus;
@@ -43,13 +42,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-	@Resource
+	@Autowired
 	private TaskExecutor taskExecutor;
+	
 	@Value("${spring.profiles.active}")
 	String profile;
+	
 	@Value("${spring.application.name}")
 	String applicationName;
-	@Resource
+	
+	@Autowired
 	private MdcExceptionLogFeignApi mdcExceptionLogFeignApi;
 
 	/**

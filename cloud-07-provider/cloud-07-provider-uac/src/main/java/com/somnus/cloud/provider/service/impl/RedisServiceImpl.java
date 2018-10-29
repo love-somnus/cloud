@@ -17,9 +17,8 @@ package com.somnus.cloud.provider.service.impl;
 
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
@@ -39,7 +38,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class RedisServiceImpl implements RedisService {
-	@Resource
+	
+	@Autowired
 	private StringRedisTemplate rt;
 
 	@Override

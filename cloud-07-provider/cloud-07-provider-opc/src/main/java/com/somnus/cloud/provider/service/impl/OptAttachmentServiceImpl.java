@@ -20,9 +20,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -62,11 +61,13 @@ import com.xiaoleilu.hutool.io.FileTypeUtil;
  */
 @Service
 public class OptAttachmentServiceImpl extends BaseService<OptAttachment> implements OpcAttachmentService {
-	@Resource
+	@Autowired
 	private OptAttachmentMapper optAttachmentMapper;
-	@Resource
+	
+	@Autowired
 	private OpcOssService optOssService;
-	@Resource
+	
+	@Autowired
 	private CloudProperties cloudProperties;
 
 	@Override

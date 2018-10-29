@@ -86,7 +86,7 @@ public class DingtalkFeignClient extends BaseController implements DingtalkFeign
 			logger.error("发送钉钉消息,出现异常 ex={}", e.getMessage(), e);
 			return WrapMapper.error("发送钉钉消息失败");
 		}
-		return WrapMapper.ok(result);
+		return WrapMapper.success(result);
 	}
 
 	/**

@@ -17,6 +17,7 @@ package com.somnus.cloud.comon.core.config;
 
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
@@ -28,7 +29,6 @@ import com.somnus.cloud.common.config.properties.CloudProperties;
 
 import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.Resource;
 import java.util.concurrent.Executor;
 
 /**
@@ -42,7 +42,7 @@ import java.util.concurrent.Executor;
 @EnableScheduling
 @Slf4j
 public class AsyncTaskExecutorConfiguration implements AsyncConfigurer {
-	@Resource
+	@Autowired
 	private CloudProperties cloudProperties;
 
 	@Override

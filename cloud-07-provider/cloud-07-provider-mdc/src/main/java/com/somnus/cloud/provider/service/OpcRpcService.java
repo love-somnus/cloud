@@ -23,9 +23,9 @@ import com.somnus.cloud.provider.api.model.dto.robot.ChatRobotMsgDto;
 import com.somnus.cloud.provider.api.service.DingtalkFeignApi;
 import com.somnus.cloud.provider.api.service.OpcOssFeignApi;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -37,9 +37,10 @@ import java.util.List;
 @Component
 public class OpcRpcService {
 
-	@Resource
+	@Autowired
 	private DingtalkFeignApi dingtalkFeignApi;
-	@Resource
+	
+	@Autowired
 	private OpcOssFeignApi opcOssFeignApi;
 
 	public boolean sendChatRobotMsg(ChatRobotMsgDto chatRobotMsgDto) {

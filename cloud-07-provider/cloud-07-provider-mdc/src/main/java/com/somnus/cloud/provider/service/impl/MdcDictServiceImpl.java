@@ -17,9 +17,8 @@ package com.somnus.cloud.provider.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,7 +45,7 @@ import com.somnus.cloud.provider.service.MdcDictService;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class MdcDictServiceImpl extends BaseService<MdcDict> implements MdcDictService {
-	@Resource
+	@Autowired
 	private MdcDictMapper mdcDictMapper;
 
 	@Override

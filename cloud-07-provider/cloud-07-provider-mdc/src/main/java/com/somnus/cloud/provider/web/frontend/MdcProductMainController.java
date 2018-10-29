@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.web.frontend;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,7 +51,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "WEB - MdcProductMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MdcProductMainController extends BaseController {
 
-	@Resource
+	@Autowired
 	private MdcProductService mdcProductService;
 
 	/**
@@ -70,7 +69,7 @@ public class MdcProductMainController extends BaseController {
 		PageHelper.startPage(mdcProduct.getPageNum(), mdcProduct.getPageSize());
 		mdcProduct.setOrderBy("update_time desc");
 		List<ProductVo> roleVoList = mdcProductService.queryProductListWithPage(mdcProduct);
-		return WrapMapper.ok(new PageInfo<>(roleVoList));
+		return WrapMapper.success(new PageInfo<>(roleVoList));
 	}
 
 	/**
@@ -81,7 +80,7 @@ public class MdcProductMainController extends BaseController {
 	public Wrapper<ProductVo> getById(@PathVariable Long id) {
 		logger.info("查询商品详情, id={}", id);
 		ProductVo productVo = mdcProductService.getProductVo(id);
-		return WrapMapper.ok(productVo);
+		return WrapMapper.success(productVo);
 	}
 
 	@PostMapping(value = "/save")

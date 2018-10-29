@@ -17,10 +17,9 @@ package com.somnus.cloud.provider.config;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.TreeCache;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -49,13 +48,16 @@ import lombok.extern.slf4j.Slf4j;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Slf4j
 public class MqBeanInitRunner implements CommandLineRunner {
-	@Resource
+	@Autowired
 	private CloudProperties cloudProperties;
-	@Resource
+	
+	@Autowired
 	private MqProducerChangeListener producerChangeListener;
-	@Resource
+	
+	@Autowired
 	private MqConsumerChangeListener consumerChangeListener;
-	@Resource
+	
+	@Autowired
 	private TpcMqProducerService tpcMqProducerService;
 
 	/**

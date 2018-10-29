@@ -20,9 +20,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -61,17 +60,23 @@ import tk.mybatis.mapper.entity.Example;
 @Service
 @Slf4j
 public class EmailServiceImpl implements EmailService {
-	@Resource
+	
+	@Autowired
 	private EmailProducer emailProducer;
-	@Resource
+	
+	@Autowired
 	private UacUserService uacUserService;
+	
 	@Value("${cloud.auth.rest-pwd-url}")
 	private String resetPwdUrl;
-	@Resource
+	
+	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
-	@Resource
+	
+	@Autowired
 	private UserManager userManager;
-	@Resource
+	
+	@Autowired
 	private RedisService redisService;
 
 	private static final String KEY_STR = "om8q6fq#A0Yl@qJy";

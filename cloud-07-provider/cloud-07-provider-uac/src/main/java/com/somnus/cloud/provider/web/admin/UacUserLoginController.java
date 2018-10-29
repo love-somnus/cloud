@@ -15,10 +15,10 @@
  */
 package com.somnus.cloud.provider.web.admin;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.security.oauth2.common.exceptions.UnapprovedClientAuthenticationException;
@@ -56,12 +56,15 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "Web - UacUserLoginController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacUserLoginController extends BaseController {
 
-	@Resource
+	@Autowired
 	private UacLoginService uacLoginService;
-	@Resource
+	
+	@Autowired
 	private UacUserTokenService uacUserTokenService;
-	@Resource
+	
+	@Autowired
 	private ClientDetailsService clientDetailsService;
+	
 	private static final String BEARER_TOKEN_TYPE = "Basic ";
 
 
@@ -77,7 +80,7 @@ public class UacUserLoginController extends BaseController {
 	public Wrapper<LoginRespDto> loginAfter(@PathVariable Long applicationId) {
 		logger.info("登录成功获取用户菜单. applicationId={}", applicationId);
 		LoginRespDto result = uacLoginService.loginAfter(applicationId);
-		return WrapMapper.ok(result);
+		return WrapMapper.success(result);
 	}
 
 	/**
@@ -138,7 +141,7 @@ public class UacUserLoginController extends BaseController {
 			logger.error("refreshToken={}", e.getMessage(), e);
 			return WrapMapper.error();
 		}
-		return WrapMapper.ok(token);
+		return WrapMapper.success(token);
 	}
 
 }

@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.admin;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -47,8 +46,7 @@ import tk.mybatis.mapper.entity.Example;
 @Api(value = "Web - UacActionCommonController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacActionCommonController extends BaseController {
 
-
-	@Resource
+	@Autowired
 	private UacActionService uacActionService;
 
 	/**
@@ -75,7 +73,7 @@ public class UacActionCommonController extends BaseController {
 		criteria.andEqualTo("actionCode", actionCode);
 
 		int result = uacActionService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 	/**
@@ -102,6 +100,6 @@ public class UacActionCommonController extends BaseController {
 		criteria.andEqualTo("url", url);
 
 		int result = uacActionService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 }

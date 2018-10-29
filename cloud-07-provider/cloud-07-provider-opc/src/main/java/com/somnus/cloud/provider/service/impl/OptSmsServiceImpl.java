@@ -15,9 +15,8 @@
  */
 package com.somnus.cloud.provider.service.impl;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -43,10 +42,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class OptSmsServiceImpl implements OptSmsService {
-	@Resource
+	@Autowired
 	private IAcsClient iAcsClient;
-	@Resource
+	
+	@Autowired
 	private CloudProperties cloudProperties;
+	
 	@Value("${spring.profiles.active}")
 	private String profile;
 

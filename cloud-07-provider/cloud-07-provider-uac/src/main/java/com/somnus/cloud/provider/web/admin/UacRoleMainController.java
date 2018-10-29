@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.web.admin;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,9 +59,10 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "Web - UacRoleMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacRoleMainController extends BaseController {
 
-	@Resource
+	@Autowired
 	private UacRoleService uacRoleService;
-	@Resource
+	
+	@Autowired
 	private UacRoleUserService uacRoleUserService;
 
 	/**
@@ -80,7 +80,7 @@ public class UacRoleMainController extends BaseController {
 		PageHelper.startPage(role.getPageNum(), role.getPageSize());
 		role.setOrderBy("update_time desc");
 		List<RoleVo> roleVoList = uacRoleService.queryRoleListWithPage(role);
-		return WrapMapper.ok(new PageInfo<>(roleVoList));
+		return WrapMapper.success(new PageInfo<>(roleVoList));
 	}
 
 	/**

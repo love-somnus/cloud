@@ -17,9 +17,8 @@ package com.somnus.cloud.provider.web.rpc;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,7 +46,8 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @Api(value = "API - MallCartQueryFeignClient", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class OmcOrderDetailQueryFeignClient extends BaseController implements OmcOrderDetailQueryFeignApi {
-	@Resource
+	
+	@Autowired
 	private OmcOrderDetailService omcOrderDetailService;
 
 	@Override
@@ -65,6 +65,6 @@ public class OmcOrderDetailQueryFeignClient extends BaseController implements Om
 			orderDetailDtoList.add(orderDetailDto);
 		}
 
-		return WrapMapper.ok(orderDetailDtoList);
+		return WrapMapper.success(orderDetailDtoList);
 	}
 }

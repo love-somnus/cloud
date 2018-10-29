@@ -17,9 +17,8 @@ package com.somnus.cloud.provider.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.common.base.Preconditions;
@@ -38,7 +37,7 @@ import com.somnus.cloud.provider.service.OmcOrderDetailService;
  */
 @Service
 public class OmcOrderDetailServiceImpl extends BaseService<OmcOrderDetail> implements OmcOrderDetailService {
-	@Resource
+	@Autowired
 	private OmcOrderDetailMapper omcOrderDetailMapper;
 
 	@Override

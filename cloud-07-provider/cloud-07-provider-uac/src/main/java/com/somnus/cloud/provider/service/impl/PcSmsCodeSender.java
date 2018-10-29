@@ -15,7 +15,7 @@
  */
 package com.somnus.cloud.provider.service.impl;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.somnus.cloud.common.base.constant.AliyunSmsConstants;
 import com.somnus.cloud.provider.model.dto.sms.SmsMessage;
@@ -32,7 +32,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class PcSmsCodeSender implements SmsCodeSender {
-	@Resource
+	
+	@Autowired
 	private SmsService smsService;
 
 	@Override

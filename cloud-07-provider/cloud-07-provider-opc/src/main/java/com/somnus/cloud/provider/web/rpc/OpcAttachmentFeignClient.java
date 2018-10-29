@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.web.rpc;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -39,7 +38,6 @@ import com.somnus.cloud.provider.api.model.dto.oss.OptUploadFileRespDto;
 import com.somnus.cloud.provider.api.service.OpcOssFeignApi;
 import com.somnus.cloud.provider.model.domain.OptAttachment;
 import com.somnus.cloud.provider.service.OpcAttachmentService;
-import com.somnus.cloud.provider.service.OpcOssService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -54,11 +52,9 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "API - OpcAttachmentFeignClient", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class OpcAttachmentFeignClient extends BaseController implements OpcOssFeignApi {
 
-	@Resource
+	@Autowired
 	private OpcAttachmentService opcAttachmentService;
-	@Resource
-	private OpcOssService opcOssService;
-
+	
 	@Override
 	@ApiOperation(httpMethod = "POST", value = "上传文件")
 	public Wrapper<OptUploadFileRespDto> uploadFile(@RequestBody OptUploadFileReqDto optUploadFileReqDto) throws OpcBizException {
@@ -90,14 +86,14 @@ public class OpcAttachmentFeignClient extends BaseController implements OpcOssFe
 			logger.error("RPC获取附件完整路径, 出现异常={}", e.getMessage(), e);
 			return WrapMapper.error();
 		}
-		return WrapMapper.ok(result);
+		return WrapMapper.success(result);
 	}
 
 	@Override
 	public Wrapper<List<ElementImgUrlDto>> listFileUrl(@RequestBody OptBatchGetUrlRequest urlRequest) {
 		logger.info("getFileUrl - 批量获取url链接. urlRequest={}", urlRequest);
 		List<ElementImgUrlDto> result = opcAttachmentService.listFileUrl(urlRequest);
-		return WrapMapper.ok(result);
+		return WrapMapper.success(result);
 	}
 
 	@Override

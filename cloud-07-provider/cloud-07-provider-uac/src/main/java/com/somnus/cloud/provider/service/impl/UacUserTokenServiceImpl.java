@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
@@ -70,16 +69,21 @@ import eu.bitwalker.useragentutils.UserAgent;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UacUserTokenServiceImpl extends BaseService<UacUserToken> implements UacUserTokenService {
-	@Resource
+	@Autowired
 	private UacUserTokenMapper uacUserTokenMapper;
-	@Resource
+	
+	@Autowired
 	private UacUserService uacUserService;
+	
 	@Autowired
 	private SecurityProperties securityProperties;
-	@Resource
+	
+	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
-	@Resource
+	
+	@Autowired
 	private OpcRpcService opcRpcService;
+	
 	@Value("${cloud.auth.refresh-token-url}")
 	private String refreshTokenUrl;
 

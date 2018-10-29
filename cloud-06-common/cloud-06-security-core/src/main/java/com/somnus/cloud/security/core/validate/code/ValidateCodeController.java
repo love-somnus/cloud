@@ -16,6 +16,8 @@
 package com.somnus.cloud.security.core.validate.code;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +27,6 @@ import org.springframework.web.context.request.ServletWebRequest;
 import com.somnus.cloud.security.core.SecurityResult;
 import com.somnus.cloud.security.core.properties.SecurityConstants;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -39,7 +40,7 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 public class ValidateCodeController {
 
-	@Resource
+	@Autowired
 	private ValidateCodeProcessorHolder validateCodeProcessorHolder;
 
 	/**

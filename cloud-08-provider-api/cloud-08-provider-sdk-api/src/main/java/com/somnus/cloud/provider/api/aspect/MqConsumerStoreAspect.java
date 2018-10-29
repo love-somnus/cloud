@@ -23,6 +23,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.somnus.cloud.common.base.enums.ErrorCodeEnum;
@@ -32,7 +33,6 @@ import com.somnus.cloud.provider.api.model.domain.MqMessageData;
 import com.somnus.cloud.provider.api.model.enums.MqMessageTypeEnum;
 import com.somnus.cloud.provider.api.service.MqMessageService;
 
-import javax.annotation.Resource;
 import java.lang.reflect.Method;
 import java.util.List;
 
@@ -46,8 +46,9 @@ import java.util.List;
 @Aspect
 public class MqConsumerStoreAspect {
 
-	@Resource
+	@Autowired
 	private MqMessageService mqMessageService;
+	
 	@Value("${cloud.aliyun.rocketMq.consumerGroup}")
 	private String consumerGroup;
 

@@ -16,6 +16,8 @@
 package com.somnus.cloud.comon.core.config;
 
 import io.swagger.annotations.ApiOperation;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 
 import com.somnus.cloud.common.config.properties.CloudProperties;
@@ -34,7 +36,6 @@ import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -47,7 +48,7 @@ import java.util.List;
  */
 @EnableSwagger2
 public class SwaggerConfiguration {
-	@Resource
+	@Autowired
 	private CloudProperties cloudProperties;
 
 	/**

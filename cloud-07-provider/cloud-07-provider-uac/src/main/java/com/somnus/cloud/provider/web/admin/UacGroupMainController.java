@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.web.admin;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,7 +50,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "Web - UacGroupMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacGroupMainController extends BaseController {
 
-	@Resource
+	@Autowired
 	private UacGroupService uacGroupService;
 
 	/**
@@ -110,7 +109,7 @@ public class UacGroupMainController extends BaseController {
 	public Wrapper<List<MenuVo>> getTree() {
 		Long userId = super.getLoginAuthDto().getUserId();
 		List<MenuVo> tree = uacGroupService.getGroupTreeListByUserId(userId);
-		return WrapMapper.ok(tree);
+		return WrapMapper.success(tree);
 	}
 
 	/**
@@ -141,6 +140,6 @@ public class UacGroupMainController extends BaseController {
 	@ApiOperation(httpMethod = "POST", value = "获取编辑页面数据")
 	public Wrapper<UacGroup> getEditGroupPageInfo(@ApiParam(name = "id", value = "组织id") @PathVariable Long id) {
 		UacGroup uacGroup = uacGroupService.getById(id);
-		return WrapMapper.ok(uacGroup);
+		return WrapMapper.success(uacGroup);
 	}
 }

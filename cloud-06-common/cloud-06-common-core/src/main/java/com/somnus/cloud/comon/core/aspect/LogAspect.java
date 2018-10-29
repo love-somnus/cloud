@@ -22,6 +22,7 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
@@ -34,7 +35,6 @@ import com.somnus.cloud.comon.core.annotation.LogAnnotation;
 import com.somnus.cloud.comon.core.annotation.OperationLogDto;
 import com.somnus.cloud.comon.core.utils.RequestUtil;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.Date;
@@ -52,10 +52,10 @@ public class LogAspect {
 
 	private ThreadLocal<Date> threadLocal = new ThreadLocal<>();
 
-	@Resource
+	@Autowired
 	private RestTemplate restTemplate;
 
-	@Resource
+	@Autowired
 	private TaskExecutor taskExecutor;
 
 	private static final int MAX_SIZE = 2000;

@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.manager;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,13 +46,16 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Transactional(rollbackFor = Exception.class)
 public class UserManager {
-	@Resource
+	@Autowired
 	private UacUserMapper uacUserMapper;
-	@Resource
+	
+	@Autowired
 	private UacRoleUserMapper uacRoleUserMapper;
-	@Resource
+	
+	@Autowired
 	private UacGroupUserMapper uacGroupUserMapper;
-	@Resource
+	
+	@Autowired
 	private RedisServiceImpl redisService;
 
 	@MqProducerStore(sendType = MqSendTypeEnum.SAVE_AND_SEND)

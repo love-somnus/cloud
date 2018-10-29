@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.frontend;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,7 +44,7 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "WEB - OmcShippingController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class OmcShippingController extends BaseController {
 
-	@Resource
+	@Autowired
 	private OmcShippingService omcShippingService;
 
 	/**
@@ -123,7 +122,7 @@ public class OmcShippingController extends BaseController {
 		Long userId = getLoginAuthDto().getUserId();
 		logger.info("selectShippingById - 根据Id查询收货人地址. userId={}, shippingId={}", userId, shippingId);
 		OmcShipping omcShipping = omcShippingService.selectByShippingIdUserId(userId, shippingId);
-		return WrapMapper.ok(omcShipping);
+		return WrapMapper.success(omcShipping);
 	}
 
 	/**
@@ -139,7 +138,7 @@ public class OmcShippingController extends BaseController {
 		Long userId = getLoginAuthDto().getUserId();
 		logger.info("queryUserShippingListWithPage - 分页查询当前用户收货人地址列表.userId={} shipping={}", userId, shipping);
 		PageInfo<OmcShipping> pageInfo = omcShippingService.queryListWithPageByUserId(userId, shipping.getPageNum(), shipping.getPageSize());
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 
 	/**
@@ -154,7 +153,7 @@ public class OmcShippingController extends BaseController {
 	public Wrapper<?> queryShippingListWithPage(@RequestBody OmcShipping shipping) {
 		logger.info("queryShippingListWithPage - 分页查询收货人地址列表. shipping={}", shipping);
 		PageInfo<OmcShipping> pageInfo = omcShippingService.queryShippingListWithPage(shipping);
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 
 }

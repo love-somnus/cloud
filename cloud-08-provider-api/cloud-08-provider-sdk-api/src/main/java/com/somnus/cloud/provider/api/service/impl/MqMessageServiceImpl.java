@@ -39,12 +39,12 @@ import com.somnus.cloud.provider.api.service.TpcMqMessageFeignApi;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -56,15 +56,18 @@ import java.util.List;
 @Slf4j
 @Service
 public class MqMessageServiceImpl implements MqMessageService {
-	@Resource
+	@Autowired
 	private MqMessageDataMapper mqMessageDataMapper;
-	@Resource
+	
+	@Autowired
 	private TpcMqMessageFeignApi tpcMqMessageFeignApi;
-	@Resource
+	
+	@Autowired
 	private TaskExecutor taskExecutor;
 
 	@Value("${spring.profiles.active}")
 	String profile;
+	
 	@Value("${spring.application.name}")
 	String applicationName;
 
@@ -238,6 +241,6 @@ public class MqMessageServiceImpl implements MqMessageService {
 		if (PublicUtil.isEmpty(list)) {
 			list = Lists.newArrayList();
 		}
-		return WrapMapper.ok(new PageInfo<>(list));
+		return WrapMapper.success(new PageInfo<>(list));
 	}
 }

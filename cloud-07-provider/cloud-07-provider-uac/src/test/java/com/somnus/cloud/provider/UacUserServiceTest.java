@@ -2,9 +2,8 @@ package com.somnus.cloud.provider;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.github.pagehelper.PageInfo;
 import com.somnus.cloud.provider.model.domain.UacUser;
@@ -17,7 +16,8 @@ import com.somnus.cloud.provider.service.UacUserService;
  * @date 2018年10月17日
  */
 public class UacUserServiceTest extends CloudUacApplicationTests {
-	@Resource
+	
+	@Autowired
 	private UacUserService uacUserService;
 
 	/**

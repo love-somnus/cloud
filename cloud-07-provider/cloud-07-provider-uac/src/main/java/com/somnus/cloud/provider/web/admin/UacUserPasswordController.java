@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.admin;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,7 +45,8 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping(value = "/user", produces = {"application/json;charset=UTF-8"})
 @Api(value = "Web - UacUserPasswordController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacUserPasswordController extends BaseController {
-	@Resource
+	
+	@Autowired
 	private UacUserService uacUserService;
 
 	/**
@@ -85,6 +85,6 @@ public class UacUserPasswordController extends BaseController {
 	public Wrapper<?> registerUser(@ApiParam(name = "registerDto", value = "用户注册Dto") @RequestBody UserRegisterDto registerDto) {
 		logger.info("vue注册开始。注册参数：{}", registerDto);
 		uacUserService.register(registerDto);
-		return WrapMapper.ok("注册成功");
+		return WrapMapper.success("注册成功");
 	}
 }

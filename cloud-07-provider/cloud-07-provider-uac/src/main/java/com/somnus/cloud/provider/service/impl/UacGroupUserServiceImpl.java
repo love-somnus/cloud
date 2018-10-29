@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.somnus.cloud.comon.core.support.BaseService;
@@ -35,7 +34,8 @@ import com.somnus.cloud.provider.service.UacGroupUserService;
  */
 @Service
 public class UacGroupUserServiceImpl extends BaseService<UacGroupUser> implements UacGroupUserService {
-	@Resource
+	
+	@Autowired
 	private UacGroupUserMapper uacGroupUserMapper;
 
 	@Override

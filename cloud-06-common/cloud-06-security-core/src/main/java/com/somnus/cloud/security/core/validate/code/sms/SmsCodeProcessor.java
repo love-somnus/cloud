@@ -34,7 +34,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.InetAddress;
@@ -62,13 +61,16 @@ public class SmsCodeProcessor extends AbstractValidateCodeProcessor<ValidateCode
 	private static final String COMMA = ",";
 	private static final int MAX_IP_LENGTH = 15;
 
-	@Resource
+	@Autowired
 	private SmsCodeSender smsCodeSender;
-	@Resource
+	
+	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
+	
 	@Autowired
 	private SecurityProperties securityProperties;
-	@Resource
+	
+	@Autowired
 	private ObjectMapper objectMapper;
 
 	/**

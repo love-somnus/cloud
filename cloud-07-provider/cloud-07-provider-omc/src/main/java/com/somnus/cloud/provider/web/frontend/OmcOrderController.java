@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.frontend;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,9 +50,10 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "WEB - OmcOrderController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class OmcOrderController extends BaseController {
 
-	@Resource
+	@Autowired
 	private OmcOrderService omcOrderService;
-	@Resource
+	
+	@Autowired
 	private OmcCartService omcCartService;
 
 	/**
@@ -63,7 +63,7 @@ public class OmcOrderController extends BaseController {
 	 */
 	@PostMapping(value = "getCartCount")
 	public Wrapper<Integer> getCartCount() {
-		return WrapMapper.ok(0);
+		return WrapMapper.success(0);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class OmcOrderController extends BaseController {
 	public Wrapper<?> getOrderCartProduct() {
 		logger.info("getOrderCartProduct - 获取购物车商品数量");
 		OrderProductVo orderCartProduct = omcCartService.getOrderCartProduct(getLoginAuthDto().getUserId());
-		return WrapMapper.ok(orderCartProduct);
+		return WrapMapper.success(orderCartProduct);
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class OmcOrderController extends BaseController {
 		logger.info("操作人信息. loginAuthDto={}", loginAuthDto);
 
 		OrderVo orderDoc = omcOrderService.createOrderDoc(loginAuthDto, shippingId);
-		return WrapMapper.ok(orderDoc);
+		return WrapMapper.success(orderDoc);
 	}
 
 
@@ -132,7 +132,7 @@ public class OmcOrderController extends BaseController {
 		logger.info("操作人信息. userId={}", userId);
 
 		OrderVo orderVo = omcOrderService.getOrderDetail(userId, orderNo);
-		return WrapMapper.ok(orderVo);
+		return WrapMapper.success(orderVo);
 	}
 
 	@PostMapping("queryUserOrderDetail/{orderNo}")
@@ -141,7 +141,7 @@ public class OmcOrderController extends BaseController {
 		logger.info("queryUserOrderDetail - 查询订单明细. orderNo={}", orderNo);
 
 		OrderVo orderVo = omcOrderService.getOrderDetail(orderNo);
-		return WrapMapper.ok(orderVo);
+		return WrapMapper.success(orderVo);
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class OmcOrderController extends BaseController {
 		logger.info("操作人信息. userId={}", userId);
 
 		PageInfo<OrderVo> pageInfo = omcOrderService.queryUserOrderListWithPage(userId, baseQuery);
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 
 	@PostMapping("queryOrderListWithPage")
@@ -168,7 +168,7 @@ public class OmcOrderController extends BaseController {
 	public Wrapper<?> queryOrderListWithPage(@RequestBody OrderPageQuery orderPageQuery) {
 		logger.info("queryOrderListWithPage - 查询订单集合. orderPageQuery={}", orderPageQuery);
 		PageInfo<OrderDocVo> pageInfo = omcOrderService.queryOrderListWithPage(orderPageQuery);
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 
 	/**
@@ -183,7 +183,7 @@ public class OmcOrderController extends BaseController {
 	public Wrapper<Boolean> queryOrderPayStatus(@PathVariable String orderNo) {
 		logger.info("queryOrderPayStatus - 查询订单状态. orderNo={}", orderNo);
 		boolean result = omcOrderService.queryOrderPayStatus(getLoginAuthDto().getUserId(), orderNo);
-		return WrapMapper.ok(result);
+		return WrapMapper.success(result);
 	}
 
 }

@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.web.rpc;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,14 +44,15 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @Api(value = "API - UacMqMessageFeignClient", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacMqMessageFeignClient extends BaseController implements UacMqMessageFeignApi {
-	@Resource
+	
+	@Autowired
 	private MqMessageService mqMessageService;
 
 	@Override
 	@ApiOperation(httpMethod = "POST", value = "查询含有的messageKey")
 	public Wrapper<List<String>> queryMessageKeyList(@RequestParam("messageKeyList") List<String> messageKeyList) {
 		logger.info("查询消息KEY. messageKeyList={}", messageKeyList);
-		return WrapMapper.ok(mqMessageService.queryMessageKeyList(messageKeyList));
+		return WrapMapper.success(mqMessageService.queryMessageKeyList(messageKeyList));
 	}
 
 	@Override

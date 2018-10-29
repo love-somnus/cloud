@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.admin;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,7 +44,8 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping(value = "/log", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Api(value = "Web - UacLogMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacLogMainController extends BaseController {
-	@Resource
+	
+	@Autowired
 	private UacLogService uacLogService;
 
 	/**
@@ -60,6 +60,6 @@ public class UacLogMainController extends BaseController {
 	public Wrapper<?> queryLogListWithPage(@ApiParam(name = "uacLogQueryDtoPage", value = "日志查询条件") @RequestBody UacLogMainDto uacLogQueryDtoPage) {
 		logger.info("查询日志处理列表 uacLogQueryDtoPage={}", uacLogQueryDtoPage);
 		PageInfo<UacLog> pageInfo = uacLogService.queryLogListWithPage(uacLogQueryDtoPage);
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 }

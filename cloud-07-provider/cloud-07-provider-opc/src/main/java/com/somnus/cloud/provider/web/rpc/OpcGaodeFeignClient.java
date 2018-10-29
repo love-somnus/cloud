@@ -47,6 +47,6 @@ public class OpcGaodeFeignClient extends BaseController implements OpcGaodeFeign
 		if (ipAddr.startsWith(temp) || ipAddr.startsWith(temp2)) {
 			ipAddr = "111.199.188.14";
 		}
-		return WrapMapper.ok(GaoDeUtil.getCityByIpAddr(ipAddr));
+		return WrapMapper.success(GaoDeUtil.getCityByIpAddr(ipAddr));
 	}
 }

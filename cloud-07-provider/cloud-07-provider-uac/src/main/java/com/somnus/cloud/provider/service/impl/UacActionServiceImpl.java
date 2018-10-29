@@ -18,10 +18,9 @@ package com.somnus.cloud.provider.service.impl;
 import java.util.List;
 import java.util.Objects;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.AntPathMatcher;
@@ -54,10 +53,12 @@ import com.somnus.cloud.provider.service.UacActionService;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UacActionServiceImpl extends BaseService<UacAction> implements UacActionService {
-	@Resource
+	@Autowired
 	private UacActionMapper uacActionMapper;
-	@Resource
+	
+	@Autowired
 	private UacRoleActionMapper uacRoleActionMapper;
+	
 	private AntPathMatcher antPathMatcher = new AntPathMatcher();
 
 	@Override

@@ -20,8 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,7 +52,8 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping(value = "/message", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Api(value = "Web - TpcMessageMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class TpcMessageMainController extends BaseController {
-	@Resource
+	
+	@Autowired
 	private TpcMqMessageService tpcMqMessageService;
 
 	/**
@@ -115,7 +115,7 @@ public class TpcMessageMainController extends BaseController {
 			}
 			pageInfo.setList(new ArrayList<>(messageVoMap.values()));
 		}
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 
 	private Map<Long, TpcMessageVo> trans2Map(List<TpcMessageVo> tpcMessageVoList) {

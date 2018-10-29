@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.web.frontend;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,7 +53,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "WEB - TpcMqProducerController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class TpcMqProducerController extends BaseController {
 
-	@Resource
+	@Autowired
 	private TpcMqProducerService tpcMqProducerService;
 
 	/**
@@ -70,7 +69,7 @@ public class TpcMqProducerController extends BaseController {
 
 		logger.info("查询生产者列表tpcMqTopicQuery={}", tpcMqProducer);
 		List<TpcMqProducerVo> list = tpcMqProducerService.listProducerVoWithPage(tpcMqProducer);
-		return WrapMapper.ok(list);
+		return WrapMapper.success(list);
 	}
 
 	/**
@@ -87,7 +86,7 @@ public class TpcMqProducerController extends BaseController {
 		PageHelper.startPage(tpcMqProducer.getPageNum(), tpcMqProducer.getPageSize());
 		tpcMqProducer.setOrderBy("update_time desc");
 		List<TpcMqPublishVo> list = tpcMqProducerService.listPublishVoWithPage(tpcMqProducer);
-		return WrapMapper.ok(new PageInfo<>(list));
+		return WrapMapper.success(new PageInfo<>(list));
 	}
 
 	/**

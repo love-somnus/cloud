@@ -21,8 +21,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -66,17 +65,22 @@ import com.somnus.cloud.provider.utils.TreeUtil;
 @Transactional(rollbackFor = Exception.class)
 public class UacGroupServiceImpl extends BaseService<UacGroup> implements UacGroupService {
 
-	@Resource
+	@Autowired
 	private UacGroupMapper uacGroupMapper;
-	@Resource
+	
+	@Autowired
 	private UacGroupUserMapper uacGroupUserMapper;
-	@Resource
+	
+	@Autowired
 	private UacRoleUserMapper uacRoleUserMapper;
-	@Resource
+	
+	@Autowired
 	private UacRoleMapper uacRoleMapper;
-	@Resource
+	
+	@Autowired
 	private UacUserService uacUserService;
-	@Resource
+	
+	@Autowired
 	private MdcAddressService mdcAddressService;
 
 	private int addUacGroup(UacGroup group) {

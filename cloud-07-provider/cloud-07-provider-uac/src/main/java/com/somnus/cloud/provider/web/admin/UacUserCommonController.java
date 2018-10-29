@@ -18,9 +18,8 @@ package com.somnus.cloud.provider.web.admin;
 import java.util.HashSet;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -63,9 +62,10 @@ import tk.mybatis.mapper.entity.Example;
 @Api(value = "Web - UacUserCommonController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacUserCommonController extends BaseController {
 
-	@Resource
+	@Autowired
 	private UacUserService uacUserService;
-	@Resource
+	
+	@Autowired
 	private UacRoleService uacRoleService;
 
 
@@ -88,7 +88,7 @@ public class UacUserCommonController extends BaseController {
 			userVo.setRoles(new HashSet<>(roleList));
 		}
 		userVo.setAuthTree(authTree);
-		return WrapMapper.ok(userVo);
+		return WrapMapper.success(userVo);
 	}
 
 
@@ -115,7 +115,7 @@ public class UacUserCommonController extends BaseController {
 		}
 
 		int result = uacUserService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 	/**
@@ -141,7 +141,7 @@ public class UacUserCommonController extends BaseController {
 		}
 
 		int result = uacUserService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 
@@ -167,7 +167,7 @@ public class UacUserCommonController extends BaseController {
 		}
 
 		int result = uacUserService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 
@@ -193,7 +193,7 @@ public class UacUserCommonController extends BaseController {
 		}
 
 		int result = uacUserService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 
@@ -220,7 +220,7 @@ public class UacUserCommonController extends BaseController {
 			uacUser.setLoginPwd(Md5Util.encrypt(newPassword));
 			result = uacUserService.selectCount(uacUser);
 		}
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 	/**
@@ -250,6 +250,6 @@ public class UacUserCommonController extends BaseController {
 	@ApiOperation(httpMethod = "POST", value = "获取权限树")
 	public Wrapper<List<MenuVo>> getOwnAuthTree() {
 		List<MenuVo> tree = uacRoleService.getOwnAuthTree(getLoginAuthDto().getUserId());
-		return WrapMapper.ok(tree);
+		return WrapMapper.success(tree);
 	}
 }

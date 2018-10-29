@@ -35,7 +35,6 @@ import org.springframework.security.web.authentication.rememberme.JdbcTokenRepos
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.social.security.SpringSocialConfigurer;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 /**
@@ -78,7 +77,7 @@ public class PcResourceServerConfig extends ResourceServerConfigurerAdapter {
 	@Autowired
 	private OpenIdAuthenticationSecurityConfig openIdAuthenticationSecurityConfig;
 
-	@Resource
+	@Autowired
 	private DataSource dataSource;
 
 	/**

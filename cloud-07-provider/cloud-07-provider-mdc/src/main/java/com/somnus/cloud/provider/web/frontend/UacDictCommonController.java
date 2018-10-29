@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.frontend;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -47,8 +46,7 @@ import tk.mybatis.mapper.entity.Example;
 @Api(value = "WEB - UacDictCommonController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacDictCommonController extends BaseController {
 
-
-	@Resource
+	@Autowired
 	private MdcDictService mdcDictService;
 
 	/**
@@ -75,7 +73,7 @@ public class UacDictCommonController extends BaseController {
 		criteria.andEqualTo("dictCode", dictCode);
 
 		int result = mdcDictService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 	/**
@@ -102,6 +100,6 @@ public class UacDictCommonController extends BaseController {
 		criteria.andEqualTo("dictName", dictName);
 
 		int result = mdcDictService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 }

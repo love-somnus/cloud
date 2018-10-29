@@ -29,9 +29,8 @@ import org.apache.curator.framework.recipes.cache.ChildData;
 import org.apache.curator.framework.recipes.cache.TreeCacheEvent;
 import org.apache.curator.framework.recipes.cache.TreeCacheListener;
 import org.apache.zookeeper.data.Stat;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 /**
  * @ClassName: MqConsumerChangeListener
@@ -42,7 +41,7 @@ import javax.annotation.Resource;
 @Slf4j
 @Component
 public class MqConsumerChangeListener implements TreeCacheListener {
-	@Resource
+	@Autowired
 	private TpcMqConsumerService tpcMqConsumerService;
 
 	/**

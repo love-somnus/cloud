@@ -36,12 +36,13 @@ import com.somnus.cloud.provider.api.model.dto.oss.OptUploadFileRespDto;
 import com.somnus.cloud.provider.service.OpcOssService;
 import com.xiaoleilu.hutool.io.FileTypeUtil;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,15 +59,19 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Service
 public class OptQiniuOssServiceImpl implements OpcOssService {
-	@Resource
+	@Autowired
 	private BucketManager bucketManager;
-	@Resource
+	
+	@Autowired
 	private Auth auth;
-	@Resource
+	
+	@Autowired
 	private CloudProperties cloudProperties;
-	@Resource
+	
+	@Autowired
 	private UploadManager uploadManager;
-	@Resource
+	
+	@Autowired
 	private StringRedisTemplate srt;
 
 	private static final String OPEN_IMG_BUCKET = "open-img-bucket";

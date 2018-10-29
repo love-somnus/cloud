@@ -21,10 +21,10 @@ import com.somnus.cloud.security.core.validate.code.ValidateCodeGenerator;
 import com.somnus.cloud.security.core.validate.code.ValidateCodeRepository;
 import com.somnus.cloud.security.core.validate.code.impl.AbstractValidateCodeProcessor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
 
-import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
@@ -39,7 +39,7 @@ import java.util.Map;
 @Component("imageValidateCodeProcessor")
 public class ImageCodeProcessor extends AbstractValidateCodeProcessor<ImageCode> {
 
-	@Resource
+	@Autowired
 	private ObjectMapper objectMapper;
 
 	/**

@@ -19,10 +19,9 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -67,18 +66,18 @@ import com.somnus.cloud.provider.service.OmcOrderService;
 @Service
 public class OmcOrderServiceImpl extends BaseService<OmcOrder> implements OmcOrderService {
 
-	@Resource
+	@Autowired
 	private OmcOrderMapper omcOrderMapper;
-	@Resource
+	@Autowired
 	private OmcCartMapper omcCartMapper;
-	@Resource
+	@Autowired
 	private OmcShippingMapper omcShippingMapper;
-	@Resource
+	@Autowired
 	private OmcCartService omcCartService;
-	@Resource
+	@Autowired
 	private OmcOrderDetailService omcOrderDetailService;
 
-	@Resource
+	@Autowired
 	private MdcProductService mdcProductService;
 
 	@Override

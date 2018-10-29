@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.admin;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,7 +47,7 @@ import tk.mybatis.mapper.entity.Example;
 @Api(value = "Web - UacRoleCommonController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacRoleCommonController extends BaseController {
 
-	@Resource
+	@Autowired
 	private UacRoleService uacRoleService;
 
 	/**
@@ -90,7 +89,7 @@ public class UacRoleCommonController extends BaseController {
 		criteria.andEqualTo("roleCode", roleCode);
 
 		int result = uacRoleService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 	/**
@@ -105,7 +104,7 @@ public class UacRoleCommonController extends BaseController {
 	public Wrapper<BindAuthVo> getActionTreeByRoleId(@ApiParam(name = "roleId", value = "角色id") @PathVariable Long roleId) {
 		logger.info("roleId={}", roleId);
 		BindAuthVo bindAuthVo = uacRoleService.getActionTreeByRoleId(roleId);
-		return WrapMapper.ok(bindAuthVo);
+		return WrapMapper.success(bindAuthVo);
 	}
 
 	/**
@@ -120,7 +119,7 @@ public class UacRoleCommonController extends BaseController {
 	public Wrapper<BindAuthVo> getMenuTreeByRoleId(@ApiParam(name = "roleId", value = "角色id") @PathVariable Long roleId) {
 		logger.info("roleId={}", roleId);
 		BindAuthVo bindAuthVo = uacRoleService.getMenuTreeByRoleId(roleId);
-		return WrapMapper.ok(bindAuthVo);
+		return WrapMapper.success(bindAuthVo);
 	}
 
 }

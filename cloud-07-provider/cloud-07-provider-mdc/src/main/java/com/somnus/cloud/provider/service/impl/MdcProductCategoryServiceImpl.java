@@ -18,9 +18,8 @@ package com.somnus.cloud.provider.service.impl;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Resource;
-
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,7 +49,7 @@ import com.somnus.cloud.provider.service.MdcProductCategoryService;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class MdcProductCategoryServiceImpl extends BaseService<MdcProductCategory> implements MdcProductCategoryService {
-	@Resource
+	@Autowired
 	private MdcProductCategoryMapper mdcProductCategoryMapper;
 
 	@Override

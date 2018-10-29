@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.service.impl;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.somnus.cloud.common.base.constant.GlobalConstant;
@@ -38,7 +37,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class OpcRpcServiceImpl implements OpcRpcService {
-	@Resource
+	
+	@Autowired
 	private OpcGaodeFeignApi opcGaodeFeignApi;
 
 	@Override

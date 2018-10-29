@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.web.mall;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,9 +50,10 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "WEB - MallCartController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MallCartController extends BaseController {
 
-	@Resource
+	@Autowired
 	private OmcCartQueryFeignApi mallCartQueryFeignApi;
-	@Resource
+	
+	@Autowired
 	private OmcCartFeignApi mallCartFeignApi;
 
 

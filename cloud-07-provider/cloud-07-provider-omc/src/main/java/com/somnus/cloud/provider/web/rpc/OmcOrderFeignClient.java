@@ -15,9 +15,8 @@
  */
 package com.somnus.cloud.provider.web.rpc;
 
-import javax.annotation.Resource;
-
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,7 +42,8 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @Api(value = "API - OmcOrderFeignClient", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class OmcOrderFeignClient extends BaseController implements OmcOrderFeignApi {
-	@Resource
+	
+	@Autowired
 	private OmcOrderService omcOrderService;
 
 	@Override

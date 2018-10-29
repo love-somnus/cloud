@@ -27,7 +27,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.somnus.cloud.security.core.properties.SecurityConstants;
 import com.somnus.cloud.security.core.properties.SecurityProperties;
 
-import javax.annotation.Resource;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -49,7 +48,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 	/**
 	 * 验证码校验失败处理器
 	 */
-	@Resource
+	@Autowired
 	private AuthenticationFailureHandler authenticationFailureHandler;
 	/**
 	 * 系统配置信息
@@ -59,7 +58,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 	/**
 	 * 系统中的校验码处理器
 	 */
-	@Resource
+	@Autowired
 	private ValidateCodeProcessorHolder validateCodeProcessorHolder;
 	/**
 	 * 存放所有需要校验验证码的url

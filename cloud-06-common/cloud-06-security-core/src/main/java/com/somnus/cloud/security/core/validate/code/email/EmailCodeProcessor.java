@@ -15,6 +15,7 @@
  */
 package com.somnus.cloud.security.core.validate.code.email;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
@@ -25,7 +26,6 @@ import com.somnus.cloud.security.core.validate.code.ValidateCodeGenerator;
 import com.somnus.cloud.security.core.validate.code.ValidateCodeRepository;
 import com.somnus.cloud.security.core.validate.code.impl.AbstractValidateCodeProcessor;
 
-import javax.annotation.Resource;
 import java.util.Map;
 
 /**
@@ -40,7 +40,7 @@ public class EmailCodeProcessor extends AbstractValidateCodeProcessor<ValidateCo
 	/**
 	 * 短信验证码发送器
 	 */
-	@Resource
+	@Autowired
 	private EmailCodeSender emailCodeSender;
 
 	/**

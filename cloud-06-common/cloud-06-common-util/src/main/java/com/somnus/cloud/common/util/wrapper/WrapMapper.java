@@ -17,19 +17,17 @@ package com.somnus.cloud.common.util.wrapper;
 
 import org.apache.commons.lang3.StringUtils;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * @ClassName: WrapMapper
  * @Description: The class Wrap mapper.
  * @author Somnus
  * @date 2018年10月9日
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class WrapMapper {
-
-	/**
-	 * Instantiates a new wrap mapper.
-	 */
-	private WrapMapper() {
-	}
 
 	/**
 	 * Wrap.
@@ -41,8 +39,8 @@ public class WrapMapper {
 	 *
 	 * @return the wrapper
 	 */
-	public static <E> Wrapper<E> wrap(int code, String message, E o) {
-		return new Wrapper<>(code, message, o);
+	public static <E> Wrapper<E> wrap(int code, String message, E result) {
+		return new Wrapper<>(code, message, result);
 	}
 
 	/**
@@ -116,7 +114,6 @@ public class WrapMapper {
 		return wrap(Wrapper.ERROR_CODE, Wrapper.ERROR_MESSAGE);
 	}
 
-
 	/**
 	 * Error wrapper.
 	 *
@@ -148,7 +145,7 @@ public class WrapMapper {
 	 *
 	 * @return the wrapper
 	 */
-	public static <E> Wrapper<E> ok(E o) {
-		return new Wrapper<>(Wrapper.SUCCESS_CODE, Wrapper.SUCCESS_MESSAGE, o);
+	public static <E> Wrapper<E> success(E result) {
+		return new Wrapper<>(Wrapper.SUCCESS_CODE, Wrapper.SUCCESS_MESSAGE, result);
 	}
 }

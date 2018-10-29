@@ -16,6 +16,8 @@
 package com.somnus.cloud.comon.core.config;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -24,7 +26,6 @@ import org.springframework.stereotype.Component;
 import com.somnus.cloud.common.config.properties.CloudProperties;
 import com.somnus.cloud.common.zk.registry.RegistryCenterFactory;
 
-import javax.annotation.Resource;
 import java.net.InetAddress;
 
 /**
@@ -37,7 +38,7 @@ import java.net.InetAddress;
 @Order
 @Slf4j
 public class ZookeeperInitRunner implements CommandLineRunner {
-	@Resource
+	@Autowired
 	private CloudProperties cloudProperties;
 	
 	@Value("${spring.application.name}")

@@ -18,8 +18,7 @@ package com.somnus.cloud.provider.web.admin;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,7 +53,7 @@ import tk.mybatis.mapper.entity.Example;
 @Api(value = "Web - UacGroupCommonController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacGroupCommonController extends BaseController {
 
-	@Resource
+	@Autowired
 	private UacGroupService uacGroupService;
 
 	/**
@@ -115,7 +114,7 @@ public class UacGroupCommonController extends BaseController {
 		criteria.andEqualTo("groupName", groupName);
 
 		int result = uacGroupService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 	/**
@@ -142,7 +141,7 @@ public class UacGroupCommonController extends BaseController {
 		criteria.andEqualTo("groupCode", groupCode);
 
 		int result = uacGroupService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 	/**

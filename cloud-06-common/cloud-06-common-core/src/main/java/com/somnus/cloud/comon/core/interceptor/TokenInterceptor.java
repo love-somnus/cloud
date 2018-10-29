@@ -17,6 +17,7 @@ package com.somnus.cloud.comon.core.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -32,7 +33,6 @@ import com.somnus.cloud.common.util.RedisKeyUtil;
 import com.somnus.cloud.common.util.ThreadLocalMap;
 import com.somnus.cloud.common.util.annotation.NoNeedAccessAuthentication;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -50,7 +50,7 @@ public class TokenInterceptor implements HandlerInterceptor {
 	@Value("${cloud.oauth2.jwtSigningKey}")
 	private String jwtSigningKey;
 
-	@Resource
+	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
 
 	private static final String OPTIONS = "OPTIONS";

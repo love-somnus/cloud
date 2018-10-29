@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.admin;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,7 +47,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "Web - UacRoleBindUserController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacRoleBindUserController extends BaseController {
 
-	@Resource
+	@Autowired
 	private UacRoleService uacRoleService;
 
 	/**
@@ -82,6 +81,6 @@ public class UacRoleBindUserController extends BaseController {
 		LoginAuthDto loginAuthDto = super.getLoginAuthDto();
 		Long currentUserId = loginAuthDto.getUserId();
 		RoleBindUserDto bindUserDto = uacRoleService.getRoleBindUserDto(roleId, currentUserId);
-		return WrapMapper.ok(bindUserDto);
+		return WrapMapper.success(bindUserDto);
 	}
 }

@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.web.frontend;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,9 +43,8 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "WEB - MdcAddressRest", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MdcAddressRest extends BaseController {
 
-	@Resource
+	@Autowired
 	private MdcAddressService mdcAddressService;
-
 
 	/**
 	 * Gets 4 city.
@@ -58,7 +56,7 @@ public class MdcAddressRest extends BaseController {
 	public Wrapper<List<TreeNode>> get4City() {
 		logger.info("get4City - 获取四级地址");
 		List<TreeNode> treeNodeList = mdcAddressService.get4City();
-		return WrapMapper.ok(treeNodeList);
+		return WrapMapper.success(treeNodeList);
 	}
 
 }

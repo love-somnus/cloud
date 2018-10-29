@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.web.frontend;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,7 +49,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "WEB - TpcMqTopicController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class TpcMqTopicController extends BaseController {
 
-	@Resource
+	@Autowired
 	private TpcMqTopicService tpcMqTopicService;
 
 
@@ -67,7 +66,7 @@ public class TpcMqTopicController extends BaseController {
 
 		logger.info("查询角色列表tpcMqTopicQuery={}", tpcMqTopic);
 		List<TpcMqTopicVo> list = tpcMqTopicService.listWithPage(tpcMqTopic);
-		return WrapMapper.ok(list);
+		return WrapMapper.success(list);
 	}
 
 	/**

@@ -31,7 +31,6 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,10 +48,13 @@ public class PcAuthorizationServerConfig extends AuthorizationServerConfigurerAd
 	private TokenStore tokenStore;
 	@Autowired
 	private AuthenticationManager authenticationManager;
-	@Resource
+	
+	@Autowired
 	private UserDetailsService userDetailsService;
-	@Resource
+	
+	@Autowired
 	private RestClientDetailsServiceImpl restClientDetailsService;
+	
 	@Autowired(required = false)
 	private JwtAccessTokenConverter jwtAccessTokenConverter;
 

@@ -20,8 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,7 +57,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "WEB - TpcMqConsumerController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class TpcMqConsumerController extends BaseController {
 
-	@Resource
+	@Autowired
 	private TpcMqConsumerService tpcMqConsumerService;
 
 	/**
@@ -74,7 +73,7 @@ public class TpcMqConsumerController extends BaseController {
 
 		logger.info("查询消费者列表tpcMqProducerQuery={}", tpcMqConsumer);
 		List<TpcMqConsumerVo> list = tpcMqConsumerService.listConsumerVoWithPage(tpcMqConsumer);
-		return WrapMapper.ok(list);
+		return WrapMapper.success(list);
 	}
 
 	/**
@@ -106,7 +105,7 @@ public class TpcMqConsumerController extends BaseController {
 			}
 			pageInfo.setList(new ArrayList<>(tpcMqSubscribeVoMap.values()));
 		}
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 
 	private Map<Long, TpcMqSubscribeVo> trans2Map(List<TpcMqSubscribeVo> resultDTOS) {

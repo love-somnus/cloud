@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.service;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageInfo;
@@ -38,7 +37,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class MdcRpcService {
-	@Resource
+	@Autowired
 	private MdcMqMessageFeignApi mdcMqMessageFeignApi;
 
 	public Wrapper<PageInfo<MqMessageVo>> queryMessageListWithPage(final MessageQueryDto messageQueryDto) {

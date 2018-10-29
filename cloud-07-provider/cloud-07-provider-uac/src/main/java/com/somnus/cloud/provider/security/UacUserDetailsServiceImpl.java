@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.security;
 
 import java.util.Collection;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -38,7 +37,7 @@ import com.somnus.cloud.security.core.SecurityUser;
 @Component
 public class UacUserDetailsServiceImpl implements UserDetailsService {
 
-	@Resource
+	@Autowired
 	private UacUserService uacUserService;
 
 	/**

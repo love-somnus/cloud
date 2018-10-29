@@ -17,9 +17,8 @@ package com.somnus.cloud.provider.web.rpc;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,9 +55,10 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "API - MdcProductCategoryQueryFeignClient", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MdcProductCategoryQueryFeignClient extends BaseService<MdcProductCategory> implements MdcProductCategoryQueryFeignApi {
 
-	@Resource
+	@Autowired
 	private MdcProductCategoryService mdcProductCategoryService;
-	@Resource
+	
+	@Autowired
 	private MdcProductService mdcProductService;
 
 	/**
@@ -94,7 +94,7 @@ public class MdcProductCategoryQueryFeignClient extends BaseService<MdcProductCa
 			list = mdcProductCategoryService.getCategoryDtoList(pid);
 		}
 
-		return WrapMapper.ok(list);
+		return WrapMapper.success(list);
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class MdcProductCategoryQueryFeignClient extends BaseService<MdcProductCa
 		Integer pageSize = productReqDto.getPageSize();
 		String orderBy = productReqDto.getOrderBy();
 		if (StringUtils.isBlank(keyword) && null == categoryId) {
-			return WrapMapper.ok(new PageInfo<>());
+			return WrapMapper.success(new PageInfo<>());
 		}
 		List<Long> categoryIdList = Lists.newArrayList();
 
@@ -139,9 +139,7 @@ public class MdcProductCategoryQueryFeignClient extends BaseService<MdcProductCa
 			productListVo.setMainImage(url);
 			productListVoList.add(productListVo);
 		}
-
-
-		return PublicUtil.isNotEmpty(productListVoList) ? WrapMapper.ok(new PageInfo<>(productListVoList)) : WrapMapper.ok();
+		return PublicUtil.isNotEmpty(productListVoList) ? WrapMapper.success(new PageInfo<>(productListVoList)) : WrapMapper.ok();
 	}
 
 	private ProductDto assembleProductListVo(MdcProduct product) {

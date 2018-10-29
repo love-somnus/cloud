@@ -22,9 +22,8 @@ import com.somnus.cloud.provider.service.OptSmsService;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * @ClassName: OptSendSmsTopicConsumer
@@ -36,7 +35,7 @@ import javax.annotation.Resource;
 @Service
 public class OptSendSmsTopicConsumer {
 
-	@Resource
+	@Autowired
 	private OptSmsService smsService;
 
 	/**

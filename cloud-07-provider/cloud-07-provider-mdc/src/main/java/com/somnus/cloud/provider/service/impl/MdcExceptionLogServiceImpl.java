@@ -19,9 +19,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
@@ -47,12 +46,15 @@ import com.somnus.cloud.provider.service.OpcRpcService;
  */
 @Service
 public class MdcExceptionLogServiceImpl extends BaseService<MdcExceptionLog> implements MdcExceptionLogService {
-	@Resource
+	@Autowired
 	private MdcExceptionLogMapper mdcExceptionLogMapper;
-	@Resource
+	
+	@Autowired
 	private TaskExecutor taskExecutor;
-	@Resource
+	
+	@Autowired
 	private OpcRpcService opcRpcService;
+	
 	@Value("${cloud.dingTalk.webhookToken.sendException}")
 	private String webhookToken;
 

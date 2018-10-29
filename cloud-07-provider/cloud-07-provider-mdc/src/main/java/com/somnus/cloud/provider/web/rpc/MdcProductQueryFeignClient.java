@@ -18,6 +18,7 @@ package com.somnus.cloud.provider.web.rpc;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,8 +34,6 @@ import com.somnus.cloud.provider.api.service.MdcProductQueryFeignApi;
 import com.somnus.cloud.provider.model.domain.MdcProduct;
 import com.somnus.cloud.provider.service.MdcProductService;
 
-import javax.annotation.Resource;
-
 /**
  * @ClassName: MdcProductQueryFeignClient
  * @Description: The class Mdc product query feign client.
@@ -46,7 +45,7 @@ import javax.annotation.Resource;
 @Api(value = "API - MdcProductQueryFeignClient", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MdcProductQueryFeignClient extends BaseController implements MdcProductQueryFeignApi {
 
-	@Resource
+	@Autowired
 	private MdcProductService mdcProductService;
 
 	@Override
@@ -67,6 +66,6 @@ public class MdcProductQueryFeignClient extends BaseController implements MdcPro
 			productDto = new ProductDto();
 			BeanUtils.copyProperties(mdcProduct, productDto);
 		}
-		return WrapMapper.ok(productDto);
+		return WrapMapper.success(productDto);
 	}
 }

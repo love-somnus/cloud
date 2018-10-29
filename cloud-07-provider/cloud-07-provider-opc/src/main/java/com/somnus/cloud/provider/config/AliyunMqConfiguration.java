@@ -19,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
@@ -28,8 +29,6 @@ import com.somnus.cloud.common.base.constant.GlobalConstant;
 import com.somnus.cloud.common.config.properties.CloudProperties;
 import com.somnus.cloud.common.util.PublicUtil;
 import com.somnus.cloud.provider.consumer.listener.OptPushMessageListener;
-
-import javax.annotation.Resource;
 
 /**
  * @ClassName: AliyunMqConfiguration
@@ -41,13 +40,13 @@ import javax.annotation.Resource;
 @Configuration
 public class AliyunMqConfiguration {
 
-	@Resource
+	@Autowired
 	private CloudProperties cloudProperties;
 
-	@Resource
+	@Autowired
 	private OptPushMessageListener optPushConsumer;
 
-	@Resource
+	@Autowired
 	private TaskExecutor taskExecutor;
 
 	/**

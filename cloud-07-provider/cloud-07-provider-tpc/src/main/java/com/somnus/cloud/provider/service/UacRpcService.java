@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.service;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
@@ -43,9 +42,10 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class UacRpcService {
-	@Resource
+	@Autowired
 	private UacUserTokenFeignApi uacUserTokenFeignApi;
-	@Resource
+	
+	@Autowired
 	private UacMqMessageFeignApi uacMqMessageFeignApi;
 
 	@Retryable(value = Exception.class, backoff = @Backoff(delay = 5000, multiplier = 2))

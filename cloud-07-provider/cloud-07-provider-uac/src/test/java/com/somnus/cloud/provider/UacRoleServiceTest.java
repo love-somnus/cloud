@@ -1,8 +1,7 @@
 package com.somnus.cloud.provider;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.somnus.cloud.common.base.constant.GlobalConstant;
 import com.somnus.cloud.provider.model.domain.UacRole;
@@ -15,7 +14,8 @@ import com.somnus.cloud.provider.service.UacRoleService;
  * @date 2018年10月17日
  */
 public class UacRoleServiceTest extends CloudUacApplicationTests {
-	@Resource
+	
+	@Autowired
 	private UacRoleService uacRoleService;
 
 	/**

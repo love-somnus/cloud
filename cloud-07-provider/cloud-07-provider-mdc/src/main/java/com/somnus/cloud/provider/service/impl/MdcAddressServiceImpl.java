@@ -23,10 +23,10 @@ import com.somnus.cloud.provider.mapper.MdcAddressMapper;
 import com.somnus.cloud.provider.model.domain.MdcAddress;
 import com.somnus.cloud.provider.service.MdcAddressService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -37,7 +37,7 @@ import java.util.List;
  */
 @Service
 public class MdcAddressServiceImpl extends BaseService<MdcAddress> implements MdcAddressService {
-	@Resource
+	@Autowired
 	private MdcAddressMapper mdcAddressMapper;
 
 	/**

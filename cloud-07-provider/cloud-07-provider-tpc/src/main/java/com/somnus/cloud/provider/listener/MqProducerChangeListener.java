@@ -15,13 +15,12 @@
  */
 package com.somnus.cloud.provider.listener;
 
-import javax.annotation.Resource;
-
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.ChildData;
 import org.apache.curator.framework.recipes.cache.TreeCacheEvent;
 import org.apache.curator.framework.recipes.cache.TreeCacheListener;
 import org.apache.zookeeper.data.Stat;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
@@ -43,7 +42,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 public class MqProducerChangeListener implements TreeCacheListener {
-	@Resource
+	@Autowired
 	private TpcMqProducerService tpcMqProducerService;
 
 	/**

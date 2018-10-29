@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.web.admin;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,7 +55,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "Web - UacActionMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacActionMainController extends BaseController {
 
-	@Resource
+	@Autowired
 	private UacActionService uacActionService;
 
 	/**
@@ -72,7 +71,7 @@ public class UacActionMainController extends BaseController {
 
 		logger.info("查询角色列表actionQuery={}", action);
 		PageInfo<ActionVo> pageInfo = uacActionService.queryActionListWithPage(action);
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 
 	/**

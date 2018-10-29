@@ -25,9 +25,9 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -114,43 +114,61 @@ import eu.bitwalker.useragentutils.UserAgent;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UacUserServiceImpl extends BaseService<UacUser> implements UacUserService {
-	@Resource
+	
+	@Autowired
 	private UacUserMapper uacUserMapper;
-	@Resource
+	
+	@Autowired
 	private UacMenuService uacMenuService;
-	@Resource
+	
+	@Autowired
 	private UacActionMapper uacActionMapper;
-	@Resource
+	
+	@Autowired
 	private UacMenuMapper uacMenuMapper;
-	@Resource
+	
+	@Autowired
 	private UacGroupUserService uacGroupUserService;
-	@Resource
+	
+	@Autowired
 	private UacLogService uacLogService;
-	@Resource
+	
+	@Autowired
 	private UacRoleService uacRoleService;
-	@Resource
+	
+	@Autowired
 	private UacRoleUserService uacRoleUserService;
-	@Resource
+	@Autowired
 	private UacUserMenuMapper uacUserMenuMapper;
-	@Resource
+	
+	@Autowired
 	private UacUserMenuService uacUserMenuService;
-	@Resource
+	
+	@Autowired
 	private RedisService redisService;
-	@Resource
+	
+	@Autowired
 	private EmailProducer emailProducer;
+	
 	@Value("${cloud.auth.active-user-url}")
 	private String activeUserUrl;
-	@Resource
+	
+	@Autowired
 	private UacActionService uacActionService;
-	@Resource
+	
+	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
-	@Resource
+	
+	@Autowired
 	private TaskExecutor taskExecutor;
-	@Resource
+	
+	@Autowired
 	private UacUserTokenService uacUserTokenService;
-	@Resource
+	
+	@Autowired
 	private OpcRpcService opcRpcService;
-	@Resource
+	
+	@Autowired
 	private UserManager userManager;
 
 	@Override

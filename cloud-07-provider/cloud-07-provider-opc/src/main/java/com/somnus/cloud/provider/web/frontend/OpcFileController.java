@@ -18,10 +18,10 @@ package com.somnus.cloud.provider.web.frontend;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,7 +41,6 @@ import com.somnus.cloud.provider.api.model.dto.attachment.OptAttachmentRespDto;
 import com.somnus.cloud.provider.api.model.dto.oss.OptUploadFileReqDto;
 import com.somnus.cloud.provider.api.model.dto.oss.OptUploadFileRespDto;
 import com.somnus.cloud.provider.service.OpcAttachmentService;
-import com.somnus.cloud.provider.service.OpcOssService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -57,11 +56,9 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "WEB - OptFileRest", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class OpcFileController extends BaseController {
 
-	@Resource
+	@Autowired
 	private OpcAttachmentService optAttachmentService;
-	@Resource
-	private OpcOssService opcOssService;
-
+	
 	/**
 	 * 上传文件.
 	 *
@@ -87,7 +84,7 @@ public class OpcFileController extends BaseController {
 		if (StringUtils.isNotEmpty(attachmentIds)) {
 			attachmentIds = StringUtils.substringBeforeLast(attachmentIds, GlobalConstant.Symbol.COMMA);
 		}
-		return WrapMapper.ok(attachmentIds);
+		return WrapMapper.success(attachmentIds);
 	}
 
 	/**
@@ -135,7 +132,7 @@ public class OpcFileController extends BaseController {
 		logger.info("queryAttachment -根据ID查询文件信息. id={}", id);
 
 		OptAttachmentRespDto optAttachmentRespDto = optAttachmentService.queryAttachmentById(id);
-		return WrapMapper.ok(optAttachmentRespDto);
+		return WrapMapper.success(optAttachmentRespDto);
 	}
 
 	/**
@@ -151,9 +148,8 @@ public class OpcFileController extends BaseController {
 		logger.info("queryAttachment -查询附件信息. refNo={}", refNo);
 
 		List<OptAttachmentRespDto> optAttachmentRespDtos = optAttachmentService.queryAttachmentListByRefNo(refNo);
-		return WrapMapper.ok(optAttachmentRespDtos);
+		return WrapMapper.success(optAttachmentRespDtos);
 	}
-
 
 	/**
 	 * 删除附件信息.

@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.rpc;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,7 +43,8 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @Api(value = "API - MdcExceptionLogFeignClient", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MdcExceptionLogFeignClient extends BaseController implements MdcExceptionLogFeignApi {
-	@Resource
+	
+	@Autowired
 	private MdcExceptionLogService mdcExceptionLogService;
 
 	@Override

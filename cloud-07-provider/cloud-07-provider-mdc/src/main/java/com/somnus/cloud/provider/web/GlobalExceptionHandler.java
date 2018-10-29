@@ -16,6 +16,8 @@
 package com.somnus.cloud.provider.web;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.http.HttpStatus;
@@ -31,8 +33,6 @@ import com.somnus.cloud.common.util.wrapper.Wrapper;
 import com.somnus.cloud.provider.api.model.dto.GlobalExceptionLogDto;
 import com.somnus.cloud.provider.api.service.MdcExceptionLogFeignApi;
 
-import javax.annotation.Resource;
-
 /**
  * @ClassName: GlobalExceptionHandler
  * @Description: 全局的的异常拦截器
@@ -42,13 +42,16 @@ import javax.annotation.Resource;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-	@Resource
+	@Autowired
 	private TaskExecutor taskExecutor;
+	
 	@Value("${spring.profiles.active}")
 	String profile;
+	
 	@Value("${spring.application.name}")
 	String applicationName;
-	@Resource
+	
+	@Autowired
 	private MdcExceptionLogFeignApi mdcExceptionLogFeignApi;
 
 	/**

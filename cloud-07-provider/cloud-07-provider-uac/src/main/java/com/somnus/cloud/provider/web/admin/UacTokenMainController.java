@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.admin;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,7 +45,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "Web - UacTokenMainController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacTokenMainController extends BaseController {
 
-	@Resource
+	@Autowired
 	private UacUserTokenService uacUserTokenService;
 
 	/**
@@ -61,6 +60,6 @@ public class UacTokenMainController extends BaseController {
 	public Wrapper<?> queryUacActionListWithPage(@ApiParam(name = "token") @RequestBody TokenMainQueryDto token) {
 		logger.info("查询在线用户列表. token={}", token);
 		PageInfo<UacUserToken> pageInfo = uacUserTokenService.listTokenWithPage(token);
-		return WrapMapper.ok(pageInfo);
+		return WrapMapper.success(pageInfo);
 	}
 }

@@ -17,9 +17,8 @@ package com.somnus.cloud.provider.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,11 +45,13 @@ import com.somnus.cloud.provider.service.UacLogService;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UacLogServiceImpl extends BaseService<UacLog> implements UacLogService {
-	@Resource
+	@Autowired
 	private UacLogMapper uacLogMapper;
-	@Resource
+	
+	@Autowired
 	private OpcRpcService opcRpcService;
-	@Resource
+	
+	@Autowired
 	private UacActionService uacActionService;
 
 	@Override

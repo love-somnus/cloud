@@ -17,8 +17,7 @@ package com.somnus.cloud.provider.job.dataflow;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -44,12 +43,15 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @ElasticSimpleJob(cron = "0 0/10 * * * ?", jobParameter = "fetchNum=1000")
 public class HandleWaitingConfirmMessageJob extends AbstractBaseDataflowJob<String> {
-	@Resource
+	@Autowired
 	private TpcMqMessageService tpcMqMessageService;
-	@Resource
+	
+	@Autowired
 	private UacRpcService uacRpcService;
+	
 	@Value("${cloud.message.handleTimeout}")
 	private int timeOutMinute;
+	
 	private static final String PID_UAC = "PID_UAC";
 
 	/**

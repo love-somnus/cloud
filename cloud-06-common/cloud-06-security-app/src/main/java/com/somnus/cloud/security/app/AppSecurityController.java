@@ -19,6 +19,8 @@ import com.somnus.cloud.security.app.social.AppSingUpUtils;
 import com.somnus.cloud.security.core.properties.SecurityConstants;
 import com.somnus.cloud.security.core.social.BaseSocialController;
 import com.somnus.cloud.security.core.social.support.SocialUserInfo;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.web.ProviderSignInUtils;
@@ -27,7 +29,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.ServletWebRequest;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -39,10 +40,10 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class AppSecurityController extends BaseSocialController {
 
-	@Resource
+	@Autowired
 	private ProviderSignInUtils providerSignInUtils;
 
-	@Resource
+	@Autowired
 	private AppSingUpUtils appSingUpUtils;
 
 	/**

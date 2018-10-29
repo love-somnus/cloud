@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.service.impl;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.common.base.Preconditions;
@@ -40,9 +39,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class MdcProductServiceImpl implements MdcProductService {
-	@Resource
+	@Autowired
 	private MdcProductQueryFeignApi mdcProductQueryFeignApi;
-	@Resource
+	
+	@Autowired
 	private MdcProductFeignApi mdcProductFeignApi;
 
 	@Override

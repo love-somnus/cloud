@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.mall;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,7 +44,7 @@ import io.swagger.annotations.ApiParam;
 @Api(value = "WEB - EmailController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class EmailController extends BaseController {
 
-	@Resource
+	@Autowired
 	private EmailService emailService;
 
 	/**

@@ -15,8 +15,7 @@
  */
 package com.somnus.cloud.provider.web.admin;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -48,8 +47,7 @@ import tk.mybatis.mapper.entity.Example;
 @Api(value = "Web - UacMenuCommonController", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UacMenuCommonController extends BaseController {
 
-
-	@Resource
+	@Autowired
 	private UacMenuService uacMenuService;
 
 	/**
@@ -76,7 +74,7 @@ public class UacMenuCommonController extends BaseController {
 		criteria.andEqualTo("menuCode", menuCode);
 
 		int result = uacMenuService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 	/**
@@ -104,7 +102,7 @@ public class UacMenuCommonController extends BaseController {
 		criteria.andEqualTo("pid", pid);
 
 		int result = uacMenuService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 
 
@@ -132,6 +130,6 @@ public class UacMenuCommonController extends BaseController {
 		criteria.andEqualTo("url", url);
 
 		int result = uacMenuService.selectCountByExample(example);
-		return WrapMapper.ok(result < 1);
+		return WrapMapper.success(result < 1);
 	}
 }

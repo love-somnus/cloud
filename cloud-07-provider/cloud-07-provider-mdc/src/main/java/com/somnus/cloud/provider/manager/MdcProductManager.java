@@ -16,6 +16,8 @@
 package com.somnus.cloud.provider.manager;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,8 +27,6 @@ import com.somnus.cloud.provider.api.exceptions.MdcBizException;
 import com.somnus.cloud.provider.api.model.domain.MqMessageData;
 import com.somnus.cloud.provider.mapper.MdcProductMapper;
 import com.somnus.cloud.provider.model.domain.MdcProduct;
-
-import javax.annotation.Resource;
 
 /**
  * @ClassName: MdcProductManager
@@ -38,7 +38,7 @@ import javax.annotation.Resource;
 @Component
 @Transactional(rollbackFor = Exception.class)
 public class MdcProductManager {
-	@Resource
+	@Autowired
 	private MdcProductMapper mdcProductMapper;
 
 	/**

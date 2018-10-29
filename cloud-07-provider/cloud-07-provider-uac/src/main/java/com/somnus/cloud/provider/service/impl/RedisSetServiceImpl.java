@@ -16,13 +16,14 @@
 package com.somnus.cloud.provider.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.SetOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import com.somnus.cloud.provider.service.RedisSetService;
 
-import javax.annotation.Resource;
 import java.util.Set;
 
 /**
@@ -34,7 +35,8 @@ import java.util.Set;
 @Slf4j
 @Service
 public class RedisSetServiceImpl implements RedisSetService {
-	@Resource
+	
+	@Autowired
 	private StringRedisTemplate rt;
 
 	@Override
