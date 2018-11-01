@@ -24,6 +24,7 @@
     <module>cloud-06-common</module>
     <module>cloud-07-provider</module>
     <module>cloud-08-provider-api</module>
+    <module>cloud-09-generator</module>
   </modules>
 
   <properties>

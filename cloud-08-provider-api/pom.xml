@@ -7,7 +7,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <description>公共类</description>
+  <description>服务中心API</description>
   <groupId>com.somnus.provider.api</groupId>
   <artifactId>cloud-08-provider-api</artifactId>
   <packaging>pom</packaging>
