@@ -231,10 +231,10 @@ public class PtcAlipayServiceImpl implements PtcAlipayService {
 	 */
 	private void dumpResponse(AlipayResponse response) {
 		if (response != null) {
-			log.info(String.format("code:%s, msg:%s", response.getCode(), response.getMsg()));
+			log.info("code:{}, msg:{}", response.getCode(), response.getMsg());
 			if (StringUtils.isNotEmpty(response.getSubCode())) {
-				log.info(String.format("subCode:%s, subMsg:%s", response.getSubCode(),
-						response.getSubMsg()));
+				log.info("subCode:{}, subMsg:{}", response.getSubCode(),
+						response.getSubMsg());
 			}
 			log.info("body:" + response.getBody());
 		}

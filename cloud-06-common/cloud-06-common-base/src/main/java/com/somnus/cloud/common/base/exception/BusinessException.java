@@ -15,6 +15,8 @@
  */
 package com.somnus.cloud.common.base.exception;
 
+import java.text.MessageFormat;
+
 import com.somnus.cloud.common.base.enums.ErrorCodeEnum;
 
 /**
@@ -53,12 +55,12 @@ public class BusinessException extends RuntimeException {
 	}
 
 	public BusinessException(int code, String msgFormat, Object... args) {
-		super(String.format(msgFormat, args));
+		super(MessageFormat.format(msgFormat, args));
 		this.code = code;
 	}
 
 	public BusinessException(ErrorCodeEnum codeEnum, Object... args) {
-		super(String.format(codeEnum.getMsg(), args));
+		super(MessageFormat.format(codeEnum.getMsg(), args));
 		this.code = codeEnum.getCode();
 	}
 

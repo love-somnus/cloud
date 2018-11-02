@@ -73,15 +73,15 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10011002 error code enum.
 	 */
-	UAC10011002(10011002, "找不到用户,loginName=%s"),
+	UAC10011002(10011002, "找不到用户,loginName={0}"),
 	/**
 	 * Uac 10011003 error code enum.
 	 */
-	UAC10011003(10011003, "找不到用户,userId=%s"),
+	UAC10011003(10011003, "找不到用户,userId={0}"),
 	/**
 	 * Uac 10011004 error code enum.
 	 */
-	UAC10011004(10011004, "找不到用户,email=%s"),
+	UAC10011004(10011004, "找不到用户,email={0}"),
 	/**
 	 * Uac 10011006 error code enum.
 	 */
@@ -105,7 +105,7 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10011011 error code enum.
 	 */
-	UAC10011011(10011011, "用户不存在, userId=%s"),
+	UAC10011011(10011011, "用户不存在, userId={0}"),
 	/**
 	 * Uac 10011012 error code enum.
 	 */
@@ -153,11 +153,11 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10011024 error code enum.
 	 */
-	UAC10011024(10011024, "找不到绑定的用户, userId=%"),
+	UAC10011024(10011024, "找不到绑定的用户, userId={0}"),
 	/**
 	 * Uac 10011025 error code enum.
 	 */
-	UAC10011025(10011025, "用户已存在, loginName=%"),
+	UAC10011025(10011025, "用户已存在, loginName={0}"),
 	/**
 	 * Uac 10011026 error code enum.
 	 */
@@ -165,7 +165,7 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10011027 error code enum.
 	 */
-	UAC10011027(10011027, "找不到用户,mobile=%s"),
+	UAC10011027(10011027, "找不到用户,mobile={0}"),
 	/**
 	 * Uac 10011028 error code enum.
 	 */
@@ -185,7 +185,7 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10011032 error code enum.
 	 */
-	UAC10011032(10011032, "邮箱不存在, loginName=%s,email=%s"),
+	UAC10011032(10011032, "邮箱不存在, loginName={0},email={1}"),
 	/**
 	 * Uac 10011033 error code enum.
 	 */
@@ -205,11 +205,11 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10011037 error code enum.
 	 */
-	UAC10011037(10011037, "修改用户失败,userId=%s"),
+	UAC10011037(10011037, "修改用户失败,userId={0}"),
 	/**
 	 * Uac 10011038 error code enum.
 	 */
-	UAC10011038(10011038, "激活用户失败,userId=%s"),
+	UAC10011038(10011038, "激活用户失败,userId={0}"),
 	/**
 	 * Uac 10011039 error code enum.
 	 */
@@ -246,45 +246,45 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10012005 error code enum.
 	 */
-	UAC10012005(10012005, "找不到角色信息,roleId=%s"),
+	UAC10012005(10012005, "找不到角色信息,roleId={0}"),
 	/**
 	 * Uac 10012006 error code enum.
 	 */
-	UAC10012006(10012006, "删除角色失败, roleId=%s"),
+	UAC10012006(10012006, "删除角色失败, roleId={0}"),
 	/**
 	 * Uac 10012007 error code enum.
 	 */
-	UAC10012007(10012007, "批量删除角色失败, roleId=%s"),
+	UAC10012007(10012007, "批量删除角色失败, roleId={0}"),
 	/**
 	 * Uac 10012008 error code enum.
 	 */
-	UAC10012008(10012008, "找不到绑定的角色, roleId=%s"),
+	UAC10012008(10012008, "找不到绑定的角色, roleId={0}"),
 
 
 	/**
 	 * Uac 10013001 error code enum.
 	 */
-	UAC10013001(10013001, "父菜单不存在,menuId=%s"),
+	UAC10013001(10013001, "父菜单不存在,menuId={0}"),
 	/**
 	 * Uac 10013002 error code enum.
 	 */
-	UAC10013002(10013002, "更新上级菜单失败,menuId=%s"),
+	UAC10013002(10013002, "更新上级菜单失败,menuId={0}"),
 	/**
 	 * Uac 10013003 error code enum.
 	 */
-	UAC10013003(10013003, "菜单不存在,menuId=%s"),
+	UAC10013003(10013003, "菜单不存在,menuId={0}"),
 	/**
 	 * Uac 10013004 error code enum.
 	 */
-	UAC10013004(10013004, "启用菜单失败,menuId=%s"),
+	UAC10013004(10013004, "启用菜单失败,menuId={0}"),
 	/**
 	 * Uac 10013005 error code enum.
 	 */
-	UAC10013005(10013005, "禁用菜单失败,menuId=%s"),
+	UAC10013005(10013005, "禁用菜单失败,menuId={0}"),
 	/**
 	 * Uac 10013006 error code enum.
 	 */
-	UAC10013006(10013006, "更新菜单状态失败,menuId=%s"),
+	UAC10013006(10013006, "更新菜单状态失败,menuId={0}"),
 	/**
 	 * Uac 10013007 error code enum.
 	 */
@@ -292,7 +292,7 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10013008 error code enum.
 	 */
-	UAC10013008(10013008, "删除菜单失败, menuId=%s"),
+	UAC10013008(10013008, "删除菜单失败, menuId={0}"),
 	/**
 	 * Uac 10013009 error code enum.
 	 */
@@ -300,17 +300,17 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10013010 error code enum.
 	 */
-	UAC10013010(10013010, "选择菜单不是根目录,menuId=%s"),
+	UAC10013010(10013010, "选择菜单不是根目录,menuId={0}"),
 
 
 	/**
 	 * Uac 10014001 error code enum.
 	 */
-	UAC10014001(10014001, "找不到权限信息, actionId=%s"),
+	UAC10014001(10014001, "找不到权限信息, actionId={0}"),
 	/**
 	 * Uac 10014002 error code enum.
 	 */
-	UAC10014002(10014002, "删除失败, actionId=%s"),
+	UAC10014002(10014002, "删除失败, actionId={0}"),
 	/**
 	 * Uac 10014003 error code enum.
 	 */
@@ -318,7 +318,7 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10015001 error code enum.
 	 */
-	UAC10015001(10015001, "找不到组织信息,groupId=%s"),
+	UAC10015001(10015001, "找不到组织信息,groupId={0}"),
 	/**
 	 * Uac 10015002 error code enum.
 	 */
@@ -330,23 +330,23 @@ public enum ErrorCodeEnum {
 	/**
 	 * Uac 10015004 error code enum.
 	 */
-	UAC10015004(10015004, "找不到组织信息,groupId=%s"),
+	UAC10015004(10015004, "找不到组织信息,groupId={0}"),
 	/**
 	 * Uac 10015006 error code enum.
 	 */
-	UAC10015006(10015006, "更新组织信息失败,groupId=%s"),
+	UAC10015006(10015006, "更新组织信息失败,groupId={0}"),
 	/**
 	 * Uac 10015007 error code enum.
 	 */
-	UAC10015007(10015007, "该组织下还存在子节点，不能将其删除, Pid=%s"),
+	UAC10015007(10015007, "该组织下还存在子节点，不能将其删除, Pid={0}"),
 	/**
 	 * Uac 10015008 error code enum.
 	 */
-	UAC10015008(10015008, "该组织下绑定的用户，不能将其删除, groupId=%s"),
+	UAC10015008(10015008, "该组织下绑定的用户，不能将其删除, groupId={0}"),
 	/**
 	 * Uac 10015009 error code enum.
 	 */
-	UAC10015009(10015009, "找不到上级组织, groupId=%s"),
+	UAC10015009(10015009, "找不到上级组织, groupId={0}"),
 	/**
 	 * Mdc 10021001 error code enum.
 	 */
@@ -362,31 +362,31 @@ public enum ErrorCodeEnum {
 	/**
 	 * Mdc 10021004 error code enum.
 	 */
-	MDC10021004(10021004, "找不到该商品信息,productId=%s"),
+	MDC10021004(10021004, "找不到该商品信息,productId={0}"),
 	/**
 	 * Mdc 10021015 error code enum.
 	 */
-	MDC10021015(10021015, "商品不是在线售卖状态, productId=%s"),
+	MDC10021015(10021015, "商品不是在线售卖状态, productId={0}"),
 	/**
 	 * Mdc 10021016 error code enum.
 	 */
-	MDC10021016(10021016, "商品库存不足, productId=%s"),
+	MDC10021016(10021016, "商品库存不足, productId={0}"),
 	/**
 	 * Mdc 10021017 error code enum.
 	 */
-	MDC10021017(10021017, "产品已下架或者删除, productId=%s"),
+	MDC10021017(10021017, "产品已下架或者删除, productId={0}"),
 	/**
 	 * Mdc 10021018 error code enum.
 	 */
-	MDC10021018(10021018, "找不到数据字典信息, dictId=%s"),
+	MDC10021018(10021018, "找不到数据字典信息, dictId={0}"),
 	/**
 	 * Mdc 10021019 error code enum.
 	 */
-	MDC10021019(10021019, "更新字典状态失败, dictId=%s"),
+	MDC10021019(10021019, "更新字典状态失败, dictId={0}"),
 	/**
 	 * Mdc 10021020 error code enum.
 	 */
-	MDC10021020(10021020, "上级数据字典不存在, dictId=%s"),
+	MDC10021020(10021020, "上级数据字典不存在, dictId={0}"),
 	/**
 	 * Mdc 10021021 error code enum.
 	 */
@@ -399,28 +399,28 @@ public enum ErrorCodeEnum {
 	/**
 	 * Mdc 10023001 error code enum.
 	 */
-	MDC10023001(10023001, "找不到商品分类信息, categoryId=%s"),
+	MDC10023001(10023001, "找不到商品分类信息, categoryId={0}"),
 	/**
 	 * Mdc 10023002 error code enum.
 	 */
-	MDC10023002(10023002, "上级商品分类不存在, categoryId=%s"),
+	MDC10023002(10023002, "上级商品分类不存在, categoryId={0}"),
 	/**
 	 * Mdc 10023003 error code enum.
 	 */
-	MDC10023003(10023003, "更新商品分类状态失败, categoryId=%s"),
+	MDC10023003(10023003, "更新商品分类状态失败, categoryId={0}"),
 	/**
 	 * Mdc 10021022 error code enum.
 	 */
-	MDC10021022(10021022, "更新商品信息失败, productId=%s"),
+	MDC10021022(10021022, "更新商品信息失败, productId={0}"),
 	/**
 	 * Mdc 10021023 error code enum.
 	 */
-	MDC10021023(10021023, "删除商品信息失败, productId=%s"),
+	MDC10021023(10021023, "删除商品信息失败, productId={0}"),
 	/**
 	 * Omc 10031001 error code enum.
 	 */
 // 1003 订单中心
-	OMC10031001(10031001, "购物车为空, userId=%s"),
+	OMC10031001(10031001, "购物车为空, userId={0}"),
 	/**
 	 * Omc 10031002 error code enum.
 	 */
@@ -436,7 +436,7 @@ public enum ErrorCodeEnum {
 	/**
 	 * Omc 10031005 error code enum.
 	 */
-	OMC10031005(10031005, "找不到订单信息, orderNo=%s"),
+	OMC10031005(10031005, "找不到订单信息, orderNo={0}"),
 	/**
 	 * Omc 10031006 error code enum.
 	 */
@@ -448,7 +448,7 @@ public enum ErrorCodeEnum {
 	/**
 	 * Omc 10031008 error code enum.
 	 */
-	OMC10031008(10031008, "更新默认地址失败, addressId=%s"),
+	OMC10031008(10031008, "更新默认地址失败, addressId={0}"),
 	/**
 	 * Omc 10031009 error code enum.
 	 */
@@ -472,11 +472,11 @@ public enum ErrorCodeEnum {
 	/**
 	 * Omc 10031014 error code enum.
 	 */
-	OMC10031014(10031014, "更新购物车数据失败, cartId=%s"),
+	OMC10031014(10031014, "更新购物车数据失败, cartId={0}"),
 	/**
 	 * Omc 10031016 error code enum.
 	 */
-	OMC10031016(10031016, "更新购物车数据失败, cartId=%s"),
+	OMC10031016(10031016, "更新购物车数据失败, cartId={0}"),
 	/**
 	 * Opc 10040001 error code enum.
 	 */
@@ -504,11 +504,11 @@ public enum ErrorCodeEnum {
 	/**
 	 * Opc 10040007 error code enum.
 	 */
-	OPC10040007(10040007, "更新附件失败, id=%s"),
+	OPC10040007(10040007, "更新附件失败, id={0}"),
 	/**
 	 * Opc 10040008 error code enum.
 	 */
-	OPC10040008(10040008, "找不到该附件信息, id=%s"),
+	OPC10040008(10040008, "找不到该附件信息, id={0}"),
 	/**
 	 * Opc 10040009 error code enum.
 	 */
@@ -532,11 +532,11 @@ public enum ErrorCodeEnum {
 	/**
 	 * Tpc 10050003 error code enum.
 	 */
-	TPC10050003(10050003, "删除消息失败,messageKey=%s"),
+	TPC10050003(10050003, "删除消息失败,messageKey={0}"),
 	/**
 	 * Tpc 10050004 error code enum.
 	 */
-	TPC10050004(10050004, "消息中心接口异常,message=%s, messageKey=%s"),
+	TPC10050004(10050004, "消息中心接口异常,message={0}, messageKey={1}"),
 	/**
 	 * Tpc 10050005 error code enum.
 	 */
@@ -553,7 +553,7 @@ public enum ErrorCodeEnum {
 	/**
 	 * Tpc 10050008 error code enum.
 	 */
-	TPC10050008(10050008, "消息体不能为空,messageKey=%s"),
+	TPC10050008(10050008, "消息体不能为空,messageKey={0}"),
 	/**
 	 * Tpc 10050009 error code enum.
 	 */
@@ -561,27 +561,27 @@ public enum ErrorCodeEnum {
 	/**
 	 * Tpc 100500010 error code enum.
 	 */
-	TPC100500010(10050010, "Topic=%s, 无消费者订阅"),
+	TPC100500010(10050010, "Topic={0}, 无消费者订阅"),
 	/**
 	 * Tpc 100500011 error code enum.
 	 */
-	TPC100500011(10050011, "Mq编码转换异常, MessageKey=%s"),
+	TPC100500011(10050011, "Mq编码转换异常, MessageKey={0}"),
 	/**
 	 * Tpc 100500012 error code enum.
 	 */
-	TPC100500012(10050012, "发送MQ失败, MessageKey=%s"),
+	TPC100500012(10050012, "发送MQ失败, MessageKey={0}"),
 	/**
 	 * Tpc 100500013 error code enum.
 	 */
-	TPC100500013(10050013, "延迟级别错误, Topic=%s, MessageKey=%s"),
+	TPC100500013(10050013, "延迟级别错误, Topic={0}, MessageKey={1}"),
 	/**
 	 * Tpc 100500014 error code enum.
 	 */
-	TPC100500014(10050014, "MQ重试三次,仍然发送失败, Topic=%s, MessageKey=%s"),
+	TPC100500014(10050014, "MQ重试三次,仍然发送失败, Topic={0}, MessageKey={1}"),
 	/**
 	 * Tpc 100500015 error code enum.
 	 */
-	TPC100500015(10050015, "消息PID不能为空, messageKey=%s"),;
+	TPC100500015(10050015, "消息PID不能为空, messageKey={0}"),;
 	
 	@Getter
 	private int code;
