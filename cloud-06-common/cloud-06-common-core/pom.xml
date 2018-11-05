@@ -51,10 +51,12 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     
+    <!-- 熔断器begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
     </dependency>
+    <!-- 熔断器end -->
     
     <dependency>
       <groupId>eu.bitwalker</groupId>

@@ -20,13 +20,6 @@
     </dependency>
     <!-- 服务注册与发现end -->
     
-    <!-- 熔断器begin -->
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-    </dependency>
-    <!-- 熔断器end -->
-    
     <!-- 熔断器仪表盘begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -37,7 +30,7 @@
     <!-- 熔断器监控begin -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-netflix-turbine</artifactId>
+      <artifactId>spring-cloud-starter-netflix-turbine</artifactId>
     </dependency>
     <!-- 熔断器监控end -->
     
