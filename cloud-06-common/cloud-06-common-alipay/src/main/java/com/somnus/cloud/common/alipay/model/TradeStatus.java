@@ -22,9 +22,10 @@ package com.somnus.cloud.common.alipay.model;
  * @date 2018年10月17日
  */
 public enum TradeStatus {
-	SUCCESS,
 
-	FAILED,
+    SUCCESS,
 
-	UNKNOWN;
+    FAILED,
+
+    UNKNOWN;
 }

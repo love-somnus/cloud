@@ -15,47 +15,31 @@
  */
 package com.somnus.cloud.provider.api.model.enums;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @ClassName: MqMessageTypeEnum
  * @Description: The enum Mq message type enum.
  * @author Somnus
  * @date 2018年10月16日
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum MqMessageTypeEnum {
-	/**
-	 * 生产者.
-	 */
-	PRODUCER_MESSAGE(10, "生产者"),
-	/**
-	 * 消费者.
-	 */
-	CONSUMER_MESSAGE(20, "消费者");
+    /**
+     * 生产者.
+     */
+    PRODUCER_MESSAGE(10, "生产者"),
+    /**
+     * 消费者.
+     */
+    CONSUMER_MESSAGE(20, "消费者");
 
-	private int messageType;
+    @Getter
+    private int messageType;
 
-	private String value;
-
-	MqMessageTypeEnum(int messageType, String value) {
-		this.messageType = messageType;
-		this.value = value;
-	}
-
-	/**
-	 * Message type int.
-	 *
-	 * @return the int
-	 */
-	public int messageType() {
-		return messageType;
-	}
-
-	/**
-	 * Value string.
-	 *
-	 * @return the string
-	 */
-	public String value() {
-		return value;
-	}
+    @Getter
+    private String value;
 
 }

@@ -15,39 +15,33 @@
  */
 package com.somnus.cloud.provider.model.enums;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @ClassName: JobTaskTypeEnum
  * @Description: The enum Job task type enum.
  * @author Somnus
  * @date 2018年10月17日
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum JobTaskTypeEnum {
+    /**
+     * Mq send message job task type enum.
+     */
+    MQ_SEND_MESSAGE("MQ_SEND_MESSAGE", "发送可靠消息"),;
 
-	/**
-	 * Mq send message job task type enum.
-	 */
-	MQ_SEND_MESSAGE("MQ_SEND_MESSAGE", "发送可靠消息"),;
-	/**
-	 * The Type.
-	 */
-	String type;
+    /**
+     * The Type.
+     */
+    @Getter
+    String type;
 
-	/**
-	 * The Value.
-	 */
-	String value;
-
-	JobTaskTypeEnum(String type, String value) {
-		this.type = type;
-		this.value = value;
-	}
-
-	public String type() {
-		return type;
-	}
-
-	public String value() {
-		return value;
-	}
+    /**
+     * The Value.
+     */
+    @Getter
+    String value;
 
 }

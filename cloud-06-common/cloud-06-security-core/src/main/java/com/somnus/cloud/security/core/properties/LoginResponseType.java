@@ -22,14 +22,13 @@ package com.somnus.cloud.security.core.properties;
  * @date 2018年10月12日
  */
 public enum LoginResponseType {
-
-	/**
-	 * 跳转
-	 */
-	REDIRECT,
-	/**
-	 * 返回json
-	 */
-	JSON
+    /**
+     * 跳转
+     */
+    REDIRECT,
+    /**
+     * 返回json
+     */
+    JSON
 
 }

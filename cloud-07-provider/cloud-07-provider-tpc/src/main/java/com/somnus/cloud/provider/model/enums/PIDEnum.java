@@ -22,16 +22,16 @@ package com.somnus.cloud.provider.model.enums;
  * @date 2018年10月17日
  */
 public enum PIDEnum {
-	/**
-	 * Pid uac pid enum.
-	 */
-	PID_UAC,
-	/**
-	 * Pid mdc pid enum.
-	 */
-	PID_MDC,
-	/**
-	 * Pid opc pid enum.
-	 */
-	PID_OPC,;
+    /**
+     * Pid uac pid enum.
+     */
+    PID_UAC,
+    /**
+     * Pid mdc pid enum.
+     */
+    PID_MDC,
+    /**
+     * Pid opc pid enum.
+     */
+    PID_OPC,;
 }

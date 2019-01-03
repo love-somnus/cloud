@@ -15,6 +15,10 @@
  */
 package com.somnus.cloud.provider.model.constant;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @ClassName: MallConstant
  * @Description: The class Mall constant.
@@ -22,38 +26,21 @@ package com.somnus.cloud.provider.model.constant;
  * @date 2018年10月17日
  */
 public class MallConstant {
-	/**
-	 * The enum Product status enum.
-	 */
-	public enum ProductStatusEnum {
-		/**
-		 * On sale product status enum.
-		 */
-		ON_SALE(1, "在线");
-		private String value;
-		private int code;
+    /**
+     * The enum Product status enum.
+     */
+    @AllArgsConstructor(access = AccessLevel.PRIVATE)
+    public enum ProductStatusEnum {
+        /**
+         * On sale product status enum.
+         */
+        ON_SALE(1, "在线");
 
-		ProductStatusEnum(int code, String value) {
-			this.code = code;
-			this.value = value;
-		}
+        @Getter
+        private int code;
 
-		/**
-		 * Gets value.
-		 *
-		 * @return the value
-		 */
-		public String getValue() {
-			return value;
-		}
+        @Getter
+        private String value;
 
-		/**
-		 * Gets code.
-		 *
-		 * @return the code
-		 */
-		public int getCode() {
-			return code;
-		}
-	}
+    }
 }

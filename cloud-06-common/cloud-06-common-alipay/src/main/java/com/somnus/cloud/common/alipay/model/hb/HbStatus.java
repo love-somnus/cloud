@@ -22,21 +22,22 @@ package com.somnus.cloud.common.alipay.model.hb;
  * @date 2018年10月17日
  */
 public enum HbStatus {
-	S,
 
-	I,
+    S,
 
-	F,
+    I,
 
-	P,
+    F,
 
-	X,
+    P,
 
-	Y,
+    X,
 
-	Z,
+    Y,
 
-	C,
+    Z,
 
-	T;
+    C,
+
+    T;
 }

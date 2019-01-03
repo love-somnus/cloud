@@ -16,6 +16,8 @@
 package com.somnus.cloud.provider.api.model.constant;
 
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
@@ -28,62 +30,43 @@ import lombok.NoArgsConstructor;
 public class PtcApiConstant {
 
 
-	/**
-	 * The interface Alipay callback.
-	 */
-	public interface AlipayCallback {
-		/**
-		 * The constant TRADE_STATUS_WAIT_BUYER_PAY.
-		 */
-		String TRADE_STATUS_WAIT_BUYER_PAY = "WAIT_BUYER_PAY";
-		/**
-		 * The constant TRADE_STATUS_TRADE_SUCCESS.
-		 */
-		String TRADE_STATUS_TRADE_SUCCESS = "TRADE_SUCCESS";
+    /**
+     * The interface Alipay callback.
+     */
+    public interface AlipayCallback {
+        /**
+         * The constant TRADE_STATUS_WAIT_BUYER_PAY.
+         */
+        String TRADE_STATUS_WAIT_BUYER_PAY = "WAIT_BUYER_PAY";
+        /**
+         * The constant TRADE_STATUS_TRADE_SUCCESS.
+         */
+        String TRADE_STATUS_TRADE_SUCCESS = "TRADE_SUCCESS";
 
-		/**
-		 * The constant RESPONSE_SUCCESS.
-		 */
-		String RESPONSE_SUCCESS = "success";
-		/**
-		 * The constant RESPONSE_FAILED.
-		 */
-		String RESPONSE_FAILED = "failed";
-	}
+        /**
+         * The constant RESPONSE_SUCCESS.
+         */
+        String RESPONSE_SUCCESS = "success";
+        /**
+         * The constant RESPONSE_FAILED.
+         */
+        String RESPONSE_FAILED = "failed";
+    }
 
-	/**
-	 * The enum Pay platform enum.
-	 */
-	public enum PayPlatformEnum {
-		/**
-		 * Alipay pay platform enum.
-		 */
-		ALIPAY(1, "支付宝");
+    /**
+     * The enum Pay platform enum.
+     */
+    @AllArgsConstructor(access = AccessLevel.PRIVATE)
+    public enum PayPlatformEnum {
+        /**
+         * Alipay pay platform enum.
+         */
+        ALIPAY(1, "支付宝");
 
-		PayPlatformEnum(int code, String value) {
-			this.code = code;
-			this.value = value;
-		}
+        @Getter
+        private int code;
 
-		private String value;
-		private int code;
-
-		/**
-		 * Gets value.
-		 *
-		 * @return the value
-		 */
-		public String getValue() {
-			return value;
-		}
-
-		/**
-		 * Gets code.
-		 *
-		 * @return the code
-		 */
-		public int getCode() {
-			return code;
-		}
-	}
+        @Getter
+        private String value;
+    }
 }

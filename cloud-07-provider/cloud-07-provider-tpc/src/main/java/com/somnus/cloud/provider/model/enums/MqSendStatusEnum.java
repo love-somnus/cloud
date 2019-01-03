@@ -15,53 +15,37 @@
  */
 package com.somnus.cloud.provider.model.enums;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @ClassName: MqSendStatusEnum
  * @Description: The enum Mq send status enum.
  * @author Somnus
  * @date 2018年10月17日
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum MqSendStatusEnum {
-	/**
-	 * 未发送.
-	 */
-	WAIT_SEND(10, "未发送"),
+    /**
+     * 未发送.
+     */
+    WAIT_SEND(10, "未发送"),
 
-	/**
-	 * 已发送.
-	 */
-	SENDING(20, "已发送"),
+    /**
+     * 已发送.
+     */
+    SENDING(20, "已发送"),
 
-	/**
-	 * 已完成
-	 */
-	FINISH(30, "已完成");
+    /**
+     * 已完成
+     */
+    FINISH(30, "已完成");
 
-	private int sendStatus;
+    @Getter
+    private int sendStatus;
 
-	private String value;
-
-	MqSendStatusEnum(int sendStatus, String value) {
-		this.sendStatus = sendStatus;
-		this.value = value;
-	}
-
-	/**
-	 * Confirm status int.
-	 *
-	 * @return the int
-	 */
-	public int sendStatus() {
-		return sendStatus;
-	}
-
-	/**
-	 * Value string.
-	 *
-	 * @return the string
-	 */
-	public String value() {
-		return value;
-	}
+    @Getter
+    private String value;
 
 }

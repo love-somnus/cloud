@@ -15,6 +15,10 @@
  */
 package com.somnus.cloud.provider.model.enums;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,95 +28,75 @@ import java.util.List;
  * @author Somnus
  * @date 2018年10月17日
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum UacUserSourceEnum {
+    /**
+     * 注册
+     */
+    REGISTER("REGISTER", "注册"),
+    /**
+     * 后台新增
+     */
+    INSERT("INSERT", "后台新增"),
+    /**
+     * 后台导入
+     */
+    IMPORT("IMPORT", "后台导入"),
+    /**
+     * 手机
+     */
+    APP("APP", "手机"),;
 
-	/**
-	 * 注册
-	 */
-	REGISTER("REGISTER", "注册"),
-	/**
-	 * 后台新增
-	 */
-	INSERT("INSERT", "后台新增"),
-	/**
-	 * 后台导入
-	 */
-	IMPORT("IMPORT", "后台导入"),
-	/**
-	 * 手机
-	 */
-	APP("APP", "手机"),;
+    /**
+     * The Key.
+     */
+    @Getter
+    String key;
+    /**
+     * The Value.
+     */
+    @Getter
+    String value;
 
-	/**
-	 * The Key.
-	 */
-	String key;
-	/**
-	 * The Value.
-	 */
-	String value;
 
-	UacUserSourceEnum(String key, String value) {
-		this.key = key;
-		this.value = value;
-	}
+    /**
+     * 获取key获取value
+     *
+     * @param key key
+     *
+     * @return value value
+     */
+    public static String getValue(String key) {
+        for (UacUserSourceEnum ele : UacUserSourceEnum.values()) {
+            if (key.equals(ele.getKey())) {
+                return ele.getValue();
+            }
+        }
+        return null;
+    }
 
-	/**
-	 * Gets key.
-	 *
-	 * @return the key
-	 */
-	public String getKey() {
-		return key;
-	}
+    /**
+     * 根据key获取该对象
+     *
+     * @param key key
+     *
+     * @return this enum
+     */
+    public static UacUserSourceEnum keyOf(String key) {
+        for (UacUserSourceEnum ele : UacUserSourceEnum.values()) {
+            if (key.equals(ele.getKey())) {
+                return ele;
+            }
+        }
+        return null;
+    }
 
-	/**
-	 * Gets value.
-	 *
-	 * @return the value
-	 */
-	public String getValue() {
-		return value;
-	}
-
-	/**
-	 * 获取key获取value
-	 *
-	 * @param key key
-	 *
-	 * @return value value
-	 */
-	public static String getValue(String key) {
-		for (UacUserSourceEnum ele : UacUserSourceEnum.values()) {
-			if (key.equals(ele.getKey())) {
-				return ele.getValue();
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * 根据key获取该对象
-	 *
-	 * @param key key
-	 *
-	 * @return this enum
-	 */
-	public static UacUserSourceEnum getEnum(String key) {
-		for (UacUserSourceEnum ele : UacUserSourceEnum.values()) {
-			if (key.equals(ele.getKey())) {
-				return ele;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * 获取List集合
-	 *
-	 * @return List list
-	 */
-	public static List<UacUserSourceEnum> getList() {
-		return Arrays.asList(UacUserSourceEnum.values());
-	}
+    /**
+     * 获取List集合
+     *
+     * @return List list
+     */
+    public static List<UacUserSourceEnum> getList() {
+        return Arrays.asList(UacUserSourceEnum.values());
+    }
 }

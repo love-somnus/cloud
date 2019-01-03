@@ -15,84 +15,67 @@
  */
 package com.somnus.cloud.provider.model.enums;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @ClassName: MdcCategoryStatusEnum
  * @Description: The enum Mdc category status enum.
  * @author Somnus
  * @date 2018年10月17日
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum MdcCategoryStatusEnum {
-	/**
-	 * 启用
-	 */
-	ENABLE(1, "启用"),
-	/**
-	 * 禁用
-	 */
-	DISABLE(2, "禁用");
+    /**
+     * 启用
+     */
+    ENABLE(1, "启用"),
+    /**
+     * 禁用
+     */
+    DISABLE(2, "禁用");
 
-	/**
-	 * The Type.
-	 */
-	int type;
-	/**
-	 * The Name.
-	 */
-	String name;
+    /**
+     * The Type.
+     */
+    @Getter
+    int type;
+    /**
+     * The Name.
+     */
+    @Getter
+    String name;
 
-	MdcCategoryStatusEnum(int type, String name) {
-		this.type = type;
-		this.name = name;
-	}
+    /**
+     * Gets name.
+     *
+     * @param type the type
+     *
+     * @return the name
+     */
+    public static String getName(int type) {
+        for (MdcCategoryStatusEnum ele : MdcCategoryStatusEnum.values()) {
+            if (type == ele.getType()) {
+                return ele.getName();
+            }
+        }
+        return null;
+    }
 
-	/**
-	 * Gets type.
-	 *
-	 * @return the type
-	 */
-	public int getType() {
-		return type;
-	}
-
-	/**
-	 * Gets name.
-	 *
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-
-	/**
-	 * Gets name.
-	 *
-	 * @param type the type
-	 *
-	 * @return the name
-	 */
-	public static String getName(int type) {
-		for (MdcCategoryStatusEnum ele : MdcCategoryStatusEnum.values()) {
-			if (type == ele.getType()) {
-				return ele.getName();
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Gets enum.
-	 *
-	 * @param type the type
-	 *
-	 * @return the enum
-	 */
-	public static MdcCategoryStatusEnum getEnum(int type) {
-		for (MdcCategoryStatusEnum ele : MdcCategoryStatusEnum.values()) {
-			if (type == ele.getType()) {
-				return ele;
-			}
-		}
-		return MdcCategoryStatusEnum.ENABLE;
-	}
+    /**
+     * Gets enum.
+     *
+     * @param type the type
+     *
+     * @return the enum
+     */
+    public static MdcCategoryStatusEnum typeOf(int type) {
+        for (MdcCategoryStatusEnum ele : MdcCategoryStatusEnum.values()) {
+            if (type == ele.getType()) {
+                return ele;
+            }
+        }
+        return MdcCategoryStatusEnum.ENABLE;
+    }
 }

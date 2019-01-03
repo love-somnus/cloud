@@ -22,18 +22,18 @@ package com.somnus.cloud.common.alipay.model.hb;
  * @date 2018年10月17日
  */
 public enum Type {
-	
-	CR,
 
-	STORE,
+    CR,
 
-	VM,
+    STORE,
 
-	MD,
+    VM,
 
-	SOFT_POS,
+    MD,
 
-	POS,
+    SOFT_POS,
 
-	ALI_POS;
+    POS,
+
+    ALI_POS;
 }

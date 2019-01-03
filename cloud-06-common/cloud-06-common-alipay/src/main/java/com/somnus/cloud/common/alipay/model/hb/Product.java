@@ -22,8 +22,8 @@ package com.somnus.cloud.common.alipay.model.hb;
  * @date 2018年10月17日
  */
 public enum Product {
-	
-	FP,
 
-	MP;
+    FP,
+
+    MP;
 }

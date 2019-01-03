@@ -15,59 +15,51 @@
  */
 package com.somnus.cloud.provider.model.enums;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @ClassName: AddressTypeEnum
  * @Description: 地址类型枚举类
  * @author Somnus
  * @date 2018年10月17日
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum AddressTypeEnum {
+    /**
+     * Province address type enum.
+     */
+    PROVINCE("province"),
+    /**
+     * City address type enum.
+     */
+    CITY("city"),
+    /**
+     * District address type enum.
+     */
+    DISTRICT("district"),
+    /**
+     * Street address type enum.
+     */
+    STREET("street");
 
-	/**
-	 * Province address type enum.
-	 */
-	PROVINCE("province"),
-	/**
-	 * City address type enum.
-	 */
-	CITY("city"),
-	/**
-	 * District address type enum.
-	 */
-	DISTRICT("district"),
-	/**
-	 * Street address type enum.
-	 */
-	STREET("street");
+    @Getter
+    private String type;
 
-	private String type;
-
-	AddressTypeEnum(String type) {
-		this.type = type;
-	}
-
-	/**
-	 * Gets type.
-	 *
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
-
-	/**
-	 * Gets enum.
-	 *
-	 * @param type the type
-	 *
-	 * @return the enum
-	 */
-	public static AddressTypeEnum getEnum(String type) {
-		for (AddressTypeEnum ele : AddressTypeEnum.values()) {
-			if (ele.getType().equals(type)) {
-				return ele;
-			}
-		}
-		return null;
-	}
+    /**
+     * Gets enum.
+     *
+     * @param type the type
+     *
+     * @return the enum
+     */
+    public static AddressTypeEnum typeOf(String type) {
+        for (AddressTypeEnum ele : AddressTypeEnum.values()) {
+            if (ele.getType().equals(type)) {
+                return ele;
+            }
+        }
+        return null;
+    }
 }

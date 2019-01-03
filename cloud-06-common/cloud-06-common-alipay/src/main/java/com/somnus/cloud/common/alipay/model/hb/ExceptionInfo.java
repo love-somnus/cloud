@@ -22,9 +22,10 @@ package com.somnus.cloud.common.alipay.model.hb;
  * @date 2018年10月17日
  */
 public enum ExceptionInfo {
-	HE_PRINTER,
 
-	HE_SCANER,
+    HE_PRINTER,
 
-	HE_OTHER;
+    HE_SCANER,
+
+    HE_OTHER;
 }

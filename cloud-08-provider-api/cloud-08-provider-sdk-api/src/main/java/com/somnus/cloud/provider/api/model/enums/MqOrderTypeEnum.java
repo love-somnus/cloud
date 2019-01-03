@@ -15,37 +15,30 @@
  */
 package com.somnus.cloud.provider.api.model.enums;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @ClassName: MqOrderTypeEnum
  * @Description: The enum Mq send type enum.
  * @author Somnus
  * @date 2018年10月16日
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum MqOrderTypeEnum {
-	/**
-	 * 有序.
-	 */
-	ORDER(1),
-	/**
-	 * 无序.
-	 */
-	DIS_ORDER(0);
+    /**
+     * 有序.
+     */
+    ORDER(1),
+    /**
+     * 无序.
+     */
+    DIS_ORDER(0);
 
-	/**
-	 * The Order type.
-	 */
-	int orderType;
-
-	MqOrderTypeEnum(final int orderType) {
-		this.orderType = orderType;
-	}
-
-	/**
-	 * Order type int.
-	 *
-	 * @return the int
-	 */
-	public int orderType() {
-		return orderType;
-	}
+    /**
+     * The Order type.
+     */
+    @Getter
+    int orderType;
 }

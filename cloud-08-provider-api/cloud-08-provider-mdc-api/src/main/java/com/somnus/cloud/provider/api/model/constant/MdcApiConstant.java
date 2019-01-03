@@ -16,6 +16,8 @@
 package com.somnus.cloud.provider.api.model.constant;
 
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
@@ -27,46 +29,29 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MdcApiConstant {
 
-	/**
-	 * The enum Product status enum.
-	 */
-	public enum ProductStatusEnum {
-		/**
-		 * On sale product status enum.
-		 */
-		ON_SALE(1, "在线"),
-		/**
-		 * Off sale product status enum.
-		 */
-		OFF_SALE(2, "下架"),
-		/**
-		 * Delete product status enum.
-		 */
-		DELETE(3, "删除");
-		private String value;
-		private int code;
+    /**
+     * The enum Product status enum.
+     */
+    @AllArgsConstructor(access = AccessLevel.PRIVATE)
+    public enum ProductStatusEnum {
+        /**
+         * On sale product status enum.
+         */
+        ON_SALE(1, "在线"),
+        /**
+         * Off sale product status enum.
+         */
+        OFF_SALE(2, "下架"),
+        /**
+         * Delete product status enum.
+         */
+        DELETE(3, "删除");
 
-		ProductStatusEnum(int code, String value) {
-			this.code = code;
-			this.value = value;
-		}
+        @Getter
+        private int code;
 
-		/**
-		 * Gets value.
-		 *
-		 * @return the value
-		 */
-		public String getValue() {
-			return value;
-		}
+        @Getter
+        private String value;
 
-		/**
-		 * Gets code.
-		 *
-		 * @return the code
-		 */
-		public int getCode() {
-			return code;
-		}
-	}
+    }
 }

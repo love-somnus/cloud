@@ -21,25 +21,20 @@ package com.somnus.cloud.common.alipay.model.hb;
  * @author Somnus
  * @date 2018年10月17日
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum EquipStatus {
-	
-	ON("10"),
 
-	OFF("20"),
+    ON("10"),
 
-	NORMAL("30"),
+    OFF("20"),
 
-	SLEEP("40"),
+    NORMAL("30"),
 
-	AWAKE("41");
+    SLEEP("40"),
 
-	private String value;
+    AWAKE("41");
 
-	private EquipStatus(String value) {
-		this.value = value;
-	}
+    @Getter
+    private String value;
 
-	public String getValue() {
-		return this.value;
-	}
 }

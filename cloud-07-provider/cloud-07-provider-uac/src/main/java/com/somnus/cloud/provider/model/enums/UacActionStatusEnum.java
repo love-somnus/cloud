@@ -15,83 +15,67 @@
  */
 package com.somnus.cloud.provider.model.enums;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @ClassName: UacActionStatusEnum
  * @Description: The enum Uac action status enum.
  * @author Somnus
  * @date 2018年10月17日
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum UacActionStatusEnum {
-	/**
-	 * 启用
-	 */
-	ENABLE("ENABLE", "启用"),
-	/**
-	 * 禁用
-	 */
-	DISABLE("DISABLE", "禁用");
+    /**
+     * 启用
+     */
+    ENABLE("ENABLE", "启用"),
+    /**
+     * 禁用
+     */
+    DISABLE("DISABLE", "禁用");
 
-	/**
-	 * The Type.
-	 */
-	String type;
-	/**
-	 * The Name.
-	 */
-	String name;
+    /**
+     * The Type.
+     */
+    @Getter
+    String type;
+    /**
+     * The Name.
+     */
+    @Getter
+    String name;
 
-	UacActionStatusEnum(String type, String name) {
-		this.type = type;
-		this.name = name;
-	}
+    /**
+     * Gets name.
+     *
+     * @param type the type
+     *
+     * @return the name
+     */
+    public static String getName(String type) {
+        for (UacActionStatusEnum ele : UacActionStatusEnum.values()) {
+            if (type.equals(ele.getType())) {
+                return ele.getName();
+            }
+        }
+        return null;
+    }
 
-	/**
-	 * Gets type.
-	 *
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
-
-	/**
-	 * Gets name.
-	 *
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * Gets name.
-	 *
-	 * @param type the type
-	 *
-	 * @return the name
-	 */
-	public static String getName(String type) {
-		for (UacActionStatusEnum ele : UacActionStatusEnum.values()) {
-			if (type.equals(ele.getType())) {
-				return ele.getName();
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Gets enum.
-	 *
-	 * @param type the type
-	 *
-	 * @return the enum
-	 */
-	public static UacActionStatusEnum getEnum(String type) {
-		for (UacActionStatusEnum ele : UacActionStatusEnum.values()) {
-			if (type.equals(ele.getType())) {
-				return ele;
-			}
-		}
-		return UacActionStatusEnum.ENABLE;
-	}
+    /**
+     * Gets enum.
+     *
+     * @param type the type
+     *
+     * @return the enum
+     */
+    public static UacActionStatusEnum typeOf(String type) {
+        for (UacActionStatusEnum ele : UacActionStatusEnum.values()) {
+            if (type.equals(ele.getType())) {
+                return ele;
+            }
+        }
+        return UacActionStatusEnum.ENABLE;
+    }
 }
