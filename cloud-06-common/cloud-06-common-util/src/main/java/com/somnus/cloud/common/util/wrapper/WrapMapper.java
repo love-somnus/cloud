@@ -35,7 +35,6 @@ public class WrapMapper {
 	 * @param <E>     the element type
 	 * @param code    the code
 	 * @param message the message
-	 * @param o       the o
 	 *
 	 * @return the wrapper
 	 */
@@ -99,8 +98,8 @@ public class WrapMapper {
 	 *
 	 * @return the wrapper
 	 */
-	public static <E> Wrapper<E> illegalArgument() {
-		return wrap(Wrapper.ILLEGAL_ARGUMENT_CODE_, Wrapper.ILLEGAL_ARGUMENT_MESSAGE);
+	public static <E> Wrapper<E> illegalArgument(E result) {
+		return wrap(Wrapper.ILLEGAL_ARGUMENT_CODE_, Wrapper.ILLEGAL_ARGUMENT_MESSAGE, result);
 	}
 
 	/**

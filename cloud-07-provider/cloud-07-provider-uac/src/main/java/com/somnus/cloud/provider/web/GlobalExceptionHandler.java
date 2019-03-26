@@ -20,6 +20,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -33,6 +36,8 @@ import com.somnus.cloud.provider.api.model.dto.GlobalExceptionLogDto;
 import com.somnus.cloud.provider.api.service.MdcExceptionLogFeignApi;
 
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.List;
 
 /**
  * @ClassName: GlobalExceptionHandler
@@ -118,5 +123,30 @@ public class GlobalExceptionHandler {
 			mdcExceptionLogFeignApi.saveAndSendExceptionLog(globalExceptionLogDto);
 		});
 		return WrapMapper.error();
+	}
+
+	/**
+	 * 参数非法异常.
+	 *
+	 * @param e the e
+	 *
+	 * @return the wrapper
+	 */
+	@ExceptionHandler(BindException.class)
+	@ResponseStatus(HttpStatus.OK)
+	@ResponseBody
+	public Wrapper<?> illegalArgumentException(BindException e) {
+		log.error("参数非法异常={}", e.getMessage(), e);
+		StringBuilder result = new StringBuilder();
+		BindingResult bindingResult = e.getBindingResult();
+		List<FieldError> errors = bindingResult.getFieldErrors();
+		if(errors != null){
+			for (FieldError error: errors) {
+				String field = error.getField();
+				String msg = error.getDefaultMessage();
+				result.append(field).append(":").append(msg).append(";");
+			}
+		}
+		return WrapMapper.illegalArgument(result.toString());
 	}
 }
