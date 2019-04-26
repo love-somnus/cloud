@@ -58,7 +58,7 @@ public class Oauth2FeignErrorInterceptor implements ErrorDecoder {
 			Integer code = (Integer) map.get("code");
 			String message = (String) map.get("message");
 			if (code != null) {
-				ErrorCodeEnum anEnum = ErrorCodeEnum.getEnum(code);
+				ErrorCodeEnum anEnum = ErrorCodeEnum.codeOf(code);
 				if (anEnum != null) {
 					if (anEnum == ErrorCodeEnum.GL99990100) {
 						throw new IllegalArgumentException(message);

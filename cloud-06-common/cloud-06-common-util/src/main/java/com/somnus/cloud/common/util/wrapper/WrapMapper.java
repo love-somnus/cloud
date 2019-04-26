@@ -43,9 +43,39 @@ public class WrapMapper {
 	}
 
 	/**
+	 * Wrap SUCCESS. code=200
+	 *
+	 * @param <E> the element type
+	 *
+	 * @return the wrapper
+	 */
+	public static <E> Wrapper<E> ok() {
+		return new Wrapper<>();
+	}
+
+	/**
+	 * Ok wrapper.
+	 *
+	 * @param <E> the type parameter
+	 *
+	 * @return the wrapper
+	 */
+	public static <E> Wrapper<E> success(E result) {
+		return new Wrapper<>(Wrapper.SUCCESS_CODE, Wrapper.SUCCESS_MESSAGE, result);
+	}
+
+	/**
+	 * @param <E> the element type
+	 *
+	 * @return the wrapper
+	 */
+	public static <E> Wrapper<E> illegalArgument(E result) {
+		return wrap(Wrapper.ILLEGAL_ARGUMENT_CODE, Wrapper.ILLEGAL_ARGUMENT_MESSAGE, result);
+	}
+	/******************************************************************************************/
+	/**
 	 * Wrap.
 	 *
-	 * @param <E>     the element type
 	 * @param code    the code
 	 * @param message the message
 	 *
@@ -58,13 +88,45 @@ public class WrapMapper {
 	/**
 	 * Wrap.
 	 *
-	 * @param <E>  the element type
-	 * @param code the code
+	 * @param message the message
 	 *
 	 * @return the wrapper
 	 */
-	public static <E> Wrapper<E> wrap(int code) {
-		return wrap(code, null);
+	public static <E> Wrapper<E> fail(String message) {
+		return wrap(Wrapper.FAIL_CODE, message);
+	}
+
+	/**
+	 * Error wrapper.
+	 *
+	 * @param <E>     the type parameter
+	 * @param message the message
+	 *
+	 * @return the wrapper
+	 */
+	public static <E> Wrapper<E> error(String message) {
+		return wrap(Wrapper.ERROR_CODE, StringUtils.isBlank(message) ? Wrapper.ERROR_MESSAGE : message);
+	}
+	/******************************************************************************************/
+	/**
+	 * Wrap WAIT.
+	 *
+	 * @param <E> the element type
+	 *
+	 * @return the wrapper
+	 */
+	public static <E> Wrapper<E> waiting() {
+		return wrap(Wrapper.WAIT_CODE, Wrapper.WAIT_MESSAGE);
+	}
+	/**
+	 * Wrap ERROR. code=500
+	 *
+	 * @param <E> the element type
+	 *
+	 * @return the wrapper
+	 */
+	public static <E> Wrapper<E> error() {
+		return wrap(Wrapper.ERROR_CODE, Wrapper.ERROR_MESSAGE);
 	}
 
 	/**
@@ -91,60 +153,5 @@ public class WrapMapper {
 		return wrapper.getResult();
 	}
 
-	/**
-	 * Wrap ERROR. code=100
-	 *
-	 * @param <E> the element type
-	 *
-	 * @return the wrapper
-	 */
-	public static <E> Wrapper<E> illegalArgument(E result) {
-		return wrap(Wrapper.ILLEGAL_ARGUMENT_CODE_, Wrapper.ILLEGAL_ARGUMENT_MESSAGE, result);
-	}
 
-	/**
-	 * Wrap ERROR. code=500
-	 *
-	 * @param <E> the element type
-	 *
-	 * @return the wrapper
-	 */
-	public static <E> Wrapper<E> error() {
-		return wrap(Wrapper.ERROR_CODE, Wrapper.ERROR_MESSAGE);
-	}
-
-	/**
-	 * Error wrapper.
-	 *
-	 * @param <E>     the type parameter
-	 * @param message the message
-	 *
-	 * @return the wrapper
-	 */
-	public static <E> Wrapper<E> error(String message) {
-		return wrap(Wrapper.ERROR_CODE, StringUtils.isBlank(message) ? Wrapper.ERROR_MESSAGE : message);
-	}
-
-	/**
-	 * Wrap SUCCESS. code=200
-	 *
-	 * @param <E> the element type
-	 *
-	 * @return the wrapper
-	 */
-	public static <E> Wrapper<E> ok() {
-		return new Wrapper<>();
-	}
-
-	/**
-	 * Ok wrapper.
-	 *
-	 * @param <E> the type parameter
-	 * @param o   the o
-	 *
-	 * @return the wrapper
-	 */
-	public static <E> Wrapper<E> success(E result) {
-		return new Wrapper<>(Wrapper.SUCCESS_CODE, Wrapper.SUCCESS_MESSAGE, result);
-	}
 }

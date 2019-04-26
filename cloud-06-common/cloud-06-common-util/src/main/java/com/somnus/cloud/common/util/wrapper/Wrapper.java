@@ -47,22 +47,42 @@ public class Wrapper<T> implements Serializable {
 	/**
 	 * 错误码.
 	 */
+	public static final int FAIL_CODE = 300;
+
+	/**
+	 * 业务异常信息.
+	 */
+	public static final String FAIL_MESSAGE = "业务异常";
+
+	/**
+	 * 错误码.
+	 */
 	public static final int ERROR_CODE = 500;
 
 	/**
-	 * 错误信息.
+	 * 系统异常信息.
 	 */
 	public static final String ERROR_MESSAGE = "内部异常";
 
 	/**
 	 * 错误码：参数非法
 	 */
-	public static final int ILLEGAL_ARGUMENT_CODE_ = 100;
+	public static final int ILLEGAL_ARGUMENT_CODE = 100;
 
 	/**
 	 * 错误信息：参数非法
 	 */
 	public static final String ILLEGAL_ARGUMENT_MESSAGE = "参数非法";
+
+	/**
+	 * 错误码.
+	 */
+	public static final int WAIT_CODE = 400;
+
+	/**
+	 * 错误信息.
+	 */
+	public static final String WAIT_MESSAGE = "网络故障";
 
 	/**
 	 * 编号.
